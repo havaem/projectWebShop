@@ -1,0 +1,57 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?9fffec3ac4e7eba64a8d97729b29a3be") format("truetype"),
+url("./flaticon.woff?9fffec3ac4e7eba64a8d97729b29a3be") format("woff"),
+url("./flaticon.woff2?9fffec3ac4e7eba64a8d97729b29a3be") format("woff2"),
+url("./flaticon.eot?9fffec3ac4e7eba64a8d97729b29a3be#iefix") format("embedded-opentype"),
+url("./flaticon.svg?9fffec3ac4e7eba64a8d97729b29a3be#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "analytics": "\f101",
+    "cancel": "\f102",
+    "chat": "\f103",
+    "headphones": "\f104",
+    "phone": "\f105",
+    "shop": "\f106",
+    "smartwatch": "\f107",
+    "website": "\f108",
+);
+
+.flaticon-analytics:before {
+    content: map-get($flaticon-map, "analytics");
+}
+.flaticon-cancel:before {
+    content: map-get($flaticon-map, "cancel");
+}
+.flaticon-chat:before {
+    content: map-get($flaticon-map, "chat");
+}
+.flaticon-headphones:before {
+    content: map-get($flaticon-map, "headphones");
+}
+.flaticon-phone:before {
+    content: map-get($flaticon-map, "phone");
+}
+.flaticon-shop:before {
+    content: map-get($flaticon-map, "shop");
+}
+.flaticon-smartwatch:before {
+    content: map-get($flaticon-map, "smartwatch");
+}
+.flaticon-website:before {
+    content: map-get($flaticon-map, "website");
+}
