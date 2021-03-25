@@ -6,17 +6,19 @@
 */
 /* 
 ============================ Table Of content ============================
-1, Setting
-2, Header
-3, Hot deals
-4, Hot phones
+0, Setting
+1, Header
+2, Hot deals
+3, Hot phones
+4,
 5,
 6,
 7,
 8,
+9,
 
 */
-/*============================ 1. Setting ============================ */
+/*============================ 0. Setting ============================ */
 html {
   font-size: 62.5%;
 }
@@ -268,7 +270,6 @@ body {
   margin-top: 8rem;
   margin-bottom: 8rem;
   width: 100%;
-  /*============================ 4. Hot phones ============================ */
 }
 .hotdeal .container {
   background: white;
@@ -276,7 +277,7 @@ body {
 .hotdeal::before {
   content: "";
   display: block;
-  background: url(../image/gsct.png) no-repeat center center;
+  background: url("../image/gsct.png") no-repeat center center;
   background-size: 309px 38px;
   width: 309px;
   height: 38px;
@@ -389,7 +390,7 @@ body {
   outline: none;
   border: none;
   background: white;
-  box-shadow: 0 0 1rem 0rem #0000006b;
+  box-shadow: 0 0 1rem 0 #0000006b;
   padding: 1rem;
   border-radius: 0.7rem;
   z-index: 3;
@@ -402,7 +403,7 @@ body {
   transition: 0.2s;
 }
 .hotdeal__item-button button:hover {
-  box-shadow: 0 0 2rem 0rem #0000006b;
+  box-shadow: 0 0 2rem 0 #0000006b;
 }
 .hotdeal__item-button button:hover i {
   font-size: 4.5rem;
@@ -415,6 +416,7 @@ body {
   right: 0;
 }
 
+/*============================ 4. Hot phones ============================ */
 .hotphone {
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
 }
@@ -487,7 +489,6 @@ body {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
-  overflow: hidden;
   font-size: 14px;
   color: #bf081f;
   line-height: 15px;
@@ -600,7 +601,6 @@ body {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
-  overflow: hidden;
   font-size: 14px;
   color: #bf081f;
   line-height: 15px;
@@ -713,7 +713,6 @@ body {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
-  overflow: hidden;
   font-size: 14px;
   color: #bf081f;
   line-height: 15px;
@@ -822,7 +821,6 @@ body {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
-  overflow: hidden;
   font-size: 14px;
   color: #bf081f;
   line-height: 15px;
@@ -931,7 +929,6 @@ body {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
-  overflow: hidden;
   font-size: 14px;
   color: #bf081f;
   line-height: 15px;
@@ -1041,6 +1038,356 @@ body {
 }
 .footer__collast {
   width: 11%;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0 auto;
+    width: 120rem;
+  }
+
+  body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background: #f0f0f0;
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /*============================ 1. Header ============================ */
+  .header {
+    width: 100%;
+  }
+  .header__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 4rem;
+  }
+  .header__main-logo {
+    width: 3.9rem;
+  }
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  }
+  .header__nav-item {
+    width: calc(100% / 6);
+    height: 4rem;
+    position: relative;
+    transition: 0.2s;
+  }
+  .header__nav-item .item__icon {
+    font-size: 2rem;
+    margin-right: 0;
+  }
+  .header__nav-item .item__title span {
+    display: none;
+  }
+  .header__nav-item .item__title i:nth-child(3) {
+    display: none;
+  }
+  .header__nav-item .item__title i:nth-child(4) {
+    display: none;
+  }
+  .header__nav-item .item__subitem {
+    display: none !important;
+  }
+
+  /*============================ 2. Slide ============================ */
+  .slide__image {
+    height: unset;
+  }
+  .slide__button-left {
+    left: 2rem;
+  }
+  .slide__button-right {
+    right: 2rem;
+  }
+  .slide__button div {
+    top: 5rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .slide__channel {
+    display: none;
+  }
+
+  /*============================ 3. Hotdeal ============================ */
+  .hotdeal {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 100%;
+  }
+  .hotdeal::before {
+    background-size: 230px 29px;
+  }
+  .hotdeal .container {
+    border: unset;
+    border-top: 1.5px solid red;
+  }
+  .hotdeal__item {
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 2.5rem 0;
+  }
+  .hotdeal__item-tagdeal {
+    top: 3rem;
+  }
+  .hotdeal__item-button button {
+    padding: 1rem;
+  }
+  .hotdeal__item-button button i {
+    font-size: 1.5rem;
+    color: #8b8b8b;
+    transition: 0.2s;
+  }
+  .hotdeal__item-button button:hover {
+    box-shadow: 0 0 2rem 0 #0000006b;
+  }
+  .hotdeal__item-button button:hover i {
+    font-size: 1.5rem;
+    color: #666666;
+  }
+
+  /*============================ 4. Hot phones ============================ */
+  .hotphone {
+    margin-bottom: 1rem;
+  }
+  .hotphone__desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hotphone__desc-title h2 {
+    font-size: 1.4rem;
+  }
+  .hotphone__desc-phone {
+    display: none;
+  }
+  .hotphone__content {
+    margin-bottom: unset;
+  }
+  .hotphone__content-item {
+    width: 50%;
+    height: 338px;
+  }
+  .hotphone__content-item.big {
+    height: unset;
+    width: 100%;
+  }
+  .hotphone__content-item.big .item__img {
+    width: 100%;
+    height: unset;
+  }
+  .hotphone__content-item.big:nth-child(5) {
+    display: none;
+  }
+  .hotphone__more {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hotphone__more a {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 14px 10px;
+    color: #288ad6;
+  }
+  .hotphone__more strong {
+    color: #288ad6;
+  }
+
+  /*============================ 5. Hot laptop ============================ */
+  .hotlaptop {
+    margin-bottom: 1rem;
+  }
+  .hotlaptop__desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hotlaptop__desc-title h2 {
+    font-size: 1.4rem;
+  }
+  .hotlaptop__desc-laptop {
+    display: none;
+  }
+  .hotlaptop__content {
+    margin-bottom: unset;
+  }
+  .hotlaptop__content-item {
+    width: 50%;
+    height: unset;
+  }
+  .hotlaptop__content-item.big {
+    height: unset;
+    width: 100%;
+  }
+  .hotlaptop__content-item.big .item__img {
+    width: 100%;
+    height: unset;
+  }
+  .hotlaptop__content-item:nth-child(3), .hotlaptop__content-item.big:nth-child(5) {
+    display: none;
+  }
+  .hotlaptop__more {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hotlaptop__more a {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 14px 10px;
+    color: #288ad6;
+  }
+  .hotlaptop__more strong {
+    color: #288ad6;
+  }
+
+  /*============================ 6. Hot tablet ============================ */
+  .hottablet {
+    margin-bottom: 1rem;
+  }
+  .hottablet__desc-title h2 {
+    font-size: 1.4rem;
+  }
+  .hottablet__desc-tablet {
+    display: none;
+  }
+  .hottablet__content {
+    margin-bottom: unset;
+  }
+  .hottablet__content-item {
+    width: 50%;
+    height: 315px;
+  }
+  .hottablet__content-item.big {
+    height: unset;
+    width: 100%;
+  }
+  .hottablet__content-item.big .item__img {
+    width: 100%;
+    height: unset;
+  }
+  .hottablet__content-item:nth-child(3), .hottablet__content-item.big:nth-child(5) {
+    display: none;
+  }
+  .hottablet__more {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hottablet__more a {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 14px 10px;
+    color: #288ad6;
+  }
+  .hottablet__more strong {
+    color: #288ad6;
+  }
+
+  /*============================ 7. Hot watch ============================ */
+  .hotwatch {
+    margin-bottom: 1rem;
+  }
+  .hotwatch__desc-title h2 {
+    font-size: 1.4rem;
+  }
+  .hotwatch__desc-watch {
+    display: none;
+  }
+  .hotwatch__content {
+    margin-bottom: unset;
+    flex-wrap: wrap;
+  }
+  .hotwatch__content-item {
+    width: 50%;
+    height: 320px;
+  }
+  .hotwatch__content-item:nth-child(5) {
+    display: none;
+  }
+  .hotwatch__more {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hotwatch__more a {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 14px 10px;
+    color: #288ad6;
+  }
+  .hotwatch__more strong {
+    color: #288ad6;
+  }
+
+  /*============================ 8. Hot pc ============================ */
+  .hotpc {
+    margin-bottom: 1rem;
+  }
+  .hotpc__desc-title h2 {
+    font-size: 1.4rem;
+  }
+  .hotpc__desc-pc {
+    display: none;
+  }
+  .hotpc__content {
+    margin-bottom: unset;
+    flex-wrap: wrap;
+  }
+  .hotpc__content-item {
+    width: 50%;
+    height: 320px;
+  }
+  .hotpc__content-item:nth-child(5) {
+    display: none;
+  }
+  .hotpc__more {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hotpc__more a {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 14px 10px;
+    color: #288ad6;
+  }
+  .hotpc__more strong {
+    color: #288ad6;
+  }
+
+  /*============================ 9. Footer ============================ */
+  .footer .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer__col {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+  .footer__col:nth-child(3) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .footer__collast {
+    width: 100%;
+  }
+  .footer__col-partner {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer__col-partner label {
+    width: 100%;
+  }
+  .footer__col-partner a {
+    display: block;
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

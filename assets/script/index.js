@@ -8,15 +8,15 @@ window.addEventListener('DOMContentLoaded', function () {
     let tp = 0;
     slideButtonLeft.onclick = function () {
         (slideIndex - 1) >= 1 ? slideIndex -= 1 : slideIndex = 5;
-        (tp - 1200) >= 0 ? tp -= 1200 : tp = 4800;
+        (tp - 100) >= 0 ? tp -= 100 : tp = 400;
         textBold(slideIndex);
-        slideImage.style.transform = "translateX(" + (-tp) + "px)";
+        slideImage.style.transform = "translateX(" + (-tp) + "%)";
     }
     slideButtonRight.onclick = function () {
         (slideIndex + 1) <= 5 ? slideIndex += 1 : slideIndex = 1;
-        (tp + 1200) <= 4800 ? tp += 1200 : tp = 0;
+        (tp + 100) <= 400 ? tp += 100 : tp = 0;
         textBold(slideIndex);
-        slideImage.style.transform = "translateX(" + (-tp) + "px)";
+        slideImage.style.transform = "translateX(" + (-tp) + "%)";
     }
     // Move to slide {number}
     slideTo = (index) => {
@@ -29,26 +29,26 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             case 2:
                 {
-                    tp = 1200;
-                    slideImage.style.transform = "translateX(-1200px)";
+                    tp = 100;
+                    slideImage.style.transform = "translateX(-100%)";
                     break;
                 }
             case 3:
                 {
-                    tp = 2400;
-                    slideImage.style.transform = "translateX(-2400px)";
+                    tp = 2;
+                    slideImage.style.transform = "translateX(-200%)";
                     break;
                 }
             case 4:
                 {
-                    tp = 3600;
-                    slideImage.style.transform = "translateX(-3600px)";
+                    tp = 3;
+                    slideImage.style.transform = "translateX(-300%)";
                     break;
                 }
             case 5:
                 {
-                    tp = 4800;
-                    slideImage.style.transform = "translateX(-4800px)";
+                    tp = 4;
+                    slideImage.style.transform = "translateX(-400%)";
                     break;
                 }
         }
