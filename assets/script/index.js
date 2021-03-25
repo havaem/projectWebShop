@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
-    /* Slide */
+    /* Slide 1 */
     slideIndex = 1;
     slideImage = document.querySelector('.slide__image')
     slideButtonLeft = document.querySelector('.slide__button-left')
@@ -66,6 +66,24 @@ window.addEventListener('DOMContentLoaded', function () {
             textBold(i+1)
         }
     }
-    /* End code for slide */
+    /* Slide 2 */
+    indexslidePr= 0;
+    slidePr = document.querySelector('.hotdeal__items')
+    console.log(slidePr);
+    slidePrLeft = document.querySelector('.button__left')
+    console.log(slidePrLeft);
+    slidePrRight = document.querySelector('.button__right')
+    slidePrLeft.onclick = ()=>{
+        indexslidePr - 100 >= 0 ? indexslidePr-=100 : indexslidePr = 300;
+        let scrollTo = (-indexslidePr) + '%'
+        console.log(scrollTo);
+        slidePr.style.transform = 'translateX('+scrollTo+')';
+    }
+    slidePrRight.onclick = ()=>{
+        indexslidePr + 100 < 400 ? indexslidePr+=100 : indexslidePr = 0;
+        let scrollTo = (-indexslidePr) + '%'
+        console.log(scrollTo);
+        slidePr.style.transform = 'translateX('+scrollTo+')';
+    }
     
 });

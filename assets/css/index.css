@@ -8,8 +8,8 @@
 ============================ Table Of content ============================
 1, Setting
 2, Header
-3,
-4,
+3, Hot deals
+4, Hot phones
 5,
 6,
 7,
@@ -33,6 +33,7 @@ html {
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: #f0f0f0;
 }
 
 /*============================ 1. Header ============================ */
@@ -202,6 +203,9 @@ body {
   width: 100%;
 }
 .slide .container {
+  background: white;
+}
+.slide .container {
   position: relative;
   overflow-x: hidden;
 }
@@ -264,6 +268,10 @@ body {
   margin-top: 8rem;
   margin-bottom: 8rem;
   width: 100%;
+  /*============================ 4. Hot phones ============================ */
+}
+.hotdeal .container {
+  background: white;
 }
 .hotdeal::before {
   content: "";
@@ -405,6 +413,634 @@ body {
 }
 .hotdeal__item-button .button__right {
   right: 0;
+}
+
+.hotphone {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+}
+.hotphone .container {
+  background: white;
+}
+.hotphone__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotphone__desc-title h2 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  padding: 1.4rem 1rem;
+  text-transform: uppercase;
+}
+.hotphone__desc-phone a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 14px 10px;
+  color: #288ad6;
+}
+.hotphone__desc-phone a:hover {
+  text-decoration: underline;
+}
+.hotphone__desc-phone strong {
+  color: #288ad6;
+}
+.hotphone__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  border-top: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.hotphone__content-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(60.083% / 3);
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 338px;
+}
+.hotphone__content-item .item__img {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 15px auto;
+  transition: all ease 300ms;
+}
+.hotphone__content-item h3 {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: block;
+  line-height: 1.3em;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 100;
+  transform: 0.2s;
+}
+.hotphone__content-item strong {
+  display: block;
+  margin: 1rem 1rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #bf081f;
+  line-height: 15px;
+}
+.hotphone__content-item .item__rate {
+  display: block;
+  margin: 1rem 1rem;
+}
+.hotphone__content-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hotphone__content-item .item__rate-star.active {
+  color: #fed700;
+}
+.hotphone__content-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hotphone__content-item:hover .item__img {
+  transform: translateY(-1.2rem);
+}
+.hotphone__content-item:hover h3 {
+  color: #318FFF;
+}
+.hotphone__content-item.big {
+  width: 39.917%;
+}
+.hotphone__content-item.big .item__img {
+  width: 100%;
+  height: 222px;
+}
+.hotphone__content-item.big:hover .item__img {
+  transform: unset;
+}
+
+/*============================ 5. Hot laptop ============================ */
+.hotlaptop {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+}
+.hotlaptop .container {
+  background: white;
+}
+.hotlaptop__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotlaptop__desc-title h2 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  padding: 1.4rem 1rem;
+  text-transform: uppercase;
+}
+.hotlaptop__desc-laptop a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 14px 10px;
+  color: #288ad6;
+}
+.hotlaptop__desc-laptop a:hover {
+  text-decoration: underline;
+}
+.hotlaptop__desc-laptop strong {
+  color: #288ad6;
+}
+.hotlaptop__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  border-top: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.hotlaptop__content-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(60.083% / 3);
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 338px;
+}
+.hotlaptop__content-item .item__img {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 15px auto;
+  transition: all ease 300ms;
+}
+.hotlaptop__content-item h3 {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: block;
+  line-height: 1.3em;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 100;
+  transform: 0.2s;
+}
+.hotlaptop__content-item strong {
+  display: block;
+  margin: 1rem 1rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #bf081f;
+  line-height: 15px;
+}
+.hotlaptop__content-item .item__rate {
+  display: block;
+  margin: 1rem 1rem;
+}
+.hotlaptop__content-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hotlaptop__content-item .item__rate-star.active {
+  color: #fed700;
+}
+.hotlaptop__content-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hotlaptop__content-item:hover .item__img {
+  transform: translateY(-1.2rem);
+}
+.hotlaptop__content-item:hover h3 {
+  color: #318FFF;
+}
+.hotlaptop__content-item.big {
+  width: 39.917%;
+}
+.hotlaptop__content-item.big .item__img {
+  width: 100%;
+  height: 222px;
+}
+.hotlaptop__content-item.big:hover .item__img {
+  transform: unset;
+}
+
+/*============================ 6. Hot tablet ============================ */
+.hottablet {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+}
+.hottablet .container {
+  background: white;
+}
+.hottablet__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hottablet__desc-title h2 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  padding: 1.4rem 1rem;
+  text-transform: uppercase;
+}
+.hottablet__desc-tablet a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 14px 10px;
+  color: #288ad6;
+}
+.hottablet__desc-tablet a:hover {
+  text-decoration: underline;
+}
+.hottablet__desc-tablet strong {
+  color: #288ad6;
+}
+.hottablet__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  border-top: 1px solid #eee;
+  margin-bottom: 15px;
+}
+.hottablet__content-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(60.083% / 3);
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 338px;
+}
+.hottablet__content-item .item__img {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 15px auto;
+  transition: all ease 300ms;
+}
+.hottablet__content-item h3 {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: block;
+  line-height: 1.3em;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 100;
+  transform: 0.2s;
+}
+.hottablet__content-item strong {
+  display: block;
+  margin: 1rem 1rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #bf081f;
+  line-height: 15px;
+}
+.hottablet__content-item .item__rate {
+  display: block;
+  margin: 1rem 1rem;
+}
+.hottablet__content-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hottablet__content-item .item__rate-star.active {
+  color: #fed700;
+}
+.hottablet__content-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hottablet__content-item:hover .item__img {
+  transform: translateY(-1.2rem);
+}
+.hottablet__content-item:hover h3 {
+  color: #318FFF;
+}
+.hottablet__content-item.big {
+  width: 39.917%;
+}
+.hottablet__content-item.big .item__img {
+  width: 100%;
+  height: 222px;
+}
+.hottablet__content-item.big:hover .item__img {
+  transform: unset;
+}
+
+/*============================ 7. Hot watch ============================ */
+.hotwatch {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+}
+.hotwatch .container {
+  background: white;
+}
+.hotwatch__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotwatch__desc-title h2 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  padding: 1.4rem 1rem;
+  text-transform: uppercase;
+}
+.hotwatch__desc-watch a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 14px 10px;
+  color: #288ad6;
+}
+.hotwatch__desc-watch a:hover {
+  text-decoration: underline;
+}
+.hotwatch__desc-watch strong {
+  color: #288ad6;
+}
+.hotwatch__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.hotwatch__content-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 338px;
+}
+.hotwatch__content-item .item__img {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 15px auto;
+  transition: all ease 300ms;
+}
+.hotwatch__content-item h3 {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: block;
+  line-height: 1.3em;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 100;
+  transform: 0.2s;
+}
+.hotwatch__content-item strong {
+  display: block;
+  margin: 1rem 1rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #bf081f;
+  line-height: 15px;
+}
+.hotwatch__content-item .item__rate {
+  display: block;
+  margin: 1rem 1rem;
+}
+.hotwatch__content-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hotwatch__content-item .item__rate-star.active {
+  color: #fed700;
+}
+.hotwatch__content-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hotwatch__content-item:hover .item__img {
+  transform: translateY(-1.2rem);
+}
+.hotwatch__content-item:hover h3 {
+  color: #318FFF;
+}
+.hotwatch__content-item.big {
+  width: 39.917%;
+}
+.hotwatch__content-item.big .item__img {
+  width: 100%;
+  height: 222px;
+}
+.hotwatch__content-item.big:hover .item__img {
+  transform: unset;
+}
+
+/*============================ 8. Hot PC ============================ */
+.hotpc {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+}
+.hotpc .container {
+  background: white;
+}
+.hotpc__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotpc__desc-title h2 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  padding: 1.4rem 1rem;
+  text-transform: uppercase;
+}
+.hotpc__desc-pc a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 14px 10px;
+  color: #288ad6;
+}
+.hotpc__desc-pc a:hover {
+  text-decoration: underline;
+}
+.hotpc__desc-pc strong {
+  color: #288ad6;
+}
+.hotpc__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.hotpc__content-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 338px;
+}
+.hotpc__content-item .item__img {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 15px auto;
+  transition: all ease 300ms;
+}
+.hotpc__content-item h3 {
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: block;
+  line-height: 1.3em;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 100;
+  transform: 0.2s;
+}
+.hotpc__content-item strong {
+  display: block;
+  margin: 1rem 1rem;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #bf081f;
+  line-height: 15px;
+}
+.hotpc__content-item .item__rate {
+  display: block;
+  margin: 1rem 1rem;
+}
+.hotpc__content-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hotpc__content-item .item__rate-star.active {
+  color: #fed700;
+}
+.hotpc__content-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hotpc__content-item:hover .item__img {
+  transform: translateY(-1.2rem);
+}
+.hotpc__content-item:hover h3 {
+  color: #318FFF;
+}
+.hotpc__content-item.big {
+  width: 39.917%;
+}
+.hotpc__content-item.big .item__img {
+  width: 100%;
+  height: 222px;
+}
+.hotpc__content-item.big:hover .item__img {
+  transform: unset;
+}
+
+/*============================ 9. Footer ============================ */
+.footer {
+  background: white;
+}
+.footer .container {
+  display: flex;
+  padding: 2rem;
+}
+.footer__col {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+}
+.footer__col > a {
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  color: #288ad6;
+  font-size: 14px;
+  line-height: 25px;
+  padding-top: 5px;
+}
+.footer__col p {
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  font-size: 14px;
+  line-height: 25px;
+  padding-top: 5px;
+}
+.footer__col p a {
+  color: black;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.footer__col p a:hover {
+  color: #888888;
+}
+.footer__col-link {
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+.footer__col-link i {
+  padding-right: 1rem;
+  font-size: 2rem;
+}
+.footer__col-link i.fa-youtube {
+  color: red;
+}
+.footer__col-link i.fa-facebook-square {
+  color: #288ad6;
+}
+.footer__col-link a {
+  width: 50%;
+}
+.footer__col-partner {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.footer__col-partner label {
+  font-size: 1.2rem;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+.footer__col-partner a {
+  padding: 1rem 0rem;
+  color: #3876a5;
+  font-size: 1.3rem;
+}
+.footer__collast {
+  width: 11%;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -8,8 +8,8 @@
 ============================ Table Of content ============================
 1, Setting
 2, Header
-3,
-4,
+3, Hot deals
+4, Hot phones
 5,
 6,
 7,
@@ -55,11 +55,11 @@ html{
 .container{
     margin: 0 auto;
     width: 120rem;
-    
 }
 body{
     scroll-behavior: smooth;
     overflow-x: hidden;
+    background:rgb(240,240,240);
 }
 /*============================ 1. Header ============================ */
 .header{
@@ -191,6 +191,9 @@ body{
 
 /*============================ 2. Slide ============================ */
 .slide{
+    .container{
+        background:rgb(255, 255, 255);
+    }
     margin-top: 1rem;
     width: 100%;
     .container{
@@ -255,6 +258,9 @@ body{
 }
 /*============================ 3. Hotdeal ============================ */
 .hotdeal{
+    .container{
+        background:rgb(255, 255, 255);
+    }
     position: relative;
     margin-top: 8rem;
     margin-bottom: 8rem;
@@ -404,5 +410,631 @@ body{
                 right:0;
             }
         }
+    }
+/*============================ 4. Hot phones ============================ */}
+
+.hotphone{
+    .container{
+        background:rgb(255, 255, 255);
+    }
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    &__desc{
+        @include flexbox(space-between,center);
+        &-title{
+            h2{
+                font-size: 1.6rem;
+                color: #333;
+                font-weight: 600;
+                padding: 1.4rem 1rem;
+                text-transform: uppercase;
+            }
+        }
+        &-phone{
+            a{
+                vertical-align: middle;
+                font-size: 14px;
+                padding: 14px 10px;
+                color: #288ad6;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }    
+            strong{
+                color: #288ad6;
+            }
+        }
+    }
+    &__content{
+        @include flexbox(center,center);
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        flex: 1 100%;
+        border-top: 1px solid #eee;
+        margin-bottom: 15px;
+        &-item{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: calc(60.083% / 3);
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 338px;
+            .item__img{
+                display: block;
+                width: 180px;
+                height: 180px;
+                margin: 15px auto;
+                transition: all ease 300ms;
+            }
+            h3{
+                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: block;
+                line-height: 1.3em;
+                font-size: 14px;
+                padding: 0 10px;
+                color: #333;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 100;
+                transform: .2s;
+            }
+            strong{
+                display:block;
+                margin: 1rem 1rem;
+                padding: 0;
+                overflow: hidden;
+                font-size: 14px;
+                color: #bf081f;
+                line-height: 15px;
+            }
+            .item__rate{
+                display:block;
+                margin: 1rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover .item__img{
+                transform: translateY(-1.2rem);
+            }
+            &:hover h3{
+                color: $hover-blue;
+            }
+        }
+        &-item.big{
+            width: 39.917%;
+            .item__img{
+                width: 100%;
+                height: 222px;
+            }
+            &:hover .item__img{
+                transform: unset;
+            }
+        }
+    }
+}
+/*============================ 5. Hot laptop ============================ */
+.hotlaptop{
+    .container{
+        background:rgb(255, 255, 255);
+    }
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    &__desc{
+        @include flexbox(space-between,center);
+        &-title{
+            h2{
+                font-size: 1.6rem;
+                color: #333;
+                font-weight: 600;
+                padding: 1.4rem 1rem;
+                text-transform: uppercase;
+            }
+        }
+        &-laptop{
+            a{
+                vertical-align: middle;
+                font-size: 14px;
+                padding: 14px 10px;
+                color: #288ad6;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }    
+            strong{
+                color: #288ad6;
+            }
+        }
+    }
+    &__content{
+        @include flexbox(center,center);
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        flex: 1 100%;
+        border-top: 1px solid #eee;
+        margin-bottom: 15px;
+        &-item{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: calc(60.083% / 3);
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 338px;
+            .item__img{
+                display: block;
+                width: 180px;
+                height: auto;
+                margin: 15px auto;
+                transition: all ease 300ms;
+            }
+            h3{
+                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: block;
+                line-height: 1.3em;
+                font-size: 14px;
+                padding: 0 10px;
+                color: #333;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 100;
+                transform: .2s;
+            }
+            strong{
+                display:block;
+                margin: 1rem 1rem;
+                padding: 0;
+                overflow: hidden;
+                font-size: 14px;
+                color: #bf081f;
+                line-height: 15px;
+            }
+            .item__rate{
+                display:block;
+                margin: 1rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover .item__img{
+                transform: translateY(-1.2rem);
+            }
+            &:hover h3{
+                color: $hover-blue;
+            }
+        }
+        &-item.big{
+            width: 39.917%;
+            .item__img{
+                width: 100%;
+                height: 222px;
+            }
+            &:hover .item__img{
+                transform: unset;
+            }
+        }
+    }
+}
+/*============================ 6. Hot tablet ============================ */
+.hottablet{
+    .container{
+        background:rgb(255, 255, 255);
+    }
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    &__desc{
+        @include flexbox(space-between,center);
+        &-title{
+            h2{
+                font-size: 1.6rem;
+                color: #333;
+                font-weight: 600;
+                padding: 1.4rem 1rem;
+                text-transform: uppercase;
+            }
+        }
+        &-tablet{
+            a{
+                vertical-align: middle;
+                font-size: 14px;
+                padding: 14px 10px;
+                color: #288ad6;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }    
+            strong{
+                color: #288ad6;
+            }
+        }
+    }
+    &__content{
+        @include flexbox(center,center);
+        flex-wrap: wrap;
+        flex-flow: row wrap;
+        flex: 1 100%;
+        border-top: 1px solid #eee;
+        margin-bottom: 15px;
+        &-item{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: calc(60.083% / 3);
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 338px;
+            .item__img{
+                display: block;
+                width: 180px;
+                height: auto;
+                margin: 15px auto;
+                transition: all ease 300ms;
+            }
+            h3{
+                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: block;
+                line-height: 1.3em;
+                font-size: 14px;
+                padding: 0 10px;
+                color: #333;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 100;
+                transform: .2s;
+            }
+            strong{
+                display:block;
+                margin: 1rem 1rem;
+                padding: 0;
+                overflow: hidden;
+                font-size: 14px;
+                color: #bf081f;
+                line-height: 15px;
+            }
+            .item__rate{
+                display:block;
+                margin: 1rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover .item__img{
+                transform: translateY(-1.2rem);
+            }
+            &:hover h3{
+                color: $hover-blue;
+            }
+        }
+        &-item.big{
+            width: 39.917%;
+            .item__img{
+                width: 100%;
+                height: 222px;
+            }
+            &:hover .item__img{
+                transform: unset;
+            }
+        }
+    }
+}
+
+/*============================ 7. Hot watch ============================ */
+.hotwatch{
+    .container{
+        background:rgb(255, 255, 255);
+    }
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    &__desc{
+        @include flexbox(space-between,center);
+        &-title{
+            h2{
+                font-size: 1.6rem;
+                color: #333;
+                font-weight: 600;
+                padding: 1.4rem 1rem;
+                text-transform: uppercase;
+            }
+        }
+        &-watch{
+            a{
+                vertical-align: middle;
+                font-size: 14px;
+                padding: 14px 10px;
+                color: #288ad6;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }    
+            strong{
+                color: #288ad6;
+            }
+        }
+    }
+    &__content{
+        @include flexbox(center,center);
+        margin-bottom: 15px;
+        &-item{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 20%;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 338px;
+            .item__img{
+                display: block;
+                width: 180px;
+                height: auto;
+                margin: 15px auto;
+                transition: all ease 300ms;
+            }
+            h3{
+                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: block;
+                line-height: 1.3em;
+                font-size: 14px;
+                padding: 0 10px;
+                color: #333;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 100;
+                transform: .2s;
+            }
+            strong{
+                display:block;
+                margin: 1rem 1rem;
+                padding: 0;
+                overflow: hidden;
+                font-size: 14px;
+                color: #bf081f;
+                line-height: 15px;
+            }
+            .item__rate{
+                display:block;
+                margin: 1rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover .item__img{
+                transform: translateY(-1.2rem);
+            }
+            &:hover h3{
+                color: $hover-blue;
+            }
+        }
+        &-item.big{
+            width: 39.917%;
+            .item__img{
+                width: 100%;
+                height: 222px;
+            }
+            &:hover .item__img{
+                transform: unset;
+            }
+        }
+    }
+}
+
+/*============================ 8. Hot PC ============================ */
+.hotpc{
+    .container{
+        background:rgb(255, 255, 255);
+    }
+    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    &__desc{
+        @include flexbox(space-between,center);
+        &-title{
+            h2{
+                font-size: 1.6rem;
+                color: #333;
+                font-weight: 600;
+                padding: 1.4rem 1rem;
+                text-transform: uppercase;
+            }
+        }
+        &-pc{
+            a{
+                vertical-align: middle;
+                font-size: 14px;
+                padding: 14px 10px;
+                color: #288ad6;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }    
+            strong{
+                color: #288ad6;
+            }
+        }
+    }
+    &__content{
+        @include flexbox(center,center);
+        margin-bottom: 15px;
+        &-item{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 20%;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            height: 338px;
+            .item__img{
+                display: block;
+                width: 180px;
+                height: auto;
+                margin: 15px auto;
+                transition: all ease 300ms;
+            }
+            h3{
+                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: block;
+                line-height: 1.3em;
+                font-size: 14px;
+                padding: 0 10px;
+                color: #333;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 100;
+                transform: .2s;
+            }
+            strong{
+                display:block;
+                margin: 1rem 1rem;
+                padding: 0;
+                overflow: hidden;
+                font-size: 14px;
+                color: #bf081f;
+                line-height: 15px;
+            }
+            .item__rate{
+                display:block;
+                margin: 1rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover .item__img{
+                transform: translateY(-1.2rem);
+            }
+            &:hover h3{
+                color: $hover-blue;
+            }
+        }
+        &-item.big{
+            width: 39.917%;
+            .item__img{
+                width: 100%;
+                height: 222px;
+            }
+            &:hover .item__img{
+                transform: unset;
+            }
+        }
+    }
+}
+
+/*============================ 9. Footer ============================ */
+.footer{
+    background: white;
+    .container{
+        display:flex;
+        padding: 2rem;
+    }
+    &__col{
+        width: 28%;
+        display: flex;
+        flex-direction: column;
+        > a{
+            font-family: Arial, Helvetica, sans-serif;
+            display: block;
+            color: #288ad6;
+            font-size: 14px;
+            line-height: 25px;
+            padding-top: 5px;
+        }
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+            display: block;
+            font-size: 14px;
+            line-height: 25px;
+            padding-top: 5px;
+            a{
+                color: rgb(0, 0, 0);
+                font-weight: bold;
+                transition:.2s;
+                &:hover{
+                    color:rgb(136, 136, 136);
+                }
+            }
+        }
+        &-link{
+            display: flex;
+            margin-bottom: 1.2rem;
+            i{
+                padding-right: 1rem;
+                font-size: 2rem;
+            }
+            i.fa-youtube{
+                color:red;
+            }
+            i.fa-facebook-square{
+                color:#288ad6
+            }
+            a{
+                width: 50%;
+            }
+        }
+        &-partner{
+            display:flex;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            label{
+                font-size: 1.2rem;
+                flex-wrap: nowrap;
+                margin-bottom: 1rem;
+            }
+            a{
+                padding: 1rem 0rem;
+                color:#3876a5;
+                font-size: 1.3rem;
+            }
+        }
+    }
+    &__collast{
+        width: 11%;
     }
 }
