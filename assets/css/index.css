@@ -30,6 +30,11 @@ html {
   width: 120rem;
 }
 
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 /*============================ 1. Header ============================ */
 .header {
   width: 100%;
@@ -246,8 +251,160 @@ html {
 .slide__channel-switch h3 {
   font-weight: inherit;
 }
+.slide__channel-switch:first-child {
+  font-weight: bold;
+}
 .slide__channel-switch:last-child {
   border-right: unset;
+}
+
+/*============================ 3. Hotdeal ============================ */
+.hotdeal {
+  position: relative;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  width: 100%;
+}
+.hotdeal::before {
+  content: "";
+  display: block;
+  background: url(../image/gsct.png) no-repeat center center;
+  background-size: 309px 38px;
+  width: 309px;
+  height: 38px;
+  position: absolute;
+  left: 50%;
+  top: -19px;
+  margin-left: -154px;
+  z-index: 9;
+}
+.hotdeal .container {
+  border: 1.5px solid red;
+  position: relative;
+  overflow: hidden;
+}
+.hotdeal__items {
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: row;
+  transition: 1s ease-in-out;
+}
+.hotdeal__items::-webkit-scrollbar {
+  display: none;
+}
+.hotdeal__item {
+  display: inline-block;
+  padding: 4.5rem 0;
+  flex: 0 0 20%;
+  width: 20%;
+  position: relative;
+}
+.hotdeal__item-tagdeal {
+  z-index: 2;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+}
+.hotdeal__item-tagdeal p {
+  font: 10px Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  padding: 0.7rem;
+  margin: 0.3rem 1rem;
+  text-align: center;
+  border-radius: 4px;
+}
+.hotdeal__item-tagdeal .tagdeal__hot {
+  color: white;
+  background: red;
+}
+.hotdeal__item-tagdeal .tagdeal__tragop {
+  color: #000;
+  background: #fed700;
+}
+.hotdeal__item-tagdeal .tagdeal__giamsoc {
+  color: #ebebeb;
+  background: #20a120;
+}
+.hotdeal__item-item .item__img {
+  display: block;
+  width: 18rem;
+  height: 18rem;
+  margin: 1.5rem auto;
+  transition: all ease 300ms;
+}
+.hotdeal__item-item .item__title {
+  font: 1.4rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  line-height: 1.3rem;
+  color: #333;
+  margin: 0 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+.hotdeal__item-item .item__price {
+  font: 1.4rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  color: #bf081f;
+  line-height: 1.5rem;
+  margin: 0.5rem 1rem;
+  font-weight: bold;
+}
+.hotdeal__item-item .item__rate {
+  margin: 0.5rem 1rem;
+}
+.hotdeal__item-item .item__rate-star {
+  font-size: 14px;
+  color: #ccc;
+}
+.hotdeal__item-item .item__rate-star.active {
+  color: #fed700;
+}
+.hotdeal__item-item .item__rate span {
+  font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
+  display: inline-block;
+  color: #777;
+  text-decoration: none;
+  top: 1px;
+}
+.hotdeal__item-item:hover img {
+  transform: translateY(-1.2rem);
+  z-index: 1;
+}
+.hotdeal__item-item:hover .item__title {
+  color: #318FFF;
+}
+.hotdeal__item-button button {
+  position: absolute;
+  top: calc(50% - 6rem);
+  outline: none;
+  border: none;
+  background: white;
+  box-shadow: 0 0 1rem 0rem #0000006b;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  z-index: 3;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.hotdeal__item-button button i {
+  font-size: 4.5rem;
+  color: #8b8b8b;
+  transition: 0.2s;
+}
+.hotdeal__item-button button:hover {
+  box-shadow: 0 0 2rem 0rem #0000006b;
+}
+.hotdeal__item-button button:hover i {
+  font-size: 4.5rem;
+  color: #666666;
+}
+.hotdeal__item-button .button__left {
+  left: 0;
+}
+.hotdeal__item-button .button__right {
+  right: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

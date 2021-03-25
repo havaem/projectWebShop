@@ -20,7 +20,7 @@
 /*============================ 1. Setting ============================ */
 $yellow : #fed700;
 $black : #333; 
-$hover-green: #318FFF;
+$hover-blue: #318FFF;
 html{
     font-size: 62.5%;
     //1 rem = 10 px
@@ -56,6 +56,10 @@ html{
     margin: 0 auto;
     width: 120rem;
     
+}
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 /*============================ 1. Header ============================ */
 .header{
@@ -174,7 +178,7 @@ html{
                     color:rgb(0, 0, 0);
                     transition: .2s;
                     &:hover{
-                        color: $hover-green;
+                        color: $hover-blue;
                     }
                 }
             }
@@ -240,9 +244,165 @@ html{
             h3{
                 font-weight: inherit;
             }
+            &:first-child{
+                font-weight: bold;
+            }
+            &:last-child{
+                border-right: unset;
+            }
         }
-        &-switch:last-child{
-            border-right: unset;
+    }
+}
+/*============================ 3. Hotdeal ============================ */
+.hotdeal{
+    position: relative;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    width: 100%;
+    &::before{
+        content: '';
+        display: block;
+        background: url(../image/gsct.png) no-repeat center center;
+        background-size: 309px 38px;
+        width: 309px;
+        height: 38px;
+        position: absolute;
+        left: 50%;
+        top: -19px;
+        margin-left: -154px;
+        z-index: 9;                         
+    }
+    .container{
+        border: 1.5px solid red;
+        position:relative;
+        overflow: hidden;
+    }
+    &__items{
+        @include flexbox(unset,unset);
+        flex-direction: row;
+        transition: 1s ease-in-out;
+        &::-webkit-scrollbar{
+            display:none;
+        }
+    }
+    &__item{
+        display:inline-block;
+        padding: 4.5rem 0;
+        flex : 0 0 20%;
+        width: 20%;
+        // height: 50rem;
+        position:relative;
+        &-tagdeal{
+            z-index: 2;
+            position: absolute;
+            top: 3rem;
+            left: 0;
+            p{
+                font: 10px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                padding: .7rem;
+                margin: .3rem 1rem;
+                text-align: center;
+                border-radius: 4px;
+            }
+            .tagdeal__hot{
+                color: white;
+                background: rgb(255, 0, 0);
+            }
+            .tagdeal__tragop{
+                color:#000;
+                background: $yellow;
+            }
+            .tagdeal__giamsoc{
+                color:rgb(235, 235, 235);
+                background: rgb(32, 161, 32);
+            }
+        }
+        &-item{
+            .item__img{
+                display: block;
+                width: 18rem;
+                height: 18rem;
+                margin: 1.5rem auto;
+                transition: all ease 300ms;
+            }
+            .item__title{
+                font: 1.4rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                line-height: 1.3rem;
+                color: #333;
+                margin: 0 1rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding-bottom: 1rem;
+            }
+            .item__price{
+                font: 1.4rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                display: inline-block;
+                vertical-align: middle;
+                overflow: hidden;
+                color: #bf081f;
+                line-height: 1.5rem;
+                margin: .5rem 1rem;
+                font-weight: bold;
+            }
+            .item__rate{
+                margin: .5rem 1rem;
+                &-star{
+                    font-size: 14px;
+                    color:#ccc;
+                }
+                &-star.active{
+                    color: #fed700;
+                }
+                span{
+                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+                    display: inline-block;
+                    color: #777;
+                    text-decoration: none;
+                    top: 1px;
+                }
+            }
+            &:hover img{
+                transform: translateY(-1.2rem);
+                z-index: 1;
+            }
+            &:hover .item__title{
+                color: $hover-blue;
+            }
+        }
+        &-button{
+            button{
+                position: absolute;
+                top: calc(50% - 6rem);
+                outline: none;
+                border: none;
+                background: white;
+                box-shadow: 0 0 1rem 0rem #0000006b;
+                padding: 1rem;
+                border-radius:0.7rem;
+                z-index: 3;
+                transition: .2s;
+                cursor: pointer;
+                i{
+                    font-size: 4.5rem;
+                    color:rgb(139, 139, 139);
+                    transition: .2s;
+                }
+                &:hover{
+                    box-shadow: 0 0 2rem 0rem #0000006b;
+                    i{
+                        font-size: 4.5rem;
+                        color:rgb(102, 102, 102);
+                    }
+
+                }
+            }
+            .button__left{
+                left: 0;
+    
+            }
+            .button__right{
+                right:0;
+            }
         }
     }
 }
