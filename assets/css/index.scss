@@ -525,6 +525,9 @@ body{
             }
         }
     }
+    &__more{
+        display: none;
+    }
 }
 /*============================ 5. Hot laptop ============================ */
 .hotlaptop{
@@ -636,6 +639,9 @@ body{
             }
         }
     }
+    &__more{
+        display: none;
+    }
 }
 /*============================ 6. Hot tablet ============================ */
 .hottablet{
@@ -746,6 +752,9 @@ body{
                 transform: unset;
             }
         }
+    }
+    &__more{
+        display: none;
     }
 }
 

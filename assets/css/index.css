@@ -527,6 +527,9 @@ body {
 .hotphone__content-item.big:hover .item__img {
   transform: unset;
 }
+.hotphone__more {
+  display: none;
+}
 
 /*============================ 5. Hot laptop ============================ */
 .hotlaptop {
@@ -639,6 +642,9 @@ body {
 .hotlaptop__content-item.big:hover .item__img {
   transform: unset;
 }
+.hotlaptop__more {
+  display: none;
+}
 
 /*============================ 6. Hot tablet ============================ */
 .hottablet {
@@ -750,6 +756,9 @@ body {
 }
 .hottablet__content-item.big:hover .item__img {
   transform: unset;
+}
+.hottablet__more {
+  display: none;
 }
 
 /*============================ 7. Hot watch ============================ */
