@@ -7,14 +7,22 @@ window.addEventListener('DOMContentLoaded', function () {
     switchButton = document.querySelectorAll(".slide__channel-switch")
     let tp = 0;
     slideButtonLeft.onclick = function () {
-        (slideIndex - 1) >= 1 ? slideIndex -= 1 : slideIndex = 5;
-        (tp - 100) >= 0 ? tp -= 100 : tp = 400;
+        (slideIndex - 1) >= 1
+            ? slideIndex -= 1
+            : slideIndex = 5;
+        (tp - 100) >= 0
+            ? tp -= 100
+            : tp = 400;
         textBold(slideIndex);
         slideImage.style.transform = "translateX(" + (-tp) + "%)";
     }
     slideButtonRight.onclick = function () {
-        (slideIndex + 1) <= 5 ? slideIndex += 1 : slideIndex = 1;
-        (tp + 100) <= 400 ? tp += 100 : tp = 0;
+        (slideIndex + 1) <= 5
+            ? slideIndex += 1
+            : slideIndex = 1;
+        (tp + 100) <= 400
+            ? tp += 100
+            : tp = 0;
         textBold(slideIndex);
         slideImage.style.transform = "translateX(" + (-tp) + "%)";
     }
@@ -59,31 +67,48 @@ window.addEventListener('DOMContentLoaded', function () {
         }
         switchButton[slideIndex - 1].style.fontWeight = "bold";
     }
-    for (let i=0;i<switchButton.length;i++){
-        switchButton[i].onclick=()=>{
-            slideIndex=i+1;
-            slideTo(i+1)
-            textBold(i+1)
+    for (let i = 0; i < switchButton.length; i++) {
+        switchButton[i].onclick = () => {
+            slideIndex = i + 1;
+            slideTo(i + 1)
+            textBold(i + 1)
         }
     }
     /* Slide 2 */
-    indexslidePr= 0;
+    indexslidePr = 0;
     slidePr = document.querySelector('.hotdeal__items')
     console.log(slidePr);
     slidePrLeft = document.querySelector('.button__left')
     console.log(slidePrLeft);
     slidePrRight = document.querySelector('.button__right')
-    slidePrLeft.onclick = ()=>{
-        indexslidePr - 100 >= 0 ? indexslidePr-=100 : indexslidePr = 300;
+    slidePrLeft.onclick = () => {
+        indexslidePr - 100 >= 0
+            ? indexslidePr -= 100
+            : indexslidePr = 300;
         let scrollTo = (-indexslidePr) + '%'
         console.log(scrollTo);
-        slidePr.style.transform = 'translateX('+scrollTo+')';
+        slidePr.style.transform = 'translateX(' + scrollTo + ')';
     }
-    slidePrRight.onclick = ()=>{
-        indexslidePr + 100 < 400 ? indexslidePr+=100 : indexslidePr = 0;
+    slidePrRight.onclick = () => {
+        indexslidePr + 100 < 400
+            ? indexslidePr += 100
+            : indexslidePr = 0;
         let scrollTo = (-indexslidePr) + '%'
         console.log(scrollTo);
-        slidePr.style.transform = 'translateX('+scrollTo+')';
+        slidePr.style.transform = 'translateX(' + scrollTo + ')';
     }
-    
+    /* Scroll button */
+    scrollbtn = document.querySelector('.scrollbutton')
+    window.addEventListener('scroll', () => {
+       if(window.pageYOffset > 100){
+        scrollbtn.classList.add('show');
+       }
+       else{
+        scrollbtn.classList.remove('show');
+       }
+    })
+    scrollbtn.onclick = () => {
+        console.log('sss');
+        window.scrollTo(0,0);
+    }
 });

@@ -10,22 +10,25 @@
 1, Header
 2, Hot deals
 3, Hot phones
-4,
-5,
-6,
-7,
-8,
-9,
+4, Hot laptop
+5, Hot tablet
+6, Hot watch
+7, Hot pc
+8, Footer
+9, After footer
 
 */
 
 /*============================ 0. Setting ============================ */
-$yellow : #fed700;
+$blue : #61cdd4;
 $black : #333; 
 $hover-blue: #318FFF;
+$height-header__main : 5rem;
+$height-header__nav : 5rem;
 html{
     font-size: 62.5%;
     //1 rem = 10 px
+    scroll-behavior: smooth;
 }
 .icon{
     font-size: 2rem;
@@ -34,7 +37,7 @@ html{
     content: "";
     z-index: -1;
     width: 100vw;
-    height: 4rem;
+    height: 5rem;
     background: $color;
     position: absolute;
     left: 0;
@@ -59,9 +62,11 @@ html{
     width: 120rem;
 }
 body{
-    scroll-behavior: smooth;
     overflow-x: hidden;
     background:rgb(240,240,240);
+}
+.show{
+    display: block!important;
 }
 /*============================ 1. Header ============================ */
 .header{
@@ -69,7 +74,7 @@ body{
     &__main{
         @include flexbox(space-between,center);
         flex-direction: row;
-        height: 4rem;
+        height: $height-header__main;
         &-logo{
             img{
                 height: 4rem;
@@ -81,15 +86,23 @@ body{
             border-radius:7px; 
             overflow: hidden;       
             margin-right: 0.4rem;
-            .seach__input{
-                @include size(100%,3.3rem);
+            .search__input{
+                @include size(100%,4rem);
                 outline: none;
                 border: unset;
                 padding: 0 3.3rem 0 1.5rem; 
+                font-size: 1.7rem;
+                &::placeholder{
+                    font-size: 1.3rem;
+                    transition: all .2s;
+                }
+                &:focus::placeholder{
+                    font-size: 1.7rem;
+                }
             }
-            .seach__button{
+            .search__button{
                 position: absolute;
-                @include size(3.3rem,3.3rem);
+                @include size(4rem,4rem);
                 @include whereAbsolute(0,unset,unset,0);
                 background: transparent;
                 outline: none;
@@ -99,6 +112,9 @@ body{
                     font-size: 2rem;
                     color:#bbb;
                 }
+                &:hover i{
+                    color:rgb(170, 170, 170);
+                }
             }
         }
         &-mini{
@@ -106,20 +122,21 @@ body{
             height: 3.3rem;
             .mini__cart{
                 @include flexbox(center,center);
-                @include size(10rem,3.3rem);
+                @include size(10rem,4rem);
                 border-radius: 0.7rem;
                 border: 0.01rem solid white;
+                transition: all .2s;
                 &:hover{
                     background: rgba(255, 255, 255, 0.404);
                 }
             }
             .mini__history{
                 @include flexbox(center,center);
-                @include size(10rem,3.3rem);
+                @include size(10rem,4rem);
             }
             span{
                 color:white;
-                font-size: 1.2rem;
+                font-size: 1.4rem;
                 text-align: center;
                 font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
             }
@@ -129,7 +146,7 @@ body{
             }
         }
         &::before{
-            @include bgBefore(rgb(0, 0, 0));
+            @include bgBefore(#327175);
         }
     }
     &__nav{
@@ -137,7 +154,7 @@ body{
         font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
         &-item{
             width: calc(100% / 6);
-            height: 4rem;
+            height: $height-header__nav;
             position: relative;
             transition: .2s;
             .item__icon{
@@ -162,31 +179,30 @@ body{
             &:hover .item__subitem{
                 display: flex;
             }
-            &:hover .item__subitem{
-                display: flex;
-            }
-            .item__subitem{
-                @include whereAbsolute(40px,0,unset,unset );
+            .item__subitem{ 
+                @include whereAbsolute(5rem,0,unset,unset );
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background: rgb(255, 255, 255);
+                // background: rgb(255, 255, 255);
+                background: $blue;
                 position: absolute;
                 box-shadow: 5px 3px 15px 0 rgb(0 0 0 / 12%);
                 z-index: 99;
                 &-item{
-                    padding: 1rem 1.2rem;   
+                    padding: 1.2rem 1.2rem;   
                     font-size: 1.4rem;
-                    color:rgb(0, 0, 0);
                     transition: .2s;
+                    background: white;
                     &:hover{
                         color: $hover-blue;
+                        margin-left: .5rem;
                     }
                 }
             }
         }
         &::before{
-            @include bgBefore($yellow);
+            @include bgBefore($blue);
         }
     }
 }
@@ -318,7 +334,7 @@ body{
             }
             .tagdeal__tragop {
                 color: #000;
-                background: $yellow;
+                background: $blue;
             }
             .tagdeal__giamsoc {
                 color: rgb(235, 235, 235);

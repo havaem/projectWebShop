@@ -21,6 +21,7 @@
 /*============================ 0. Setting ============================ */
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 .icon {
@@ -33,9 +34,12 @@ html {
 }
 
 body {
-  scroll-behavior: smooth;
   overflow-x: hidden;
   background: #f0f0f0;
+}
+
+.show {
+  display: block !important;
 }
 
 /*============================ 1. Header ============================ */
@@ -47,7 +51,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  height: 4rem;
+  height: 5rem;
 }
 .header__main-logo img {
   height: 4rem;
@@ -60,17 +64,25 @@ body {
   overflow: hidden;
   margin-right: 0.4rem;
 }
-.header__main-search .seach__input {
+.header__main-search .search__input {
   width: 100%;
-  height: 3.3rem;
+  height: 4rem;
   outline: none;
   border: unset;
   padding: 0 3.3rem 0 1.5rem;
+  font-size: 1.7rem;
 }
-.header__main-search .seach__button {
+.header__main-search .search__input::placeholder {
+  font-size: 1.3rem;
+  transition: all 0.2s;
+}
+.header__main-search .search__input:focus::placeholder {
+  font-size: 1.7rem;
+}
+.header__main-search .search__button {
   position: absolute;
-  width: 3.3rem;
-  height: 3.3rem;
+  width: 4rem;
+  height: 4rem;
   top: 0;
   left: unset;
   bottom: unset;
@@ -80,9 +92,12 @@ body {
   border: none;
   cursor: pointer;
 }
-.header__main-search .seach__button i {
+.header__main-search .search__button i {
   font-size: 2rem;
   color: #bbb;
+}
+.header__main-search .search__button:hover i {
+  color: #aaaaaa;
 }
 .header__main-mini {
   display: flex;
@@ -95,9 +110,10 @@ body {
   justify-content: center;
   align-items: center;
   width: 10rem;
-  height: 3.3rem;
+  height: 4rem;
   border-radius: 0.7rem;
   border: 0.01rem solid white;
+  transition: all 0.2s;
 }
 .header__main-mini .mini__cart:hover {
   background: rgba(255, 255, 255, 0.404);
@@ -107,11 +123,11 @@ body {
   justify-content: center;
   align-items: center;
   width: 10rem;
-  height: 3.3rem;
+  height: 4rem;
 }
 .header__main-mini span {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
 }
@@ -123,8 +139,8 @@ body {
   content: "";
   z-index: -1;
   width: 100vw;
-  height: 4rem;
-  background: black;
+  height: 5rem;
+  background: #327175;
   position: absolute;
   left: 0;
 }
@@ -136,7 +152,7 @@ body {
 }
 .header__nav-item {
   width: calc(100% / 6);
-  height: 4rem;
+  height: 5rem;
   position: relative;
   transition: 0.2s;
 }
@@ -164,37 +180,35 @@ body {
 .header__nav-item:hover .item__subitem {
   display: flex;
 }
-.header__nav-item:hover .item__subitem {
-  display: flex;
-}
 .header__nav-item .item__subitem {
-  top: 40px;
+  top: 5rem;
   left: 0;
   bottom: unset;
   right: unset;
   display: none;
   flex-direction: column;
   width: 100%;
-  background: white;
+  background: #61cdd4;
   position: absolute;
   box-shadow: 5px 3px 15px 0 rgba(0, 0, 0, 0.12);
   z-index: 99;
 }
 .header__nav-item .item__subitem-item {
-  padding: 1rem 1.2rem;
+  padding: 1.2rem 1.2rem;
   font-size: 1.4rem;
-  color: black;
   transition: 0.2s;
+  background: white;
 }
 .header__nav-item .item__subitem-item:hover {
   color: #318FFF;
+  margin-left: 0.5rem;
 }
 .header__nav::before {
   content: "";
   z-index: -1;
   width: 100vw;
-  height: 4rem;
-  background: #33D4D6;
+  height: 5rem;
+  background: #61cdd4;
   position: absolute;
   left: 0;
 }
@@ -328,7 +342,7 @@ body {
 }
 .hotdeal__item-tagdeal .tagdeal__tragop {
   color: #000;
-  background: #fed700;
+  background: #61cdd4;
 }
 .hotdeal__item-tagdeal .tagdeal__giamsoc {
   color: #ebebeb;
