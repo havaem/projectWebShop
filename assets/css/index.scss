@@ -20,1417 +20,1481 @@
 */
 
 /*============================ 0. Setting ============================ */
-$blue : #61cdd4;
-$black : #333; 
-$hover-blue: #318FFF;
-$height-header__main : 5rem;
-$height-header__nav : 5rem;
-html{
-    font-size: 62.5%;
-    //1 rem = 10 px
-    scroll-behavior: smooth;
+//Font Obritron
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+$blue: #61cdd4;
+$black: #333;
+$red: #d70018;
+$hover-red: #ff0000;
+$height-header__main: 5rem;
+$height-header__nav: 4.5rem;
+html {
+  font-size: 62.5%;
+  //1 rem = 10 px
+  scroll-behavior: smooth;
 }
-.icon{
-    font-size: 2rem;
+.icon {
+  font-size: 2rem;
 }
-@mixin bgBefore($color : #000) {
-    content: "";
-    z-index: -1;
-    width: 100vw;
-    height: 5rem;
-    background: $color;
-    position: absolute;
-    left: 0;
+@mixin bgBefore($color: #000) {
+  content: "";
+  z-index: -1;
+  width: 100vw;
+  background: $color;
+  position: absolute;
+  left: 0;
 }
-@mixin flexbox($justify: unset, $align: unset) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
+@mixin flexbox($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
 }
-@mixin size($width,$height){
-    width: $width;
-    height: $height;
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
 }
-@mixin whereAbsolute($top,$left,$bottom,$right) {
-    top:$top;
-    left:$left;
-    bottom:$bottom;
-    right:$right;
+@mixin whereAbsolute($top, $left, $bottom, $right) {
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
 }
-.container{
-    margin: 0 auto;
-    width: 120rem;
+.container {
+  margin: 0 auto;
+  width: 120rem;
 }
-body{
-    overflow-x: hidden;
-    background:rgb(240,240,240);
+body {
+  overflow-x: hidden;
+  background: rgb(240, 240, 240);
 }
-.show{
-    display: block!important;
+.show {
+  display: block !important;
 }
 /*============================ 1. Header ============================ */
-.header{
-    width: 100%;
-    &__main{
-        @include flexbox(space-between,center);
-        flex-direction: row;
-        height: $height-header__main;
-        &-logo{
-            img{
-                height: 4rem;
-            }
-        }
-        &-search{
-            @include size(40rem,unset);
-            position: relative;
-            border-radius:7px; 
-            overflow: hidden;       
-            margin-right: 0.4rem;
-            .search__input{
-                @include size(100%,4rem);
-                outline: none;
-                border: unset;
-                padding: 0 3.3rem 0 1.5rem; 
-                font-size: 1.7rem;
-                &::placeholder{
-                    font-size: 1.3rem;
-                    transition: all .2s;
-                }
-                &:focus::placeholder{
-                    font-size: 1.7rem;
-                }
-            }
-            .search__button{
-                position: absolute;
-                @include size(4rem,4rem);
-                @include whereAbsolute(0,unset,unset,0);
-                background: transparent;
-                outline: none;
-                border: none;
-                cursor: pointer;
-                i{
-                    font-size: 2rem;
-                    color:#bbb;
-                }
-                &:hover i{
-                    color:rgb(170, 170, 170);
-                }
-            }
-        }
-        &-mini{
-            @include flexbox(center,center);
-            height: 3.3rem;
-            .mini__cart{
-                @include flexbox(center,center);
-                @include size(10rem,4rem);
-                border-radius: 0.7rem;
-                border: 0.01rem solid white;
-                transition: all .2s;
-                &:hover{
-                    background: rgba(255, 255, 255, 0.404);
-                }
-            }
-            .mini__history{
-                @include flexbox(center,center);
-                @include size(10rem,4rem);
-            }
-            span{
-                color:white;
-                font-size: 1.4rem;
-                text-align: center;
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-            }
-            i{
-                color:white;
-                padding-right: 0.4rem;
-            }
-        }
-        &::before{
-            @include bgBefore(#327175);
-        }
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px -16px 10px 10px black;
+  &__main {
+    @include flexbox(space-between, center);
+    overflow: hidden;
+    flex-direction: row;
+    height: $height-header__main;
+    &-logo {
+      /* img {
+        object-position: 0px 4px;
+        height: 4rem;
+      } */
+      h1 {
+        font-family: "Orbitron", sans-serif;
+        color: white;
+        font-size: 3rem;
+      }
     }
-    &__nav{
-        @include flexbox(space-between, center);
-        font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-        &-item{
-            width: calc(100% / 6);
-            height: $height-header__nav;
-            position: relative;
-            transition: .2s;
-            .item__icon{
-                font-size: 2rem;
-                margin-right: 1rem;
-            }
-            .item__title{
-                width: 100%;
-                height: 100%;
-                font-size: 1.4rem;
-                @include flexbox(center, center);
-            }
-            &:hover{
-                background: white;
-            }
-            &:hover .fa-sort-down,.fa-sort-up{
-                display: none;
-            }
-            &:hover .fa-sort-up{
-                display: inline-block;
-            }
-            &:hover .item__subitem{
-                display: flex;
-            }
-            .item__subitem{ 
-                @include whereAbsolute(5rem,0,unset,unset );
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                // background: rgb(255, 255, 255);
-                background: $blue;
-                position: absolute;
-                box-shadow: 5px 3px 15px 0 rgb(0 0 0 / 12%);
-                z-index: 99;
-                &-item{
-                    padding: 1.2rem 1.2rem;   
-                    font-size: 1.4rem;
-                    transition: .2s;
-                    background: white;
-                    &:hover{
-                        color: $hover-blue;
-                        margin-left: .5rem;
-                    }
-                }
-            }
+    &-search {
+      @include size(40rem, unset);
+      position: relative;
+      border-radius: 7px;
+      overflow: hidden;
+      margin-right: 0.4rem;
+      .search__input {
+        @include size(100%, 4rem);
+        outline: none;
+        border: 1px solid $red;
+        padding: 0 3.3rem 0 1.5rem;
+        font-size: 1.7rem;
+        &::placeholder {
+          font-size: 1.3rem;
+          transition: all 0.2s;
         }
-        &::before{
-            @include bgBefore($blue);
+        &:focus::placeholder {
+          font-size: 1.7rem;
         }
+      }
+      .search__button {
+        position: absolute;
+        @include size(4rem, 4rem);
+        @include whereAbsolute(0, unset, unset, 0);
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        i {
+          font-size: 2rem;
+          color: #bbb;
+        }
+        &:hover i {
+          color: rgb(170, 170, 170);
+        }
+      }
     }
+    &-mini {
+      @include flexbox(center, center);
+      height: 3.3rem;
+      .mini__cart {
+        @include flexbox(center, center);
+        @include size(10rem, 4rem);
+        border-radius: 0.7rem;
+        border: 0.01rem solid white;
+        transition: all 0.2s;
+        &:hover {
+          background: rgba(255, 255, 255, 0.404);
+        }
+      }
+      .mini__history {
+        @include flexbox(center, center);
+        @include size(10rem, 4rem);
+      }
+      span {
+        color: white;
+        font-size: 1.4rem;
+        text-align: center;
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+      }
+      i {
+        color: white;
+        padding-right: 0.4rem;
+      }
+    }
+    &::before {
+      @include bgBefore(#d70018);
+      height: 5rem;
+    }
+  }
+  &__nav {
+    @include flexbox(space-between, center);
+    font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+      sans-serif;
+    &-item {
+      width: calc(100% / 6);
+      height: $height-header__nav;
+      position: relative;
+      transition: 0.2s;
+      .item__icon {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+      .item__title {
+        width: 100%;
+        height: 100%;
+        font-size: 1.7rem;
+        @include flexbox(center, center);
+      }
+      &:hover {
+        background: #e44051;
+      }
+      &:hover .item__title span {
+        color: white;
+      }
+      &:hover .item__icon {
+        color: white;
+      }
+      &:hover .fa-sort-down,
+      .fa-sort-up {
+        display: none;
+      }
+      &:hover .fa-sort-up {
+        display: inline-block;
+        color: white;
+      }
+      &:hover .item__subitem {
+        display: flex;
+      }
+      .item__subitem {
+        @include whereAbsolute($height-header__nav, 0, unset, unset);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #e44051;
+        position: absolute;
+        box-shadow: 5px 3px 15px 0 rgb(0 0 0 / 12%);
+        z-index: 99;
+        &-item {
+          padding: 1.2rem 1.2rem;
+          font-size: 1.4rem;
+          transition: 0.2s;
+          background: white;
+          &:hover {
+            color: $red;
+            margin-left: 0.4rem;
+          }
+        }
+      }
+    }
+    &::before {
+      @include bgBefore(#ffffff);
+      height: $height-header__nav;
+    }
+  }
 }
 
 /*============================ 2. Slide ============================ */
-.slide{
-    .container{
-        background:rgb(255, 255, 255);
+.slide {
+  padding-top: 10rem;
+  width: 100%;
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  .container {
+    position: relative;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
     }
+  }
+  &__image {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    transition: 1.4s;
+    &-item {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__button {
+    &-left {
+      left: 2rem;
+    }
+    &-right {
+      right: 2rem;
+    }
+    div {
+      top: 17rem;
+      position: absolute;
+      padding: 2.5rem 2.8rem;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.288);
+      cursor: pointer;
+      i {
+        color: white;
+        font-size: 2rem;
+      }
+    }
+  }
+  &__channel {
     margin-top: 1rem;
     width: 100%;
-    .container{
-        position: relative;
-        overflow-x: hidden;
+    display: flex;
+    font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+      sans-serif;
+    &-switch {
+      width: calc(100% / 5);
+      outline: none;
+      border: none;
+      padding: 1.3rem 1rem;
+      cursor: pointer;
+      background: white;
+      border-right: 1px solid rgba(204, 204, 204, 0.664);
+      h3 {
+        font-weight: inherit;
+      }
+      &:first-child {
+        font-weight: bold;
+      }
+      &:last-child {
+        border-right: unset;
+      }
     }
-    &__image{
-        width: 100%;
-        height: 450px;
-        display: flex;
-        // transform: translateX(-1200px);
-        transition: 1.5s;
-        &-item{
-            width: 100%;
-            height: 100%;
-        }
-    }
-    &__button{
-        &-left{
-            left: 2rem;
-        }
-        &-right{
-            right: 2rem;
-        }
-        div{
-            top: 17rem;
-            position: absolute;
-            padding: 2.5rem 2.8rem;
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.288);
-            cursor: pointer;
-            i{
-                color:white;
-                font-size: 2rem;
-            }
-        }
-    }
-    &__channel{
-        margin-top: 1rem;
-        width: 100%;
-        display: flex;
-        font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-        &-switch{
-            width: calc(100% / 5);
-            outline: none;
-            border: none;
-            padding: 1.3rem 1rem;
-            cursor: pointer;
-            background: white;
-            border-right: 1px solid rgba(204, 204, 204, 0.664);
-            h3{
-                font-weight: inherit;
-            }
-            &:first-child{
-                font-weight: bold;
-            }
-            &:last-child{
-                border-right: unset;
-            }
-        }
-    }
+  }
 }
 /*============================ 3. Hotdeal ============================ */
 .hotdeal {
-    .container {
-        background: rgb(255, 255, 255);
-    }
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  position: relative;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    background: url("../image/gsct.png") no-repeat center center;
+    background-size: 309px 38px;
+    width: 309px;
+    height: 38px;
+    position: absolute;
+    left: 50%;
+    top: -19px;
+    margin-left: -154px;
+    z-index: 9;
+  }
+  .container {
+    border: 1.5px solid red;
     position: relative;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    width: 100%;
-    &::before {
-        content: '';
+    overflow: hidden;
+  }
+  &__items {
+    @include flexbox(unset, unset);
+    flex-direction: row;
+    transition: 1s ease-in-out;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__item {
+    display: inline-block;
+    padding: 4.5rem 0;
+    flex: 0 0 20%;
+    width: 20%;
+    // height: 50rem;
+    position: relative;
+    &-tagdeal {
+      z-index: 2;
+      position: absolute;
+      top: 3rem;
+      left: 0;
+      p {
+        font: 10px Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+          sans-serif;
+        padding: 0.7rem;
+        margin: 0.3rem 1rem;
+        text-align: center;
+        border-radius: 4px;
+      }
+      .tagdeal__hot {
+        color: white;
+        background: rgb(255, 0, 0);
+      }
+      .tagdeal__tragop {
+        color: #000;
+        background: $blue;
+      }
+      .tagdeal__giamsoc {
+        color: rgb(235, 235, 235);
+        background: rgb(32, 161, 32);
+      }
+    }
+    &-item {
+      .item__img {
         display: block;
-        background: url("../image/gsct.png") no-repeat center center;
-        background-size: 309px 38px;
-        width: 309px;
-        height: 38px;
-        position: absolute;
-        left: 50%;
-        top: -19px;
-        margin-left: -154px;
-        z-index: 9;
-    }
-    .container {
-        border: 1.5px solid red;
-        position: relative;
+        width: 18rem;
+        height: 18rem;
+        margin: 1.5rem auto;
+        transition: all ease 300ms;
+      }
+      .item__title {
+        font: 1.4rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        line-height: 1.3rem;
+        color: #333;
+        margin: 0 1rem;
+        text-overflow: ellipsis;
         overflow: hidden;
-    }
-    &__items {
-        @include flexbox(unset,unset);
-        flex-direction: row;
-        transition: 1s ease-in-out;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-    &__item {
+        padding-bottom: 1rem;
+      }
+      .item__price {
+        font: 1.4rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
         display: inline-block;
-        padding: 4.5rem 0;
-        flex: 0 0 20%;
-        width: 20%;
-        // height: 50rem;
-        position: relative;
-        &-tagdeal {
-            z-index: 2;
-            position: absolute;
-            top: 3rem;
-            left: 0;
-            p {
-                font: 10px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                padding: 0.7rem;
-                margin: 0.3rem 1rem;
-                text-align: center;
-                border-radius: 4px;
-            }
-            .tagdeal__hot {
-                color: white;
-                background: rgb(255, 0, 0);
-            }
-            .tagdeal__tragop {
-                color: #000;
-                background: $blue;
-            }
-            .tagdeal__giamsoc {
-                color: rgb(235, 235, 235);
-                background: rgb(32, 161, 32);
-            }
+        vertical-align: middle;
+        overflow: hidden;
+        color: #bf081f;
+        line-height: 1.5rem;
+        margin: 0.5rem 1rem;
+        font-weight: bold;
+      }
+      .item__rate {
+        margin: 0.5rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item {
-            .item__img {
-                display: block;
-                width: 18rem;
-                height: 18rem;
-                margin: 1.5rem auto;
-                transition: all ease 300ms;
-            }
-            .item__title {
-                font: 1.4rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                line-height: 1.3rem;
-                color: #333;
-                margin: 0 1rem;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                padding-bottom: 1rem;
-            }
-            .item__price {
-                font: 1.4rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: inline-block;
-                vertical-align: middle;
-                overflow: hidden;
-                color: #bf081f;
-                line-height: 1.5rem;
-                margin: 0.5rem 1rem;
-                font-weight: bold;
-            }
-            .item__rate {
-                margin: 0.5rem 1rem;
-                &-star {
-                    font-size: 14px;
-                    color: #ccc;
-                }
-                &-star.active {
-                    color: #fed700;
-                }
-                span {
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover img {
-                transform: translateY(-1.2rem);
-                z-index: 1;
-            }
-            &:hover .item__title {
-                color: $hover-blue;
-            }
+        &-star.active {
+          color: #fed700;
         }
-        &-button {
-            button {
-                position: absolute;
-                top: calc(50% - 6rem);
-                outline: none;
-                border: none;
-                background: white;
-                box-shadow: 0 0 1rem 0 #0000006b;
-                padding: 1rem;
-                border-radius: 0.7rem;
-                z-index: 3;
-                transition: 0.2s;
-                cursor: pointer;
-                i {
-                    font-size: 4.5rem;
-                    color: rgb(139, 139, 139);
-                    transition: 0.2s;
-                }
-                &:hover {
-                    box-shadow: 0 0 2rem 0 #0000006b;
-                    i {
-                        font-size: 4.5rem;
-                        color: rgb(102, 102, 102);
-                    }
-
-                }
-            }
-            .button__left {
-                left: 0;
-
-            }
-            .button__right {
-                right: 0;
-            }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
         }
+      }
+      &:hover img {
+        transform: translateY(-1.2rem);
+        z-index: 1;
+      }
+      &:hover .item__title {
+        color: $hover-red;
+      }
     }
+    &-button {
+      button {
+        position: absolute;
+        top: calc(50% - 6rem);
+        outline: none;
+        border: none;
+        background: white;
+        box-shadow: 0 0 1rem 0 #0000006b;
+        padding: 1rem;
+        border-radius: 0.7rem;
+        z-index: 3;
+        transition: 0.2s;
+        cursor: pointer;
+        i {
+          font-size: 4.5rem;
+          color: rgb(139, 139, 139);
+          transition: 0.2s;
+        }
+        &:hover {
+          box-shadow: 0 0 2rem 0 #0000006b;
+          i {
+            font-size: 4.5rem;
+            color: rgb(102, 102, 102);
+          }
+        }
+      }
+      .button__left {
+        left: 0;
+      }
+      .button__right {
+        right: 0;
+      }
+    }
+  }
 }
 /*============================ 4. Hot phones ============================ */
 
-.hotphone{
-    .container{
-        background:rgb(255, 255, 255);
+.hotphone {
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
     }
-    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-    &__desc{
-        @include flexbox(space-between,center);
-        &-title{
-            h2{
-                font-size: 1.6rem;
-                color: #333;
-                font-weight: 600;
-                padding: 1.4rem 1rem;
-                text-transform: uppercase;
-            }
+    &-phone {
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
         }
-        &-phone{
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }    
-            strong{
-                color: #288ad6;
-            }
-        }
+      }
+      strong {
+        color: $red;
+      }
     }
-    &__content{
-        @include flexbox(center,center);
-        flex-wrap: wrap;
-        flex-flow: row wrap;
-        flex: 1 100%;
-        border-top: 1px solid #eee;
-        margin-bottom: 15px;
-        &-item{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            width: calc(60.083% / 3);
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            height: 338px;
-            .item__img{
-                display: block;
-                width: 180px;
-                height: 180px;
-                margin: 15px auto;
-                transition: all ease 300ms;
-            }
-            h3{
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: block;
-                line-height: 1.3em;
-                font-size: 14px;
-                padding: 0 10px;
-                color: #333;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-weight: 100;
-                transform: .2s;
-            }
-            strong{
-                display:block;
-                margin: 1rem 1rem;
-                padding: 0;
-                font-size: 14px;
-                color: #bf081f;
-                line-height: 15px;
-            }
-            .item__rate{
-                display:block;
-                margin: 1rem 1rem;
-                &-star{
-                    font-size: 14px;
-                    color:#ccc;
-                }
-                &-star.active{
-                    color: #fed700;
-                }
-                span{
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover .item__img{
-                transform: translateY(-1.2rem);
-            }
-            &:hover h3{
-                color: $hover-blue;
-            }
+  }
+  &__content {
+    @include flexbox(center, center);
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    border-top: 1px solid #eee;
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: calc(60.083% / 3);
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: 180px;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item.big{
-            width: 39.917%;
-            .item__img{
-                width: 100%;
-                height: 222px;
-            }
-            &:hover .item__img{
-                transform: unset;
-            }
+        &-star.active {
+          color: #fed700;
         }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
     }
-    &__more{
-        display: none;
+    &-item.big {
+      width: 39.917%;
+      .item__img {
+        width: 100%;
+        height: 222px;
+      }
+      &:hover .item__img {
+        transform: unset;
+      }
     }
+  }
+  &__more {
+    display: none;
+  }
 }
 /*============================ 5. Hot laptop ============================ */
-.hotlaptop{
-    .container{
-        background:rgb(255, 255, 255);
+.hotlaptop {
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
     }
-    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-    &__desc{
-        @include flexbox(space-between,center);
-        &-title{
-            h2{
-                font-size: 1.6rem;
-                color: #333;
-                font-weight: 600;
-                padding: 1.4rem 1rem;
-                text-transform: uppercase;
-            }
+    &-laptop {
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
         }
-        &-laptop{
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }    
-            strong{
-                color: #288ad6;
-            }
-        }
+      }
+      strong {
+        color: $red;
+      }
     }
-    &__content{
-        @include flexbox(center,center);
-        flex-wrap: wrap;
-        flex-flow: row wrap;
-        flex: 1 100%;
-        border-top: 1px solid #eee;
-        margin-bottom: 15px;
-        &-item{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            width: calc(60.083% / 3);
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            height: 338px;
-            .item__img{
-                display: block;
-                width: 180px;
-                height: auto;
-                margin: 15px auto;
-                transition: all ease 300ms;
-            }
-            h3{
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: block;
-                line-height: 1.3em;
-                font-size: 14px;
-                padding: 0 10px;
-                color: #333;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-weight: 100;
-                transform: .2s;
-            }
-            strong{
-                display:block;
-                margin: 1rem 1rem;
-                padding: 0;
-                font-size: 14px;
-                color: #bf081f;
-                line-height: 15px;
-            }
-            .item__rate{
-                display:block;
-                margin: 1rem 1rem;
-                &-star{
-                    font-size: 14px;
-                    color:#ccc;
-                }
-                &-star.active{
-                    color: #fed700;
-                }
-                span{
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover .item__img{
-                transform: translateY(-1.2rem);
-            }
-            &:hover h3{
-                color: $hover-blue;
-            }
+  }
+  &__content {
+    @include flexbox(center, center);
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    border-top: 1px solid #eee;
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: calc(60.083% / 3);
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: auto;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item.big{
-            width: 39.917%;
-            .item__img{
-                width: 100%;
-                height: 222px;
-            }
-            &:hover .item__img{
-                transform: unset;
-            }
+        &-star.active {
+          color: #fed700;
         }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
     }
-    &__more{
-        display: none;
+    &-item.big {
+      width: 39.917%;
+      .item__img {
+        width: 100%;
+        height: 222px;
+      }
+      &:hover .item__img {
+        transform: unset;
+      }
     }
+  }
+  &__more {
+    display: none;
+  }
 }
 /*============================ 6. Hot tablet ============================ */
-.hottablet{
-    .container{
-        background:rgb(255, 255, 255);
+.hottablet {
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
     }
-    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-    &__desc{
-        @include flexbox(space-between,center);
-        &-title{
-            h2{
-                font-size: 1.6rem;
-                color: #333;
-                font-weight: 600;
-                padding: 1.4rem 1rem;
-                text-transform: uppercase;
-            }
+    &-tablet {
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
         }
-        &-tablet{
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }    
-            strong{
-                color: #288ad6;
-            }
-        }
+      }
+      strong {
+        color: $red;
+      }
     }
-    &__content{
-        @include flexbox(center,center);
-        flex-wrap: wrap;
-        flex-flow: row wrap;
-        flex: 1 100%;
-        border-top: 1px solid #eee;
-        margin-bottom: 15px;
-        &-item{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            width: calc(60.083% / 3);
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            height: 338px;
-            .item__img{
-                display: block;
-                width: 180px;
-                height: auto;
-                margin: 15px auto;
-                transition: all ease 300ms;
-            }
-            h3{
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: block;
-                line-height: 1.3em;
-                font-size: 14px;
-                padding: 0 10px;
-                color: #333;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-weight: 100;
-                transform: .2s;
-            }
-            strong{
-                display:block;
-                margin: 1rem 1rem;
-                padding: 0;
-                font-size: 14px;
-                color: #bf081f;
-                line-height: 15px;
-            }
-            .item__rate{
-                display:block;
-                margin: 1rem 1rem;
-                &-star{
-                    font-size: 14px;
-                    color:#ccc;
-                }
-                &-star.active{
-                    color: #fed700;
-                }
-                span{
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover .item__img{
-                transform: translateY(-1.2rem);
-            }
-            &:hover h3{
-                color: $hover-blue;
-            }
+  }
+  &__content {
+    @include flexbox(center, center);
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    border-top: 1px solid #eee;
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: calc(60.083% / 3);
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: auto;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item.big{
-            width: 39.917%;
-            .item__img{
-                width: 100%;
-                height: 222px;
-            }
-            &:hover .item__img{
-                transform: unset;
-            }
+        &-star.active {
+          color: #fed700;
         }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
     }
-    &__more{
-        display: none;
+    &-item.big {
+      width: 39.917%;
+      .item__img {
+        width: 100%;
+        height: 222px;
+      }
+      &:hover .item__img {
+        transform: unset;
+      }
     }
+  }
+  &__more {
+    display: none;
+  }
 }
 
 /*============================ 7. Hot watch ============================ */
-.hotwatch{
-    .container{
-        background:rgb(255, 255, 255);
+.hotwatch {
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
     }
-    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-    &__desc{
-        @include flexbox(space-between,center);
-        &-title{
-            h2{
-                font-size: 1.6rem;
-                color: #333;
-                font-weight: 600;
-                padding: 1.4rem 1rem;
-                text-transform: uppercase;
-            }
+    &-watch {
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
         }
-        &-watch{
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }    
-            strong{
-                color: #288ad6;
-            }
-        }
+      }
+      strong {
+        color: $red;
+      }
     }
-    &__content{
-        @include flexbox(center,center);
-        margin-bottom: 15px;
-        &-item{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            width: 20%;
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            height: 338px;
-            .item__img{
-                display: block;
-                width: 180px;
-                height: auto;
-                margin: 15px auto;
-                transition: all ease 300ms;
-            }
-            h3{
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: block;
-                line-height: 1.3em;
-                font-size: 14px;
-                padding: 0 10px;
-                color: #333;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-weight: 100;
-                transform: .2s;
-            }
-            strong{
-                display:block;
-                margin: 1rem 1rem;
-                padding: 0;
-                font-size: 14px;
-                color: #bf081f;
-                line-height: 15px;
-            }
-            .item__rate{
-                display:block;
-                margin: 1rem 1rem;
-                &-star{
-                    font-size: 14px;
-                    color:#ccc;
-                }
-                &-star.active{
-                    color: #fed700;
-                }
-                span{
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover .item__img{
-                transform: translateY(-1.2rem);
-            }
-            &:hover h3{
-                color: $hover-blue;
-            }
+  }
+  &__content {
+    @include flexbox(center, center);
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 20%;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: auto;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item.big{
-            width: 39.917%;
-            .item__img{
-                width: 100%;
-                height: 222px;
-            }
-            &:hover .item__img{
-                transform: unset;
-            }
+        &-star.active {
+          color: #fed700;
         }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
     }
+    &-item.big {
+      width: 39.917%;
+      .item__img {
+        width: 100%;
+        height: 222px;
+      }
+      &:hover .item__img {
+        transform: unset;
+      }
+    }
+  }
 }
 
 /*============================ 8. Hot PC ============================ */
-.hotpc{
-    .container{
-        background:rgb(255, 255, 255);
+.hotpc {
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
     }
-    font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-    &__desc{
-        @include flexbox(space-between,center);
-        &-title{
-            h2{
-                font-size: 1.6rem;
-                color: #333;
-                font-weight: 600;
-                padding: 1.4rem 1rem;
-                text-transform: uppercase;
-            }
+    &-pc {
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
         }
-        &-pc{
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }    
-            strong{
-                color: #288ad6;
-            }
-        }
+      }
+      strong {
+        color: $red;
+      }
     }
-    &__content{
-        @include flexbox(center,center);
-        margin-bottom: 15px;
-        &-item{
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            width: 20%;
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            height: 338px;
-            .item__img{
-                display: block;
-                width: 180px;
-                height: auto;
-                margin: 15px auto;
-                transition: all ease 300ms;
-            }
-            h3{
-                font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                display: block;
-                line-height: 1.3em;
-                font-size: 14px;
-                padding: 0 10px;
-                color: #333;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-weight: 100;
-                transform: .2s;
-            }
-            strong{
-                display:block;
-                margin: 1rem 1rem;
-                padding: 0;
-                font-size: 14px;
-                color: #bf081f;
-                line-height: 15px;
-            }
-            .item__rate{
-                display:block;
-                margin: 1rem 1rem;
-                &-star{
-                    font-size: 14px;
-                    color:#ccc;
-                }
-                &-star.active{
-                    color: #fed700;
-                }
-                span{
-                    font: 1.2rem Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-                    display: inline-block;
-                    color: #777;
-                    text-decoration: none;
-                    top: 1px;
-                }
-            }
-            &:hover .item__img{
-                transform: translateY(-1.2rem);
-            }
-            &:hover h3{
-                color: $hover-blue;
-            }
+  }
+  &__content {
+    @include flexbox(center, center);
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 20%;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: auto;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
         }
-        &-item.big{
-            width: 39.917%;
-            .item__img{
-                width: 100%;
-                height: 222px;
-            }
-            &:hover .item__img{
-                transform: unset;
-            }
+        &-star.active {
+          color: #fed700;
         }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
     }
+    &-item.big {
+      width: 39.917%;
+      .item__img {
+        width: 100%;
+        height: 222px;
+      }
+      &:hover .item__img {
+        transform: unset;
+      }
+    }
+  }
 }
 
 /*============================ 9. Footer ============================ */
-.footer{
-    background: white;
-    .container{
-        display:flex;
-        padding: 2rem;
+.footer {
+  background: white;
+  .container {
+    display: flex;
+    padding: 2rem;
+  }
+  &__col {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    > a {
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      color: $hover-red;
+      font-size: 14px;
+      line-height: 25px;
+      padding-top: 5px;
     }
-    &__col{
-        width: 28%;
-        display: flex;
-        flex-direction: column;
-        > a{
-            font-family: Arial, Helvetica, sans-serif;
-            display: block;
-            color: #288ad6;
-            font-size: 14px;
-            line-height: 25px;
-            padding-top: 5px;
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      font-size: 14px;
+      line-height: 25px;
+      padding-top: 5px;
+      a {
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        transition: 0.2s;
+        &:hover {
+          color: rgb(136, 136, 136);
         }
-        p{
-            font-family: Arial, Helvetica, sans-serif;
-            display: block;
-            font-size: 14px;
-            line-height: 25px;
-            padding-top: 5px;
-            a{
-                color: rgb(0, 0, 0);
-                font-weight: bold;
-                transition:.2s;
-                &:hover{
-                    color:rgb(136, 136, 136);
-                }
-            }
-        }
-        &-link{
-            display: flex;
-            margin-bottom: 1.2rem;
-            i{
-                padding-right: 1rem;
-                font-size: 2rem;
-            }
-            i.fa-youtube{
-                color:red;
-            }
-            i.fa-facebook-square{
-                color:#288ad6
-            }
-            a{
-                width: 50%;
-            }
-        }
-        &-partner{
-            display:flex;
-            flex-direction: column;
-            font-family: Arial, Helvetica, sans-serif;
-            label{
-                font-size: 1.2rem;
-                flex-wrap: nowrap;
-                margin-bottom: 1rem;
-            }
-            a{
-                padding: 1rem 0rem;
-                color:#3876a5;
-                font-size: 1.3rem;
-            }
-        }
+      }
     }
-    &__collast{
-        width: 11%;
+    &-link {
+      display: flex;
+      margin-bottom: 1.2rem;
+      i {
+        padding-right: 1rem;
+        font-size: 2rem;
+      }
+      i.fa-youtube {
+        color: red;
+      }
+      i.fa-facebook-square {
+        color: #288ad6;
+      }
+      a {
+        width: 50%;
+      }
     }
+    &-partner {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+      label {
+        font-size: 1.2rem;
+        flex-wrap: nowrap;
+        margin-bottom: 1rem;
+      }
+      a {
+        padding: 0.5rem 0rem;
+        font-size: 1.3rem;
+      }
+      .partner__frontend {
+        color: rgb(0, 17, 255);
+      }
+      .partner__backend {
+        color: rgb(181, 15, 214);
+      }
+      .partner__frontend:hover {
+        color: $hover-red;
+      }
+      .partner__backend:hover {
+        color: $hover-red;
+      }
+    }
+  }
+  &__collast {
+    width: 11%;
+  }
 }
 @media screen and (max-width: 768px) {
-    html{
-        // overflow-x: hidden;
+  // html{
+  //     // overflow-x: hidden;
+  // }
+  .container {
+    margin: 0 auto;
+    width: 120rem;
+  }
+  body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background: rgb(240, 240, 240);
+  }
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+  /*============================ 1. Header ============================ */
+  .header {
+    width: 100%;
+    &__main {
+      @include flexbox(space-between, center);
+      flex-direction: row;
+      height: 4rem;
+      &-logo {
+        width: 3.9rem;
+      }
+    }
+    &__nav {
+      @include flexbox(space-between, center);
+      font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+        sans-serif;
+      &-item {
+        width: calc(100% / 6);
+        height: 4rem;
+        position: relative;
+        transition: 0.2s;
+
+        .item__icon {
+          font-size: 2rem;
+          margin-right: 0;
+        }
+        .item__title {
+          span {
+            display: none;
+          }
+          & i:nth-child(3) {
+            display: none;
+          }
+          & i:nth-child(4) {
+            display: none;
+          }
+        }
+        .item__subitem {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  /*============================ 2. Slide ============================ */
+  .slide {
+    &__image {
+      height: unset;
+    }
+    &__button {
+      &-left {
+        left: 2rem;
+      }
+      &-right {
+        right: 2rem;
+      }
+      div {
+        top: 5rem;
+        padding: 0.5rem 0.8rem;
+      }
+    }
+    &__channel {
+      display: none;
+    }
+  }
+
+  /*============================ 3. Hotdeal ============================ */
+  .hotdeal {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 100%;
+    &::before {
+      background-size: 230px 29px;
     }
     .container {
-        margin: 0 auto;
-        width: 120rem;
+      border: unset;
+      border-top: 1.5px solid red;
     }
-    body {
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-        background: rgb(240,240,240);
+    &__item {
+      flex: 0 0 50%;
+      width: 50%;
+      padding: 2.5rem 0;
+      &-tagdeal {
+        top: 3rem;
+      }
+      &-button {
+        button {
+          padding: 1rem;
+          i {
+            font-size: 1.5rem;
+            color: rgb(139, 139, 139);
+            transition: 0.2s;
+          }
+          &:hover {
+            box-shadow: 0 0 2rem 0 #0000006b;
+            i {
+              font-size: 1.5rem;
+              color: rgb(102, 102, 102);
+            }
+          }
+        }
+      }
     }
+  }
+
+  /*============================ 4. Hot phones ============================ */
+  .hotphone {
+    margin-bottom: 1rem;
+    &__desc {
+      @include flexbox(space-between, center);
+      &-title {
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+      &-phone {
+        display: none;
+      }
+    }
+    &__content {
+      margin-bottom: unset;
+      &-item {
+        width: 50%;
+        height: 338px;
+      }
+      &-item.big {
+        height: unset;
+        width: 100%;
+        .item__img {
+          width: 100%;
+          height: unset;
+        }
+      }
+      &-item.big:nth-child(5) {
+        display: none;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+  /*============================ 5. Hot laptop ============================ */
+  .hotlaptop {
+    margin-bottom: 1rem;
+    &__desc {
+      @include flexbox(space-between, center);
+      &-title {
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+      &-laptop {
+        display: none;
+      }
+    }
+    &__content {
+      margin-bottom: unset;
+      &-item {
+        width: 50%;
+        height: unset;
+      }
+      &-item.big {
+        height: unset;
+        width: 100%;
+        .item__img {
+          width: 100%;
+          height: unset;
+        }
+      }
+      &-item:nth-child(3),
+      &-item.big:nth-child(5) {
+        display: none;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+  /*============================ 6. Hot tablet ============================ */
+  .hottablet {
+    margin-bottom: 1rem;
+    &__desc {
+      &-title {
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+      &-tablet {
+        display: none;
+      }
+    }
+    &__content {
+      margin-bottom: unset;
+      &-item {
+        width: 50%;
+        height: 315px;
+      }
+      &-item.big {
+        height: unset;
+        width: 100%;
+        .item__img {
+          width: 100%;
+          height: unset;
+        }
+      }
+      &-item:nth-child(3),
+      &-item.big:nth-child(5) {
+        display: none;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+
+  /*============================ 7. Hot watch ============================ */
+  .hotwatch {
+    margin-bottom: 1rem;
+    &__desc {
+      &-title {
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+      &-watch {
+        display: none;
+      }
+    }
+    &__content {
+      margin-bottom: unset;
+      flex-wrap: wrap;
+      &-item {
+        width: 50%;
+        height: 320px;
+      }
+      &-item:nth-child(5) {
+        display: none;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+
+  /*============================ 8. Hot pc ============================ */
+  .hotpc {
+    margin-bottom: 1rem;
+    &__desc {
+      &-title {
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+      &-pc {
+        display: none;
+      }
+    }
+    &__content {
+      margin-bottom: unset;
+      flex-wrap: wrap;
+      &-item {
+        width: 50%;
+        height: 320px;
+      }
+      &-item:nth-child(5) {
+        display: none;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+  /*============================ 9. Footer ============================ */
+  .footer {
     .container {
-        margin: 0 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    &__col {
+      width: 50%;
+      margin-bottom: 1rem;
+    }
+    &__col:nth-child(3) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    &__collast {
+      width: 100%;
+    }
+    &__col-partner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      label {
         width: 100%;
+      }
+      a {
+        display: block;
+        width: 50%;
+      }
     }
-    /*============================ 1. Header ============================ */
-    .header {
-        width: 100%;
-        &__main {
-            @include flexbox(space-between,center);
-            flex-direction: row;
-            height: 4rem;
-            &-logo {
-                width: 3.9rem;
-            }
-        }
-        &__nav {
-            @include flexbox(space-between, center);
-            font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-            &-item {
-                width: calc(100% / 6);
-                height: 4rem;
-                position: relative;
-                transition: 0.2s;
-                
-                .item__icon {
-                    font-size: 2rem;
-                    margin-right: 0;
-                }
-                .item__title {
-                    span{
-                        display:none;
-                    }
-                    & i:nth-child(3){
-                        display:none;
-                    }
-                    & i:nth-child(4){
-                        display:none;
-                    }
-                }
-                .item__subitem{
-                    display:none!important;
-                }
-            }
-        }
-    }
-
-    /*============================ 2. Slide ============================ */
-    .slide {
-        &__image {
-            height: unset;
-        }
-        &__button {
-            &-left {
-                left: 2rem;
-            }
-            &-right {
-                right: 2rem;
-            }
-            div {
-                top: 5rem;
-                padding: 0.5rem 0.8rem;
-            }
-        }
-        &__channel {
-            display:none;
-        }
-    }
-
-    /*============================ 3. Hotdeal ============================ */
-    .hotdeal {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
-        width: 100%;
-        &::before {
-            background-size: 230px 29px;
-        }
-        .container {
-            border: unset;
-            border-top: 1.5px solid red;
-        }
-        &__item {
-            flex: 0 0 50%;
-            width: 50%;
-            padding: 2.5rem 0;
-            &-tagdeal {
-                top: 3rem;
-            }
-            &-button {
-                button {
-                    padding: 1rem;
-                    i {
-                        font-size: 1.5rem;
-                        color: rgb(139, 139, 139);
-                        transition: 0.2s;
-                    }
-                    &:hover {
-                        box-shadow: 0 0 2rem 0 #0000006b;
-                        i {
-                            font-size: 1.5rem;
-                            color: rgb(102, 102, 102);
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-    
-    /*============================ 4. Hot phones ============================ */
-    .hotphone{
-        margin-bottom: 1rem;
-        &__desc{
-            @include flexbox(space-between,center);
-            &-title{
-                h2{
-                    font-size: 1.4rem;
-                }
-            }
-            &-phone{
-               display:none;
-            }
-        }
-        &__content{
-            margin-bottom: unset;
-            &-item{
-                width: 50%;
-                height: 338px;
-            }
-            &-item.big{
-                height: unset;
-                width: 100%;
-                .item__img{
-                    width: 100%;
-                    height: unset;
-                }
-            }
-            &-item.big:nth-child(5){
-                display: none;
-            }
-           
-        }
-        &__more{
-            padding: 1.5rem;
-            text-align: center;
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-            }
-            strong{
-                color: #288ad6;
-            }
-        }
-    }
-    /*============================ 5. Hot laptop ============================ */
-    .hotlaptop{
-        margin-bottom: 1rem;
-        &__desc{
-            @include flexbox(space-between,center);
-            &-title{
-                h2{
-                    font-size: 1.4rem;
-                }
-            }
-            &-laptop{
-                display: none;
-            }
-        }
-        &__content{
-            margin-bottom: unset;
-            &-item{
-                width: 50%;
-                height: unset;
-            }
-            &-item.big{
-                height: unset;
-                width: 100%;
-                .item__img{
-                    width: 100%;
-                    height: unset;
-                }
-            }
-            &-item:nth-child(3),
-            &-item.big:nth-child(5){
-                display: none;
-            }
-           
-        }
-        &__more{
-            padding: 1.5rem;
-            text-align: center;
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-            }
-            strong{
-                color: #288ad6;
-            }
-        }
-    }
-    /*============================ 6. Hot tablet ============================ */
-    .hottablet{
-        margin-bottom: 1rem;
-        &__desc{
-            &-title{
-                h2{
-                    font-size: 1.4rem;
-                }
-            }
-            &-tablet{
-                display: none;
-            }
-        }
-        &__content{
-            margin-bottom: unset;
-            &-item{
-                width: 50%;
-                height: 315px;
-            }
-            &-item.big{
-                height: unset;
-                width: 100%;
-                .item__img{
-                    width: 100%;
-                    height: unset;
-                }
-            }
-            &-item:nth-child(3),
-            &-item.big:nth-child(5){
-                display: none;
-            }
-           
-        }
-        &__more{
-            padding: 1.5rem;
-            text-align: center;
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-            }
-            strong{
-                color: #288ad6;
-            }
-        }
-    }
-
-    /*============================ 7. Hot watch ============================ */
-    .hotwatch{
-        margin-bottom: 1rem;
-        &__desc{
-            &-title{
-                h2{
-                    font-size: 1.4rem;
-                }
-            }
-            &-watch{
-                display: none;
-            }
-        }
-        &__content{
-            margin-bottom: unset;
-            flex-wrap: wrap;
-            &-item{
-                width: 50%;
-                height: 320px;
-            }
-            &-item:nth-child(5){
-                display: none;
-            }
-           
-        }
-        &__more{
-            padding: 1.5rem;
-            text-align: center;
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-            }
-            strong{
-                color: #288ad6;
-            }
-        }
-    }
-
-    /*============================ 8. Hot pc ============================ */
-    .hotpc{
-        margin-bottom: 1rem;
-        &__desc{
-            &-title{
-                h2{
-                    font-size: 1.4rem;
-                }
-            }
-            &-pc{
-                display: none;
-            }
-        }
-        &__content{
-            margin-bottom: unset;
-            flex-wrap: wrap;
-            &-item{
-                width: 50%;
-                height: 320px;
-            }
-            &-item:nth-child(5){
-                display: none;
-            }
-           
-        }
-        &__more{
-            padding: 1.5rem;
-            text-align: center;
-            a{
-                vertical-align: middle;
-                font-size: 14px;
-                padding: 14px 10px;
-                color: #288ad6;
-            }
-            strong{
-                color: #288ad6;
-            }
-        }
-    }
-    /*============================ 9. Footer ============================ */
-    .footer{
-        .container{
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        &__col{
-            width: 50%;
-            margin-bottom: 1rem;
-        }
-        &__col:nth-child(3){
-            width: 100%;
-            margin-bottom: 1rem;
-        }
-        &__collast{
-            width: 100%;
-        }
-        &__col-partner{
-            flex-direction: row;
-            flex-wrap: wrap;
-            label{
-                width: 100%;
-            }
-            a{
-                display:block;
-                width: 50%;
-            }
-        }
-    }
+  }
 }

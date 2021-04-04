@@ -43,19 +43,19 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             case 3:
                 {
-                    tp = 2;
+                    tp = 200;
                     slideImage.style.transform = "translateX(-200%)";
                     break;
                 }
             case 4:
                 {
-                    tp = 3;
+                    tp = 300;
                     slideImage.style.transform = "translateX(-300%)";
                     break;
                 }
             case 5:
                 {
-                    tp = 4;
+                    tp = 400;
                     slideImage.style.transform = "translateX(-400%)";
                     break;
                 }

@@ -19,6 +19,7 @@
 
 */
 /*============================ 0. Setting ============================ */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -45,16 +46,28 @@ body {
 /*============================ 1. Header ============================ */
 .header {
   width: 100%;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px -16px 10px 10px black;
 }
 .header__main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   flex-direction: row;
   height: 5rem;
 }
-.header__main-logo img {
-  height: 4rem;
+.header__main-logo {
+  /* img {
+    object-position: 0px 4px;
+    height: 4rem;
+  } */
+}
+.header__main-logo h1 {
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  font-size: 3rem;
 }
 .header__main-search {
   width: 40rem;
@@ -68,7 +81,7 @@ body {
   width: 100%;
   height: 4rem;
   outline: none;
-  border: unset;
+  border: 1px solid #d70018;
   padding: 0 3.3rem 0 1.5rem;
   font-size: 1.7rem;
 }
@@ -139,10 +152,10 @@ body {
   content: "";
   z-index: -1;
   width: 100vw;
-  height: 5rem;
-  background: #327175;
+  background: #d70018;
   position: absolute;
   left: 0;
+  height: 5rem;
 }
 .header__nav {
   display: flex;
@@ -152,7 +165,7 @@ body {
 }
 .header__nav-item {
   width: calc(100% / 6);
-  height: 5rem;
+  height: 4.5rem;
   position: relative;
   transition: 0.2s;
 }
@@ -163,32 +176,40 @@ body {
 .header__nav-item .item__title {
   width: 100%;
   height: 100%;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .header__nav-item:hover {
-  background: white;
+  background: #e44051;
 }
-.header__nav-item:hover .fa-sort-down, .header__nav-item .fa-sort-up {
+.header__nav-item:hover .item__title span {
+  color: white;
+}
+.header__nav-item:hover .item__icon {
+  color: white;
+}
+.header__nav-item:hover .fa-sort-down,
+.header__nav-item .fa-sort-up {
   display: none;
 }
 .header__nav-item:hover .fa-sort-up {
   display: inline-block;
+  color: white;
 }
 .header__nav-item:hover .item__subitem {
   display: flex;
 }
 .header__nav-item .item__subitem {
-  top: 5rem;
+  top: 4.5rem;
   left: 0;
   bottom: unset;
   right: unset;
   display: none;
   flex-direction: column;
   width: 100%;
-  background: #61cdd4;
+  background: #e44051;
   position: absolute;
   box-shadow: 5px 3px 15px 0 rgba(0, 0, 0, 0.12);
   z-index: 99;
@@ -200,22 +221,22 @@ body {
   background: white;
 }
 .header__nav-item .item__subitem-item:hover {
-  color: #318FFF;
-  margin-left: 0.5rem;
+  color: #d70018;
+  margin-left: 0.4rem;
 }
 .header__nav::before {
   content: "";
   z-index: -1;
   width: 100vw;
-  height: 5rem;
-  background: #61cdd4;
+  background: #ffffff;
   position: absolute;
   left: 0;
+  height: 4.5rem;
 }
 
 /*============================ 2. Slide ============================ */
 .slide {
-  margin-top: 1rem;
+  padding-top: 10rem;
   width: 100%;
 }
 .slide .container {
@@ -223,13 +244,16 @@ body {
 }
 .slide .container {
   position: relative;
-  overflow-x: hidden;
+  overflow: auto;
+}
+.slide .container::-webkit-scrollbar {
+  display: none;
 }
 .slide__image {
   width: 100%;
   height: 450px;
   display: flex;
-  transition: 1.5s;
+  transition: 1.4s;
 }
 .slide__image-item {
   width: 100%;
@@ -396,7 +420,7 @@ body {
   z-index: 1;
 }
 .hotdeal__item-item:hover .item__title {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hotdeal__item-button button {
   position: absolute;
@@ -453,13 +477,13 @@ body {
   vertical-align: middle;
   font-size: 14px;
   padding: 14px 10px;
-  color: #288ad6;
+  color: #ff0000;
 }
 .hotphone__desc-phone a:hover {
   text-decoration: underline;
 }
 .hotphone__desc-phone strong {
-  color: #288ad6;
+  color: #d70018;
 }
 .hotphone__content {
   display: flex;
@@ -529,7 +553,7 @@ body {
   transform: translateY(-1.2rem);
 }
 .hotphone__content-item:hover h3 {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hotphone__content-item.big {
   width: 39.917%;
@@ -568,13 +592,13 @@ body {
   vertical-align: middle;
   font-size: 14px;
   padding: 14px 10px;
-  color: #288ad6;
+  color: #ff0000;
 }
 .hotlaptop__desc-laptop a:hover {
   text-decoration: underline;
 }
 .hotlaptop__desc-laptop strong {
-  color: #288ad6;
+  color: #d70018;
 }
 .hotlaptop__content {
   display: flex;
@@ -644,7 +668,7 @@ body {
   transform: translateY(-1.2rem);
 }
 .hotlaptop__content-item:hover h3 {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hotlaptop__content-item.big {
   width: 39.917%;
@@ -683,13 +707,13 @@ body {
   vertical-align: middle;
   font-size: 14px;
   padding: 14px 10px;
-  color: #288ad6;
+  color: #ff0000;
 }
 .hottablet__desc-tablet a:hover {
   text-decoration: underline;
 }
 .hottablet__desc-tablet strong {
-  color: #288ad6;
+  color: #d70018;
 }
 .hottablet__content {
   display: flex;
@@ -759,7 +783,7 @@ body {
   transform: translateY(-1.2rem);
 }
 .hottablet__content-item:hover h3 {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hottablet__content-item.big {
   width: 39.917%;
@@ -798,13 +822,13 @@ body {
   vertical-align: middle;
   font-size: 14px;
   padding: 14px 10px;
-  color: #288ad6;
+  color: #ff0000;
 }
 .hotwatch__desc-watch a:hover {
   text-decoration: underline;
 }
 .hotwatch__desc-watch strong {
-  color: #288ad6;
+  color: #d70018;
 }
 .hotwatch__content {
   display: flex;
@@ -870,7 +894,7 @@ body {
   transform: translateY(-1.2rem);
 }
 .hotwatch__content-item:hover h3 {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hotwatch__content-item.big {
   width: 39.917%;
@@ -906,13 +930,13 @@ body {
   vertical-align: middle;
   font-size: 14px;
   padding: 14px 10px;
-  color: #288ad6;
+  color: #ff0000;
 }
 .hotpc__desc-pc a:hover {
   text-decoration: underline;
 }
 .hotpc__desc-pc strong {
-  color: #288ad6;
+  color: #d70018;
 }
 .hotpc__content {
   display: flex;
@@ -978,7 +1002,7 @@ body {
   transform: translateY(-1.2rem);
 }
 .hotpc__content-item:hover h3 {
-  color: #318FFF;
+  color: #ff0000;
 }
 .hotpc__content-item.big {
   width: 39.917%;
@@ -1007,7 +1031,7 @@ body {
 .footer__col > a {
   font-family: Arial, Helvetica, sans-serif;
   display: block;
-  color: #288ad6;
+  color: #ff0000;
   font-size: 14px;
   line-height: 25px;
   padding-top: 5px;
@@ -1055,9 +1079,20 @@ body {
   margin-bottom: 1rem;
 }
 .footer__col-partner a {
-  padding: 1rem 0rem;
-  color: #3876a5;
+  padding: 0.5rem 0rem;
   font-size: 1.3rem;
+}
+.footer__col-partner .partner__frontend {
+  color: #0011ff;
+}
+.footer__col-partner .partner__backend {
+  color: #b50fd6;
+}
+.footer__col-partner .partner__frontend:hover {
+  color: #ff0000;
+}
+.footer__col-partner .partner__backend:hover {
+  color: #ff0000;
 }
 .footer__collast {
   width: 11%;
@@ -1219,10 +1254,13 @@ body {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
-    color: #288ad6;
+    color: #ff0000;
+  }
+  .hotphone__more a:hover {
+    text-decoration: underline;
   }
   .hotphone__more strong {
-    color: #288ad6;
+    color: #d70018;
   }
 
   /*============================ 5. Hot laptop ============================ */
@@ -1266,10 +1304,13 @@ body {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
-    color: #288ad6;
+    color: #ff0000;
+  }
+  .hotlaptop__more a:hover {
+    text-decoration: underline;
   }
   .hotlaptop__more strong {
-    color: #288ad6;
+    color: #d70018;
   }
 
   /*============================ 6. Hot tablet ============================ */
@@ -1308,10 +1349,13 @@ body {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
-    color: #288ad6;
+    color: #ff0000;
+  }
+  .hottablet__more a:hover {
+    text-decoration: underline;
   }
   .hottablet__more strong {
-    color: #288ad6;
+    color: #d70018;
   }
 
   /*============================ 7. Hot watch ============================ */
@@ -1343,10 +1387,13 @@ body {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
-    color: #288ad6;
+    color: #ff0000;
+  }
+  .hotwatch__more a:hover {
+    text-decoration: underline;
   }
   .hotwatch__more strong {
-    color: #288ad6;
+    color: #d70018;
   }
 
   /*============================ 8. Hot pc ============================ */
@@ -1378,10 +1425,13 @@ body {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
-    color: #288ad6;
+    color: #ff0000;
+  }
+  .hotpc__more a:hover {
+    text-decoration: underline;
   }
   .hotpc__more strong {
-    color: #288ad6;
+    color: #d70018;
   }
 
   /*============================ 9. Footer ============================ */
