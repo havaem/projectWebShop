@@ -1,0 +1,673 @@
+/* 
+    Theme name : TechShop
+    Theme Description : HTML, CSS (SASS) ,JS
+    Author : Vo Hoai Nam
+    Version : 1.0.0
+*/
+/* 
+============================ Table Of content ============================
+0, Setting
+1, Header
+2, Brand
+3, Filter
+4, Phone
+5, Footer
+6, Service
+*/
+/*============================ 0. Setting ============================ */
+//Font Obritron
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+$blue: #61cdd4;
+$black: #333;
+$red: #d70018;
+$hover-red: #ff0000;
+$height-header__main: 5rem;
+$height-header__nav: 4.5rem;
+html {
+  font-size: 62.5%;
+  //1 rem = 10 px
+  scroll-behavior: smooth;
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans";
+}
+.icon {
+  font-size: 2rem;
+}
+@mixin bgBefore($color: #000) {
+  content: "";
+  z-index: -1;
+  width: 100vw;
+  background: $color;
+  position: absolute;
+  left: 0;
+}
+@mixin flexbox($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin whereAbsolute($top, $left, $bottom, $right) {
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+.container {
+  margin: 0 auto;
+  width: 120rem;
+}
+body {
+  overflow-x: hidden;
+  background: rgb(240, 240, 240);
+}
+.show {
+  display: block !important;
+}
+/*============================ 1. Header ============================ */
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px -16px 10px 10px black;
+  &__main {
+    @include flexbox(space-between, center);
+    overflow: hidden;
+    flex-direction: row;
+    height: $height-header__main;
+    &-logo {
+      /* img {
+        object-position: 0px 4px;
+        height: 4rem;
+      } */
+      h1 {
+        font-family: "Orbitron", sans-serif;
+        color: white;
+        font-size: 3rem;
+      }
+      .mobile-logo {
+        display: none;
+      }
+    }
+    &-search {
+      @include size(40rem, unset);
+      position: relative;
+      border-radius: 7px;
+      overflow: hidden;
+      margin-right: 0.4rem;
+      .search__input {
+        @include size(100%, 4rem);
+        outline: none;
+        border: 1px solid $red;
+        padding: 0 3.3rem 0 1.5rem;
+        font-size: 1.7rem;
+        &::placeholder {
+          font-size: 1.3rem;
+          transition: all 0.2s;
+        }
+        &:focus::placeholder {
+          font-size: 1.7rem;
+        }
+      }
+      .search__button {
+        position: absolute;
+        @include size(4rem, 4rem);
+        @include whereAbsolute(0, unset, unset, 0);
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        i {
+          font-size: 2rem;
+          color: #bbb;
+        }
+        &:hover i {
+          color: rgb(170, 170, 170);
+        }
+      }
+    }
+    &-mini {
+      @include flexbox(center, center);
+      height: 3.3rem;
+      .mini__cart {
+        @include flexbox(center, center);
+        @include size(10rem, 4rem);
+        border-radius: 0.7rem;
+        border: 0.01rem solid white;
+        transition: all 0.2s;
+        &:hover {
+          background: rgba(255, 255, 255, 0.404);
+        }
+      }
+      .mini__history {
+        @include flexbox(center, center);
+        @include size(10rem, 4rem);
+      }
+      span {
+        color: white;
+        font-size: 1.4rem;
+        text-align: center;
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+      }
+      i {
+        color: white;
+        padding-right: 0.4rem;
+      }
+    }
+    &::before {
+      @include bgBefore(#d70018);
+      height: 5rem;
+    }
+  }
+  &__nav {
+    @include flexbox(space-between, center);
+    font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+      sans-serif;
+    &-item {
+      width: calc(100% / 6);
+      height: $height-header__nav;
+      position: relative;
+      transition: 0.2s;
+      .item__icon {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+      .item__title {
+        width: 100%;
+        height: 100%;
+        font-size: 1.7rem;
+        @include flexbox(center, center);
+      }
+      &:hover {
+        background: #e44051;
+      }
+      &:hover .item__title span {
+        color: white;
+      }
+      &:hover .item__icon {
+        color: white;
+      }
+      &:hover .fa-sort-down,
+      .fa-sort-up {
+        display: none;
+      }
+      &:hover .fa-sort-up {
+        display: inline-block;
+        color: white;
+      }
+      &:hover .item__subitem {
+        display: flex;
+      }
+      .item__subitem {
+        @include whereAbsolute($height-header__nav, 0, unset, unset);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #e44051;
+        position: absolute;
+        box-shadow: 5px 3px 15px 0 rgb(0 0 0 / 12%);
+        z-index: 99;
+        &-item {
+          padding: 1.2rem 1.2rem;
+          font-size: 1.4rem;
+          transition: 0.2s;
+          background: white;
+          &:hover {
+            color: $red;
+            margin-left: 0.4rem;
+          }
+        }
+      }
+    }
+    &::before {
+      @include bgBefore(#ffffff);
+      height: $height-header__nav;
+    }
+  }
+}
+/*============================ 2. Brand ============================ */
+.brand {
+  padding-top: 10rem;
+  width: 100%;
+  .container {
+    background: #ffffff;
+    @include flexbox(center, center);
+    border: 1px solid #eee;
+  }
+  &__item {
+    height: 4rem;
+    border-right: 1px solid #eee;
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    &:last-child {
+      border-right: unset;
+    }
+  }
+}
+/*============================ 3. Filter ============================ */
+.filter {
+  width: 100%;
+  .container {
+    background: #fff;
+    @include flexbox(center, center);
+    flex-shrink: 1;
+    padding: 0 1rem;
+    height: 5rem;
+  }
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 100;
+    width: calc(100% / 7);
+  }
+  &__item {
+    width: calc(100% / 7);
+    color: $red;
+    font-size: 1.4rem;
+    text-align: center;
+    &:hover {
+      color: black;
+    }
+  }
+}
+/*============================ 4. Phone ============================ */
+.phone {
+  border-top: 1px solid #eee;
+  .container {
+    background: rgb(255, 255, 255);
+  }
+  font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+    sans-serif;
+  &__desc {
+    @include flexbox(space-between, center);
+    &-title {
+      h2 {
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 600;
+        padding: 1.4rem 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &__content {
+    @include flexbox(center, center);
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex: 1 100%;
+    border-top: 1px solid #eee;
+    margin-bottom: 15px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: calc(100% / 5);
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      height: 338px;
+      .item__img {
+        display: block;
+        width: 180px;
+        height: 180px;
+        margin: 15px auto;
+        transition: all ease 300ms;
+      }
+      h3 {
+        font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+          Freesans, sans-serif;
+        display: block;
+        line-height: 1.3em;
+        font-size: 14px;
+        padding: 0 10px;
+        color: #333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 100;
+        transform: 0.2s;
+      }
+      strong {
+        display: block;
+        margin: 1rem 1rem;
+        padding: 0;
+        font-size: 14px;
+        color: #bf081f;
+        line-height: 15px;
+      }
+      .item__rate {
+        display: block;
+        margin: 1rem 1rem;
+        &-star {
+          font-size: 14px;
+          color: #ccc;
+        }
+        &-star.active {
+          color: #fed700;
+        }
+        span {
+          font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
+            Freesans, sans-serif;
+          display: inline-block;
+          color: #777;
+          text-decoration: none;
+          top: 1px;
+        }
+      }
+      &:hover .item__img {
+        transform: translateY(-1.2rem);
+      }
+      &:hover h3 {
+        color: $hover-red;
+      }
+    }
+  }
+}
+/*============================ 5. Service ============================ */
+.service {
+  width: 100%;
+  border: 1px solid rgb(221, 221, 221);
+  background: #ff6464;
+  margin-bottom: 1rem;
+  &-container {
+    width: 120rem;
+    margin: 0 auto;
+    @include flexbox(center, center);
+  }
+  &__item {
+    width: calc(100% / 5);
+    height: 6rem;
+    @include flexbox(center, center);
+    border-right: 1px solid rgb(238, 238, 238);
+    cursor: pointer;
+    &-icon {
+      width: 30%;
+      text-align: center;
+      i {
+        font-size: 3.5rem;
+        color: white;
+      }
+    }
+    &-title {
+      width: 70%;
+      padding-right: 1rem;
+      p {
+        font-size: 1.4rem;
+        color: white;
+      }
+    }
+    &:last-child {
+      border-right: 1px solid rgba(221, 221, 221, 0);
+    }
+  }
+}
+/*============================ 6. Footer ============================ */
+.footer {
+  background: white;
+  .container {
+    display: flex;
+    padding: 2rem;
+  }
+  &__col {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    > a {
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      color: $hover-red;
+      font-size: 14px;
+      line-height: 25px;
+      padding-top: 5px;
+    }
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      font-size: 14px;
+      line-height: 25px;
+      padding-top: 5px;
+      a {
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        transition: 0.2s;
+        &:hover {
+          color: rgb(136, 136, 136);
+        }
+      }
+    }
+    &-link {
+      display: flex;
+      margin-bottom: 1.2rem;
+      i {
+        padding-right: 1rem;
+        font-size: 2rem;
+      }
+      i.fa-youtube {
+        color: red;
+      }
+      i.fa-facebook-square {
+        color: #288ad6;
+      }
+      a {
+        width: 50%;
+      }
+    }
+    &-partner {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+      label {
+        font-size: 1.2rem;
+        flex-wrap: nowrap;
+        margin-bottom: 1rem;
+      }
+      a {
+        padding: 0.5rem 0rem;
+        font-size: 1.3rem;
+      }
+      .partner__frontend {
+        color: rgb(0, 17, 255);
+      }
+      .partner__backend {
+        color: rgb(181, 15, 214);
+      }
+      .partner__frontend:hover {
+        color: $hover-red;
+      }
+      .partner__backend:hover {
+        color: $hover-red;
+      }
+    }
+  }
+  &__collast {
+    width: 11%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+  /*============================ 1. Header ============================ */
+  .header {
+    width: 100%;
+    &__main {
+      @include flexbox(space-between, center);
+      flex-direction: row;
+      height: 4rem;
+      &-logo {
+        width: 3.9rem;
+      }
+      &-search {
+        .search__input {
+          @include size(100%, 3.4rem);
+        }
+        .search__button {
+          @include size(3rem, 3.4rem);
+        }
+      }
+      &-mini {
+        .mini__cart {
+          @include size(10rem, 3.4rem);
+        }
+        .mini__history {
+          @include size(10rem, 3.4rem);
+        }
+      }
+      h1 {
+        display: none;
+      }
+      .mobile-logo {
+        display: block;
+        margin: 0 1rem;
+      }
+    }
+    &__nav {
+      @include flexbox(space-between, center);
+      font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
+        sans-serif;
+      &-item {
+        width: calc(100% / 6);
+        height: 4rem;
+        position: relative;
+        transition: 0.2s;
+
+        .item__icon {
+          font-size: 2rem;
+          margin-right: 0;
+        }
+        .item__title {
+          span {
+            display: none;
+          }
+          & i:nth-child(3) {
+            display: none;
+          }
+          & i:nth-child(4) {
+            display: none;
+          }
+        }
+        .item__subitem {
+          display: none !important;
+        }
+      }
+    }
+  }
+  /*============================ 2. Brand ============================ */
+  .brand {
+    padding-top: 9rem;
+    .container {
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: 25%;
+    }
+  }
+  /*============================ 3. Filter ============================ */
+  .filter {
+    width: 100%;
+    .container {
+      padding: 0 1rem;
+      height: 5rem;
+    }
+    &__title {
+      font-size: 1rem;
+      font-weight: 100;
+      width: calc(100% / 7);
+    }
+    &__item {
+      width: calc(100% / 7);
+      color: $red;
+      font-size: 1rem;
+      text-align: center;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  /*============================ 4. Phone ============================ */
+  .phone {
+    overflow-x: hidden;
+    margin-bottom: 1rem;
+    &__content {
+      margin-bottom: unset;
+      &-item {
+        width: 50%;
+        height: 338px;
+      }
+    }
+    &__more {
+      padding: 1.5rem;
+      text-align: center;
+      a {
+        vertical-align: middle;
+        font-size: 14px;
+        padding: 14px 10px;
+        color: $hover-red;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      strong {
+        color: $red;
+      }
+    }
+  }
+  /*============================ 5. Service ============================ */
+  .service {
+    width: 100%;
+    padding-left: 1rem;
+    &-container {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: calc(100% / 3);
+      align-items: center;
+      justify-content: center;
+      height: 6rem;
+      &-title {
+        padding-left: 1rem;
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  /*============================ 6. Footer ============================ */
+  .footer {
+    .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    &__col {
+      width: 50%;
+      margin-bottom: 1rem;
+    }
+    &__col:nth-child(3) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    &__collast {
+      width: 100%;
+    }
+    &__col-partner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      label {
+        width: 100%;
+      }
+      a {
+        display: block;
+        width: 50%;
+      }
+    }
+  }
+}
