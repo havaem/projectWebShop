@@ -70,6 +70,17 @@ body {
 .show {
   display: block !important;
 }
+.active-menu {
+  background: #e44051;
+  a{
+    i{
+      color:white;
+    }
+    span{
+      color:white;
+    }
+  }
+}
 /*============================ 1. Header ============================ */
 .header {
   width: 100%;

@@ -297,27 +297,27 @@ body {
   color: black;
 }
 
-/*============================ 4. Phone ============================ */
-.phone {
+/*============================ 4. Laptop ============================ */
+.laptop {
   border-top: 1px solid #eee;
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
 }
-.phone .container {
+.laptop .container {
   background: white;
 }
-.phone__desc {
+.laptop__desc {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.phone__desc-title h2 {
+.laptop__desc-title h2 {
   font-size: 1.6rem;
   color: #333;
   font-weight: 600;
   padding: 1.4rem 1rem;
   text-transform: uppercase;
 }
-.phone__content {
+.laptop__content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -327,7 +327,7 @@ body {
   border-top: 1px solid #eee;
   margin-bottom: 15px;
 }
-.phone__content-item {
+.laptop__content-item {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -336,14 +336,15 @@ body {
   border-bottom: 1px solid #eee;
   height: 338px;
 }
-.phone__content-item .item__img {
+.laptop__content-item .item__img {
   display: block;
   width: 180px;
   height: 180px;
   margin: 15px auto;
   transition: all ease 300ms;
+  object-fit: contain;
 }
-.phone__content-item h3 {
+.laptop__content-item h3 {
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
   display: block;
   line-height: 1.3em;
@@ -355,7 +356,7 @@ body {
   font-weight: 100;
   transform: 0.2s;
 }
-.phone__content-item strong {
+.laptop__content-item strong {
   display: block;
   margin: 1rem 1rem;
   padding: 0;
@@ -363,28 +364,28 @@ body {
   color: #bf081f;
   line-height: 15px;
 }
-.phone__content-item .item__rate {
+.laptop__content-item .item__rate {
   display: block;
   margin: 1rem 1rem;
 }
-.phone__content-item .item__rate-star {
+.laptop__content-item .item__rate-star {
   font-size: 14px;
   color: #ccc;
 }
-.phone__content-item .item__rate-star.active {
+.laptop__content-item .item__rate-star.active {
   color: #fed700;
 }
-.phone__content-item .item__rate span {
+.laptop__content-item .item__rate span {
   font: 1.2rem Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
   display: inline-block;
   color: #777;
   text-decoration: none;
   top: 1px;
 }
-.phone__content-item:hover .item__img {
+.laptop__content-item:hover .item__img {
   transform: translateY(-1.2rem);
 }
-.phone__content-item:hover h3 {
+.laptop__content-item:hover h3 {
   color: #ff0000;
 }
 
@@ -624,32 +625,32 @@ body {
     color: black;
   }
 
-  /*============================ 4. Phone ============================ */
-  .phone {
+  /*============================ 4. Laptop ============================ */
+  .laptop {
     overflow-x: hidden;
     margin-bottom: 1rem;
   }
-  .phone__content {
+  .laptop__content {
     margin-bottom: unset;
   }
-  .phone__content-item {
+  .laptop__content-item {
     width: 50%;
     height: 338px;
   }
-  .phone__more {
+  .laptop__more {
     padding: 1.5rem;
     text-align: center;
   }
-  .phone__more a {
+  .laptop__more a {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
     color: #ff0000;
   }
-  .phone__more a:hover {
+  .laptop__more a:hover {
     text-decoration: underline;
   }
-  .phone__more strong {
+  .laptop__more strong {
     color: #d70018;
   }
 
@@ -704,4 +705,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=phone.css.map */
+/*# sourceMappingURL=laptop.css.map */

@@ -286,8 +286,8 @@ body {
     }
   }
 }
-/*============================ 4. Phone ============================ */
-.phone {
+/*============================ 4. Laptop ============================ */
+.laptop {
   border-top: 1px solid #eee;
   .container {
     background: rgb(255, 255, 255);
@@ -327,6 +327,7 @@ body {
         height: 180px;
         margin: 15px auto;
         transition: all ease 300ms;
+        object-fit: contain;
       }
       h3 {
         font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans",
@@ -603,8 +604,8 @@ body {
       }
     }
   }
-  /*============================ 4. Phone ============================ */
-  .phone {
+  /*============================ 4. Laptop ============================ */
+  .laptop {
     overflow-x: hidden;
     margin-bottom: 1rem;
     &__content {

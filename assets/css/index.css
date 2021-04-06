@@ -43,6 +43,16 @@ body {
   display: block !important;
 }
 
+.active-menu {
+  background: #e44051;
+}
+.active-menu a i {
+  color: white;
+}
+.active-menu a span {
+  color: white;
+}
+
 /*============================ 1. Header ============================ */
 .header {
   width: 100%;
