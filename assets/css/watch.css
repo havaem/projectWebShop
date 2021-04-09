@@ -624,32 +624,32 @@ body {
     color: black;
   }
 
-  /*============================ 4. Phone ============================ */
-  .phone {
+  /*============================ 4. Watch ============================ */
+  .watch {
     overflow-x: hidden;
     margin-bottom: 1rem;
   }
-  .phone__content {
+  .watch__content {
     margin-bottom: unset;
   }
-  .phone__content-item {
+  .watch__content-item {
     width: 50%;
     height: 338px;
   }
-  .phone__more {
+  .watch__more {
     padding: 1.5rem;
     text-align: center;
   }
-  .phone__more a {
+  .watch__more a {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
     color: #ff0000;
   }
-  .phone__more a:hover {
+  .watch__more a:hover {
     text-decoration: underline;
   }
-  .phone__more strong {
+  .watch__more strong {
     color: #d70018;
   }
 

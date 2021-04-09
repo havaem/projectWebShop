@@ -624,32 +624,32 @@ body {
     color: black;
   }
 
-  /*============================ 4. Phone ============================ */
-  .phone {
+  /*============================ 4. Tablet ============================ */
+  .tablet {
     overflow-x: hidden;
     margin-bottom: 1rem;
   }
-  .phone__content {
+  .tablet__content {
     margin-bottom: unset;
   }
-  .phone__content-item {
+  .tablet__content-item {
     width: 50%;
     height: 338px;
   }
-  .phone__more {
+  .tablet__more {
     padding: 1.5rem;
     text-align: center;
   }
-  .phone__more a {
+  .tablet__more a {
     vertical-align: middle;
     font-size: 14px;
     padding: 14px 10px;
     color: #ff0000;
   }
-  .phone__more a:hover {
+  .tablet__more a:hover {
     text-decoration: underline;
   }
-  .phone__more strong {
+  .tablet__more strong {
     color: #d70018;
   }
 
