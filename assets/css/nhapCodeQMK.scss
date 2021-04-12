@@ -1,0 +1,171 @@
+/* 
+		Theme name : TechShop
+		Theme Description : HTML, CSS (SASS) ,JS
+		Author : Vo Hoai Nam
+		Version : 1.0.0
+*/
+/* 
+============================ Table Of content ============================
+0, Setting
+1, Header
+2, 
+3, 
+4, 
+5, 
+6, 
+*/
+/*============================ 0. Setting ============================ */
+//Font Obritron
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+$red: #d70018;
+$hover-red: #ff0000;
+html {
+  font-size: 62.5%;
+  //1 rem = 10 px
+  scroll-behavior: smooth;
+  font-family: Arial;
+}
+.icon {
+  font-size: 2rem;
+}
+.container {
+  margin: 0 auto;
+  width: 120rem;
+}
+body {
+  overflow-x: hidden;
+  background: #eff0f5;
+}
+.show {
+  display: block !important;
+}
+.active-menu {
+  background: #e44051;
+  a {
+    i {
+      color: white;
+    }
+    span {
+      color: white;
+    }
+  }
+}
+/*============================ 1. Header ============================ */
+@import "./header.scss";
+
+/*============================ 2. Form  ============================ */
+.form {
+  padding-top: 10rem;
+  margin-bottom: 3rem;
+  .container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+  }
+  &__title {
+    width: 90%;
+    margin-bottom: 3rem;
+    h2 {
+      float: left;
+    }
+    h3 {
+      color: #757575;
+      float: right;
+      a {
+        color: $hover-red;
+      }
+    }
+  }
+  &__error{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 1rem 0;
+    p{
+      color: $red;
+      font-size: 1.6rem;
+      font-weight: 100;
+    }
+  }
+  .form__content {
+    justify-content: center;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    p {
+      color: $red;
+      font-size: 1.2rem;
+      padding-left: 0.5rem;
+    }
+    label {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+      display: inline-block;
+    }
+    input {
+      width: 100%;
+      height: 4rem;
+      padding-left: 1rem;
+      outline: none;
+      border: 1px solid #ccc;
+    }
+    .form__submit {
+      margin-top: 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      background: $hover-red;
+      height: 5rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      color: white;
+      font-size: 1.7rem;
+      transition: background 0.5s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -30%;
+        left: -100%;
+        width: 100%;
+        background: $hover-red;
+        height: 7rem;
+        transition: left 0.5s;
+      }
+      &:hover::before {
+        left: 100%;
+      }
+      &:hover {
+        background: #ff5353;
+        text-shadow: 0 0 5px white;
+      }
+    }
+  }
+}
+
+/*============================ 6. Footer ============================ */
+@import "./footer.scss";
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+  /*============================ 2. Form  ============================ */
+  .form {
+    .form__content {
+      width: 90%;
+      padding-right: unset;
+    }
+  }
+}

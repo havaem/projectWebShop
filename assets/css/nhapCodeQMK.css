@@ -323,22 +323,22 @@ body {
   padding-bottom: 2rem;
   padding-top: 3rem;
 }
-.form .form__title {
+.form__title {
   width: 90%;
   margin-bottom: 3rem;
 }
-.form .form__title h2 {
+.form__title h2 {
   float: left;
 }
-.form .form__title h3 {
+.form__title h3 {
   color: #757575;
   float: right;
 }
-.form .form__title h3 a {
+.form__title h3 a {
   color: #ff0000;
 }
 .form__error {
-  width: 60%;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,99 +353,29 @@ body {
   font-weight: 100;
 }
 .form .form__content {
-  display: flex;
   justify-content: center;
-  width: 60%;
-}
-.form .form__content-form {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.form .form__content-form .form__left {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  padding-right: 2rem;
 }
-.form .form__content-form .form__left p {
+.form .form__content p {
   color: #d70018;
   font-size: 1.2rem;
   padding-left: 0.5rem;
 }
-.form .form__content-form .form__left label {
+.form .form__content label {
   font-size: 1.4rem;
   padding: 1rem 0;
+  display: inline-block;
 }
-.form .form__content-form .form__left input {
+.form .form__content input {
   width: 100%;
   height: 4rem;
   padding-left: 1rem;
   outline: none;
   border: 1px solid #ccc;
 }
-.form .form__content-form .form__left input:valid {
-  border: 1px solid #ccc;
-}
-.form .form__content-form .form__left input:invalid {
-  border: 1px solid red;
-}
-.form .form__content-form .form__left-password {
-  position: relative;
-}
-.form .form__content-form .form__left-password input {
-  padding-right: 1.4rem;
-}
-.form .form__content-form .form__left-password i {
-  position: absolute;
-  display: block;
-  top: 1.3rem;
-  right: 1.3rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: red;
-}
-.form .form__content-form .form__right {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding-left: 2rem;
-}
-.form .form__content-form .form__right p {
-  color: #d70018;
-  font-size: 1.2rem;
-  padding-left: 0.5rem;
-}
-.form .form__content-form .form__right label {
-  font-size: 1.4rem;
-  padding: 1rem 0;
-}
-.form .form__content-form .form__right input {
-  width: 100%;
-  height: 4rem;
-  padding-left: 1rem;
-  outline: none;
-  position: relative;
-}
-.form .form__content-form .form__right select {
-  outline: none;
-  height: 4rem;
-  padding-left: 1rem;
-}
-.form .form__content-form .form__right input:invalid {
-  border: 1px solid red;
-}
-.form .form__content-form .form__right input,
-.form .form__content-form .form__right input:valid {
-  border: 1px solid #ccc;
-}
-.form .form__content-form .form__right input[type=number]::-webkit-inner-spin-button {
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
-  margin: 0;
-}
-.form .form__content-form .form__submit {
+.form .form__content .form__submit {
   margin-top: 2rem;
   width: 100%;
   outline: none;
@@ -459,7 +389,7 @@ body {
   font-size: 1.7rem;
   transition: background 0.5s;
 }
-.form .form__content-form .form__submit::before {
+.form .form__content .form__submit::before {
   content: "";
   position: absolute;
   top: -30%;
@@ -469,10 +399,10 @@ body {
   height: 7rem;
   transition: left 0.5s;
 }
-.form .form__content-form .form__submit:hover::before {
+.form .form__content .form__submit:hover::before {
   left: 100%;
 }
-.form .form__content-form .form__submit:hover {
+.form .form__content .form__submit:hover {
   background: #ff5353;
   text-shadow: 0 0 5px white;
 }
@@ -599,157 +529,10 @@ body {
   }
 
   /*============================ 2. Form  ============================ */
-  .form {
-    padding-top: 10rem;
-    margin-bottom: 3rem;
-  }
-  .form .container {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 2rem;
-    padding-top: 3rem;
-  }
-  .form__error {
-    width: 90%;
-  }
-  .form__title {
-    width: 90%;
-    margin-bottom: 3rem;
-  }
-  .form__title h2 {
-    float: unset;
-    text-align: center;
-  }
-  .form__title h3 {
-    float: unset;
-    text-align: center;
-  }
   .form .form__content {
-    display: flex;
-    justify-content: center;
     width: 90%;
-  }
-  .form .form__content-form {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .form .form__content-form .form__left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    padding-right: 2rem;
-  }
-  .form .form__content-form .form__left p {
-    color: #d70018;
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-  }
-  .form .form__content-form .form__left label {
-    font-size: 1.4rem;
-    padding: 1rem 0;
-  }
-  .form .form__content-form .form__left input {
-    width: 100%;
-    height: 4rem;
-    padding-left: 1rem;
-    outline: none;
-    border: 1px solid #ccc;
-  }
-  .form .form__content-form .form__left input:valid {
-    border: 1px solid #ccc;
-  }
-  .form .form__content-form .form__left input:invalid {
-    border: 1px solid red;
-  }
-  .form .form__content-form .form__left-password {
-    position: relative;
-  }
-  .form .form__content-form .form__left-password input {
-    padding-right: 1.4rem;
-  }
-  .form .form__content-form .form__left-password i {
-    position: absolute;
-    display: block;
-    top: 1.3rem;
-    right: 1.3rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: red;
-  }
-  .form .form__content-form .form__right {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    padding-left: 2rem;
-  }
-  .form .form__content-form .form__right p {
-    color: #d70018;
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-  }
-  .form .form__content-form .form__right label {
-    font-size: 1.4rem;
-    padding: 1rem 0;
-  }
-  .form .form__content-form .form__right input {
-    width: 100%;
-    height: 4rem;
-    padding-left: 1rem;
-    outline: none;
-    position: relative;
-  }
-  .form .form__content-form .form__right select {
-    outline: none;
-    height: 4rem;
-    padding-left: 1rem;
-  }
-  .form .form__content-form .form__right input:invalid {
-    border: 1px solid red;
-  }
-  .form .form__content-form .form__right input,
-.form .form__content-form .form__right input:valid {
-    border: 1px solid #ccc;
-  }
-  .form .form__content-form .form__right input[type=number]::-webkit-inner-spin-button {
-    -moz-appearance: textfield;
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  .form .form__content-form .form__submit {
-    margin-top: 2rem;
-    width: 100%;
-    outline: none;
-    border: none;
-    background: #ff0000;
-    height: 5rem;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    color: white;
-    font-size: 1.7rem;
-    transition: background 0.5s;
-  }
-  .form .form__content-form .form__submit::before {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: -100%;
-    width: 100%;
-    background: #ff0000;
-    height: 7rem;
-    transition: left 0.5s;
-  }
-  .form .form__content-form .form__submit:hover::before {
-    left: 100%;
-  }
-  .form .form__content-form .form__submit:hover {
-    background: #ff5353;
-    text-shadow: 0 0 5px white;
+    padding-right: unset;
   }
 }
 
-/*# sourceMappingURL=dangky.css.map */
+/*# sourceMappingURL=nhapCodeQMK.css.map */
