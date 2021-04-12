@@ -1,14 +1,22 @@
+<?php 
+require_once "./controllerLogin.php";
+$email = $_SESSION['email'];
+if($email == false){
+  header('Location: dangnhap.php');
+}
+echo $email;
+?>
 <!DOCTYPE html>
 <html lang="vn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TECHSHOP ✔</title>
-    <link rel="icon" href="./assets/image/icon.png" sizes="" />
+    <link rel="icon" href="../assets/image/icon.png" sizes="" />
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
     <!-- Source CSS -->
-    <link rel="stylesheet" href="./assets/css/quenmatkhau.css" />
+    <link rel="stylesheet" href="../assets/css/quenmatkhau.css" />
     <!-- FontAwesome -->
     <link
       rel="stylesheet"
@@ -27,14 +35,24 @@
                 <h2>Nhập mã xác minh</h2>
                 <h3>Thành viên mớii ? Đăng kí <a href="./dangky.php">tại đây</a></h3>
             </div>
-            <div class="form__error">
-              <p>Chúng tôi vừa gửi mã otp đổi mật khẩu đến vhnvohoainam@gmail.com</p>
-            </div>
+            <?php
+                    if(count($errors) > 0){
+                        ?>
+                        <div class="form__error">
+                            <?php
+                            foreach($errors as $showerror){
+                                echo "<p>".$showerror."</p>";
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
             <div class="form__content">
-                <form action="" class="form__content-form">
+                <form action="./user-otp.php" class="form__content-form" method="POST">
                     <label for="otp">Mã xác minh của bạn :</label>
                     <input type="text" name="otp" id="otp" placeholder="Nhập mã xác minh của bạn" minlength="6" maxlength="6">
-                    <button class="form__submit" type="submit">Xác nhận</button>
+                    <button type="submit" class="form__submit" name="checkOTP">Xác nhận</button>
                 </form>
             </div>
         </div>

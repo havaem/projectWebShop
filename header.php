@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <div class="header__main">
-            <a href="./index.html" class="header__main-logo">
+            <a href="http://localhost/projectWebshop/index.php" class="header__main-logo">
                 <!-- <img src="./assets/image/logo.png" alt=""> -->
                 <h1>TechShop</h1>
                 <h1 class="mobile-logo">T</h1>
@@ -17,32 +17,32 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span>Giỏ hàng</span>
                 </a>
-                <a href="" class="mini__history">
+                <!-- <a href="" class="mini__history">
                     <span>LỊCH SỬ <br />MUA HÀNG</span>
-                </a>
-                <a href="" class="mini__history">
+                </a> -->
+                <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
                     <span>ĐĂNG NHẬP</span>
                 </a>
-                <a href="" class="mini__history">
+                <!-- <a href="" class="mini__history">
                     <span>Xin chào <br />Võ Hoài Nam</span>
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="header__nav">
             <div class="header__nav-item">
-                <a href="./phone.html" class="item__title">
+                <a href="http://localhost/projectWebshop/product/phone.php" class="item__title">
                     <i class="item__icon flaticon-phone"></i>
                     <span>Điện thoại</span>
                 </a>
             </div>
             <div class="header__nav-item">
-                <a href="./laptop.html" class="item__title">
+                <a href="http://localhost/projectWebshop/product/laptop.php" class="item__title">
                     <i class="item__icon flaticon-analytics"></i>
                     <span>Laptop</span>
                 </a>
             </div>
             <div class="header__nav-item">
-                <a href="./tablet.html" class="item__title">
+                <a href="http://localhost/projectWebshop/product/tablet.php" class="item__title">
                     <i class="item__icon fas fa-tablet-alt"></i>
                     <span>Tablet</span>
                 </a>
@@ -63,14 +63,14 @@
                 </div>
             </div>
             <div class="header__nav-item">
-                <a href="./watch.html" class="item__title">
+                <a href="http://localhost/projectWebshop/product/watch.php" class="item__title">
                     <i class="item__icon flaticon-smartwatch"></i>
                     <span>Đồng hồ thông minh</span>
                 </a>
 
             </div>
             <div class="header__nav-item">
-                <a href="./pc.html" class="item__title">
+                <a href="http://localhost/projectWebshop/product/pc.php" class="item__title">
                     <i class="item__icon fas fa-desktop"></i>
                     <span>PC, Máy in</span>
                 </a>
