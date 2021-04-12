@@ -4,7 +4,6 @@ $email = $_SESSION['email'];
 if($email == false){
   header('Location: dangnhap.php');
 }
-echo $email;
 ?>
 <!DOCTYPE html>
 <html lang="vn">

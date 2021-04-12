@@ -1,8 +1,10 @@
 <?php
     session_start();
     include("../config.php");
-    date_default_timezone_set('Asia/Ho_Chi_Minh');
     $connect = mysqli_connect('localhost', 'admin', 'admin', 'cnpm webshop');
+    if(isset($_SESSION['idUserLogin'])){
+        header('Location: ../dashboard/user.php');
+    }
     $errors = array();
     $username = "";
     $name = "";
@@ -12,6 +14,7 @@
     $gender = 1;
     $birthday = "";
     $address = "";
+    //Form đăng kí
     if (isset($_POST['resgiter'])) {
         $username = mysqli_real_escape_string($connect, $_POST['username']);
         $name = mysqli_real_escape_string($connect, $_POST['name']);
@@ -43,10 +46,8 @@
                 $sender .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
                 $sender .= "From: ADMIN TECHSHOP";
                 if (mail($email, $subject, $message, $sender)) {
-                    $info = "Chúng tôi đã gửi mã xác minh tới $email";
-                    $_SESSION['info'] = $info;
+                    // $info = "Chúng tôi đã gửi mã xác minh tới $email";
                     $_SESSION['email'] = $email;
-                    $_SESSION['password'] = $password;
                     header('location: user-otp.php');
                     exit();
                 } 
@@ -59,7 +60,7 @@
             }
         }
     }
-
+    //Form OTP
     if (isset($_POST['checkOTP'])) {
         $otp_code = mysqli_real_escape_string($connect, $_POST['otp']);
         $resultCheckOTP = $connect->query("SELECT * FROM user WHERE code = $otp_code");
@@ -78,5 +79,37 @@
         } 
         else {
             $errors['otpError'] = "Bạn nhập sai code đã nhận!";
+        }
+    }
+    //Form đăng nhập 
+    if (isset($_POST['login'])) {
+        $username = mysqli_real_escape_string($connect, $_POST['username']);
+        $password = mysqli_real_escape_string($connect, $_POST['password']);
+        $checkUsername = $connect->query("SELECT * from user where username = '$username'");
+        if (mysqli_num_rows($checkUsername) > 0) {
+            $upDB = mysqli_fetch_assoc($checkUsername);
+            // Lấy ra user và password
+            $usernameDB = $upDB['username'];
+            $passwordDB = $upDB['password'];
+            if (md5($password) == $passwordDB) {
+                $statusDB = $upDB['status'];
+                print_r($statusDB);
+                if ($statusDB === 'Verified') {
+                    $_SESSION['idUserLogin'] = $upDB['id'];;
+                    header('location: http://localhost/projectWebshop/dashboard/user.php');
+                    exit();
+                } 
+                else {
+                    $_SESSION['email'] = $upDB['email'];;
+                    header('location: user-otp.php');
+                    exit();
+                }
+            } 
+            else {
+                $errors['username'] = "Sai tên tài khoản hoặc mật khẩu!";
+            }
+        } 
+        else {
+            $errors['username'] = "Bạn chưa có tài khoản? Nhấn vào đăng kí nào!";
         }
     }

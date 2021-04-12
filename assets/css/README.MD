@@ -1,0 +1,15 @@
+sass dangky.scss dangky.css
+sass dangnhap.scss dangnhap.css
+sass detail.scss detail.css
+sass footer.scss footer.css
+sass header.scss header.css
+sass index.scss index.css
+sass laptop.scss laptop.css
+sass matkhaumoi.scss matkhaumoi.css
+sass nhapCodeQMK.scss nhapCodeQMK.css
+sass pc.scss pc.css
+sass phone.scss phone.css
+sass quenmatkhau.scss quenmatkhau.css
+sass user.scss user.css
+sass tablet.scss tablet.css
+sass watch.scss watch.css

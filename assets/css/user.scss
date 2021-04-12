@@ -71,10 +71,12 @@ body {
       align-items: center;
       justify-content: center;
       .info__img {
-        width: 20%;
+        width: 4rem;
+        height: 4rem;
         border-radius: 50%;
         box-shadow: 0 0 5px -3px black;
         margin-right: 0.5rem;
+        object-fit: cover;
       }
       .info__name {
         display: inline-block;

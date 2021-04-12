@@ -1,3 +1,4 @@
+
 $red: #d70018;
 $height-header__main: 5rem;
 $height-header__nav: 4.5rem;
@@ -31,7 +32,7 @@ $height-header__nav: 4.5rem;
   box-shadow: 0px -16px 10px 10px black;
   &__main {
     @include flexbox(space-between, center);
-    overflow: hidden;
+    // overflow-y: hidden;
     flex-direction: row;
     height: $height-header__main;
     &-logo {
@@ -101,6 +102,35 @@ $height-header__nav: 4.5rem;
       .mini__history {
         @include flexbox(center, center);
         @include size(10rem, 4rem);
+      }
+      .mini__user{
+        position: relative;
+        cursor: pointer;
+        &-sub{
+          display: none;
+          // display:flex;
+          flex-direction: column;
+          position: absolute;
+          top: 4rem;
+          left: 0;
+          width: 100%;
+          z-index: 100;
+          background: #d6061e;
+          border-bottom-left-radius: 7px;
+          border-bottom-right-radius: 7px;
+          a{
+            height: 3rem;
+            display:block;
+            color:rgb(255, 255, 255);
+            padding: 1rem 3rem;
+          }
+          a:first-child {
+            border-bottom: 1px solid white;
+          }
+        }
+        &:hover .mini__user-sub{
+          display: flex;
+        }
       }
       span {
         color: white;

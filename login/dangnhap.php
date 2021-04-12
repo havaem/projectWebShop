@@ -1,3 +1,6 @@
+<?php
+require './controllerLogin.php';
+?>
 <!DOCTYPE html>
 <html lang="vn">
   <head>
@@ -27,14 +30,23 @@
                 <h2>Chào mừng bạn đến với TechShop</h2>
                 <h3>Thành viên mớii ? Đăng kí <a href="./dangky.php">tại đây</a></h3>
             </div>
+            <?php
+                if(count($errors)>0){
+                    echo '<div class="form__error">';
+                    foreach($errors as $showerror){
+                        echo '<p>'.$showerror.'</p>';
+                    }
+                    echo '</div>';
+                }
+            ?> 
             <div class="form__content">
-                <form action="" class="form__content-form">
+                <form action="./dangnhap.php" class="form__content-form" method="post">
                     <label for="username">Tên tài khoản :</label>
-                    <input type="text" name="username" id="username" placeholder="Nhập tên tài khoản của bạn" maxlength="16" required autocomplete="off">
+                    <input value="<?php echo $username; ?>" type="text" name="username" id="username" placeholder="Nhập tên tài khoản của bạn" maxlength="16" required autocomplete="off">
                     <!-- <p id="username-error">Tên tài khoản đã tồn tại</p> -->
                     <label for="password">Mật khẩu :</label>
-                    <input type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" maxlength="32" required>
-                    <button class="form__submit" type="submit">ĐĂNG NHẬP</button>
+                    <input value="<?php echo $password; ?>" type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" maxlength="32" required>
+                    <button class="form__submit" type="submit" name="login">ĐĂNG NHẬP</button>
                 </form>
                 <div class="form__content__forgot">
                     <a href="#">Quên mật khẩu?</a>

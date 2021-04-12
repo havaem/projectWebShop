@@ -1,3 +1,12 @@
+<?php
+include("config.php");
+$idUserLogin = null;
+if (isset($_SESSION['idUserLogin'])) {
+    $idUserLogin  = (int)$_SESSION['idUserLogin'];
+    $resultUser = $connect->query("SELECT * from user where id = $idUserLogin") or die('false to connect to user');
+    $rowUser = mysqli_fetch_assoc($resultUser);
+}
+?>
 <div class="header">
     <div class="container">
         <div class="header__main">
@@ -20,12 +29,28 @@
                 <!-- <a href="" class="mini__history">
                     <span>LỊCH SỬ <br />MUA HÀNG</span>
                 </a> -->
-                <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
-                    <span>ĐĂNG NHẬP</span>
-                </a>
-                <!-- <a href="" class="mini__history">
-                    <span>Xin chào <br />Võ Hoài Nam</span>
-                </a> -->
+                <?php
+                if (isset($idUserLogin)) {
+                     echo <<<XXX
+                            <div class="mini__history mini__user">
+                                <span>Võ Hoài Nam</span>
+                                <div class="mini__user-sub">
+                                    <a href="http://localhost/projectWebshop/dashboard/user.php">PROFILE</a>
+                                     <a href="../login/dangxuat.php">LOGOUT</a>
+                                </div>
+                            </div>
+                        XXX;
+                } 
+                else {
+                    echo <<<XXX
+                        <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
+                        <span>ĐĂNG NHẬP</span>
+                        </a>
+                        XXX;
+                }
+                ?>
+                
+
             </div>
         </div>
         <div class="header__nav">

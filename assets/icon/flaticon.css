@@ -1,44 +1,49 @@
+@charset "UTF-8";
 @font-face {
-    font-family: "flaticon";
-    src: url("./flaticon.ttf?9fffec3ac4e7eba64a8d97729b29a3be") format("truetype"),
-url("./flaticon.woff?9fffec3ac4e7eba64a8d97729b29a3be") format("woff"),
-url("./flaticon.woff2?9fffec3ac4e7eba64a8d97729b29a3be") format("woff2"),
-url("./flaticon.eot?9fffec3ac4e7eba64a8d97729b29a3be#iefix") format("embedded-opentype"),
-url("./flaticon.svg?9fffec3ac4e7eba64a8d97729b29a3be#flaticon") format("svg");
+  font-family: "flaticon";
+  src: url("./flaticon.ttf?9fffec3ac4e7eba64a8d97729b29a3be") format("truetype"), url("./flaticon.woff?9fffec3ac4e7eba64a8d97729b29a3be") format("woff"), url("./flaticon.woff2?9fffec3ac4e7eba64a8d97729b29a3be") format("woff2"), url("./flaticon.eot?9fffec3ac4e7eba64a8d97729b29a3be#iefix") format("embedded-opentype"), url("./flaticon.svg?9fffec3ac4e7eba64a8d97729b29a3be#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
-    font-family: flaticon !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: flaticon !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .flaticon-analytics:before {
-    content: "\f101";
+  content: "";
 }
+
 .flaticon-cancel:before {
-    content: "\f102";
+  content: "";
 }
+
 .flaticon-chat:before {
-    content: "\f103";
+  content: "";
 }
+
 .flaticon-headphones:before {
-    content: "\f104";
+  content: "";
 }
+
 .flaticon-phone:before {
-    content: "\f105";
+  content: "";
 }
+
 .flaticon-shop:before {
-    content: "\f106";
+  content: "";
 }
+
 .flaticon-smartwatch:before {
-    content: "\f107";
+  content: "";
 }
+
 .flaticon-website:before {
-    content: "\f108";
+  content: "";
 }
+/*# sourceMappingURL=flaticon.css.map */
