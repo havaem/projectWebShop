@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 13, 2021 lúc 08:07 AM
+-- Thời gian đã tạo: Th4 13, 2021 lúc 11:25 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -328,7 +328,6 @@ CREATE TABLE `user` (
   `bought` varchar(500) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT 'Lưu các tên sản phẩm đã mua ',
   `sumBought` int(11) NOT NULL DEFAULT 0 COMMENT 'tổng số sản phẩm đã mua, dùng để xếp rank',
   `voucher` varchar(200) NOT NULL DEFAULT '',
-  `code` int(11) NOT NULL DEFAULT 0,
   `status` varchar(20) NOT NULL DEFAULT 'Not verified',
   `loginFalse` int(2) NOT NULL DEFAULT 0 COMMENT 'số lần đăng nhập không thành công',
   `isBanned` varchar(5) NOT NULL DEFAULT 'false' COMMENT 'được ban '
@@ -338,13 +337,13 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `avatar`, `name`, `gender`, `email`, `phone`, `address`, `history`, `date_created`, `rank`, `birthday`, `otp`, `bought`, `sumBought`, `voucher`, `code`, `status`, `loginFalse`, `isBanned`) VALUES
-(1, 'user', 'c4ca4238a0b923820dcc509a6f75849b', './avatar/defaultAvatar.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam1@gmail.com', '84354714955', 'Bình Định Việt Nam', '', '2021-04-07 07:23:08', 1, '2001-05-05', 0, '1|2', 2, '1|2', 0, 'Verified', 0, 'false'),
-(2, 'htp', '1cd979309246dcf03c76739887ba0aec', './avatar/defaultAvatar.jpg', 'Huỳnh Thanh Phong', 1, 'htp@gmail.com', '0629443532', 'VIETNAM', '', '2021-04-08 12:15:55', 2, '2021-04-22', 0, '', 1, '', 0, 'Verified', 0, 'false'),
-(3, 'hmh', 'c2a8d80346c3921053faccd823ae6ace', './avatar/defaultAvatar.jpg', 'Huỳnh Minh Hậu', 1, 'hmh@gmail.com', '0476313256', 'VIETNAM', '', '2021-04-08 12:17:19', 3, '2021-04-22', 0, '', 5, '', 0, 'Verified', 0, 'false'),
-(4, 'nnl', '87ea0982e46405bb334cb2534be9e5ef', './avatar/defaultAvatar.jpg', 'Nguyễn Nhật Linh', 3, 'nnl@gmail.com', '0322259085', 'VIETNAM', '', '2021-04-08 12:17:56', 4, '2021-04-22', 0, '', 10, '', 0, 'Verified', 0, 'false'),
-(5, 'ntnl', 'e60d017908a09ba9f3221661faca9dd5', './avatar/defaultAvatar.jpg', 'Nguyễn Thị Nhật Linh', 2, 'ntnl@gmail.com', '0678366486', 'VIETNAM', '', '2021-04-08 12:18:41', 5, '2021-04-22', 0, '', 20, '', 0, 'Verified', 0, 'false'),
-(30, 'vhnvohoainam', '5fae9938df84816184df36304ec2a4be', './avatar/60751f30a1e245.03441701.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam@gmail.com', '0354714955', 'Bình Định Việt Nam', '', '2021-04-12 17:41:52', 1, '2001-05-05', 0, '', 0, '', 0, 'Verified', 0, 'false');
+INSERT INTO `user` (`id`, `username`, `password`, `avatar`, `name`, `gender`, `email`, `phone`, `address`, `history`, `date_created`, `rank`, `birthday`, `otp`, `bought`, `sumBought`, `voucher`, `status`, `loginFalse`, `isBanned`) VALUES
+(1, 'user', 'c4ca4238a0b923820dcc509a6f75849b', './avatar/607535ce93b957.57341884.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam1@gmail.com', '84354714955', 'Bình Định Việt Nam', '', '2021-04-07 07:23:08', 1, '2001-05-05', 0, '1|2', 2, '1|2', 'Verified', 0, 'false'),
+(2, 'htp', '1cd979309246dcf03c76739887ba0aec', './avatar/defaultAvatar.jpg', 'Huỳnh Thanh Phong', 1, 'htp@gmail.com', '0629443532', 'VIETNAM', '', '2021-04-08 12:15:55', 2, '2021-04-22', 0, '', 1, '', 'Verified', 0, 'false'),
+(3, 'hmh', 'c2a8d80346c3921053faccd823ae6ace', './avatar/defaultAvatar.jpg', 'Huỳnh Minh Hậu', 1, 'hmh@gmail.com', '0476313256', 'VIETNAM', '', '2021-04-08 12:17:19', 3, '2021-04-22', 0, '', 5, '', 'Verified', 0, 'false'),
+(4, 'nnl', '87ea0982e46405bb334cb2534be9e5ef', './avatar/defaultAvatar.jpg', 'Nguyễn Nhật Linh', 3, 'nnl@gmail.com', '0322259085', 'VIETNAM', '', '2021-04-08 12:17:56', 4, '2021-04-22', 0, '', 10, '', 'Verified', 0, 'false'),
+(5, 'ntnl', 'e60d017908a09ba9f3221661faca9dd5', './avatar/defaultAvatar.jpg', 'Nguyễn Thị Nhật Linh', 2, 'ntnl@gmail.com', '0678366486', 'VIETNAM', '', '2021-04-08 12:18:41', 5, '2021-04-22', 0, '', 20, '', 'Verified', 0, 'false'),
+(47, 'vhnvohoainam', 'c7c74df9b7d2dd702e622c5dc1670657', './avatar/defaultAvatar.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam@gmail.com', '0354714955', 'Việt Nam', '', '2021-04-13 11:21:46', 1, '2020-01-01', 0, '', 0, '', 'Verified', 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -572,7 +571,7 @@ ALTER TABLE `theorder`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `voucher`
