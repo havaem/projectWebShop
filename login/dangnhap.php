@@ -43,10 +43,10 @@ $_SESSION['status'] = null;
             <div class="form__content">
                 <form action="./dangnhap.php" class="form__content-form" method="post">
                     <label for="username">Tên tài khoản :</label>
-                    <input value="<?php echo $username; ?>" type="text" name="username" id="username" placeholder="Nhập tên tài khoản của bạn" maxlength="16" required autocomplete="off">
+                    <input value="<?php echo $username; ?>" type="text" name="username" id="username" placeholder="Nhập tên tài khoản của bạn" maxlength="16" required autocomplete="on">
                     <!-- <p id="username-error">Tên tài khoản đã tồn tại</p> -->
                     <label for="password">Mật khẩu :</label>
-                    <input value="<?php echo $password; ?>" type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" maxlength="32" required>
+                    <input value="<?php echo $password; ?>" type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" maxlength="32" required  autocomplete="on">
                     <button class="form__submit" type="submit" name="login">ĐĂNG NHẬP</button>
                 </form>
                 <div class="form__content__forgot">
