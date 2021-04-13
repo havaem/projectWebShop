@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TECHSHOP ✔</title>
-    <link rel="icon" href="./assets/image/icon.png" sizes="" />
+    <link rel="icon" href="../assets/image/icon.png" sizes="" />
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
     <!-- Source CSS -->
-    <link rel="stylesheet" href="./assets/css/pc.css" />
+    <link rel="stylesheet" href="../assets/css/pc.css" />
     <!-- FontAwesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="./assets/icon/flaticon.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css" />
   </head>
   <body>
     <div class="header">
