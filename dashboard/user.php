@@ -125,9 +125,9 @@ require './controllerUserAction.php';
                                     <p class="left__title">Mã xác minh</p>
                                 </div>
                                 <div class="form__left-right">
-                                    <input type="password" name="password" placeholder="Nhập mật khẩu cũ"required>
-                                    <input type="password" name="newpassword" placeholder="Nhập mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                                    <input type="password" name="renewpassword" placeholder="Nhập lại mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                    <input type="password" name="password" placeholder="Nhập mật khẩu cũ" required autocomplete="off">
+                                    <input type="password" name="newpassword" placeholder="Nhập mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
+                                    <input type="password" name="renewpassword" placeholder="Nhập lại mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
                                     <div class="right__otp">
                                         <input type="text" name="otp" minlength="6" maxlength="6" placeholder="Mã xác minh gồm 6 chữ số được gửi về email" required>
                                         <a class="sendotp" href="javascript:void(0)">GỬI OTP</a>

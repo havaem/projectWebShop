@@ -1,4 +1,5 @@
 <?php
+session_unset();
 require './controllerLogin.php';
 $_SESSION['status'] = null;
 ?>

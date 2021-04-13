@@ -36,7 +36,7 @@
             $password = md5($password);
             $code = rand(999999, 111111);
             $currentDay = date('Y-m-d H:i:s');;
-            $insert_data = "INSERT INTO user(username,password,name,gender,email,phone,address,date_created,birthday,code) VALUES ('$username','$password','$name',$gender,'$email','$tel','$address','$currentDay','$birthday',$code)";
+            $insert_data = "INSERT INTO user(username,password,name,gender,email,phone,address,date_created,birthday,otp) VALUES ('$username','$password','$name',$gender,'$email','$tel','$address','$currentDay','$birthday',$code)";
             $data_check = $connect->query($insert_data);
             $errors['success'] = "Bạn đã tạo thành công ";
             if ($data_check) { 
@@ -46,10 +46,8 @@
                 $sender .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
                 $sender .= "From: ADMIN TECHSHOP";
                 if (mail($email, $subject, $message, $sender)) {
-                    // $info = "Chúng tôi đã gửi mã xác minh tới $email";
-                    $_SESSION['status'] = $email;
-                    header('location: user-otp.php');
-                    exit();
+                    $_SESSION['status'] = "VerifiedAccount";
+                    header('location: ./user-otp.php');
                 } 
                 else {
                     $errors['otp-error'] = "Gửi mã otp đến email của bạn thất bại!";
@@ -62,12 +60,13 @@
     }
     //Form xác minh OTP
     if (isset($_POST['checkOTP'])) {
-        $otp_code = (int)mysqli_real_escape_string($connect, $_POST['otp']);
+        $otp_code = mysqli_real_escape_string($connect, $_POST['otp']);
         $resultCheckOTP = $connect->query("SELECT * FROM user WHERE otp = $otp_code");
         if (mysqli_num_rows($resultCheckOTP) > 0) {
             $rowCheckOTP = mysqli_fetch_assoc($resultCheckOTP);
-            $code = $rowCheckOTP['code'];
-            $updateData = $connect->query("UPDATE user SET otp = 0, status = 'Verified' WHERE id = ${rowCheckOTP['id']}");
+            $code = $rowCheckOTP['otp'];
+            $idOTP = $rowCheckOTP['id'];
+            $updateData = $connect->query("UPDATE user SET otp = 0, status = 'Verified' WHERE id = $idOTP");
             if ($updateData) {
                 if($_SESSION['status'] == 'VerifiedAccount'){
                     session_unset();
@@ -164,7 +163,6 @@
                 session_unset();
                 header('Location: index.php');
             } else {
-                session_unset();
                 $errors['db-error'] = "Không thể đổi mật khẩu!";
             }
         }

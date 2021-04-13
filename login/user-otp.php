@@ -1,7 +1,6 @@
-<?php 
+<?php
 require_once "./controllerLogin.php";
-$status = $_SESSION['status'];
-if($status == false){
+if($_SESSION['status'] != "VerifiedAccount" && $_SESSION['status'] != "ForgotPassword"){
   header('Location: dangnhap.php');
 }
 ?>
