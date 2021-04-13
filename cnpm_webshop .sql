@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 12, 2021 lúc 05:51 PM
+-- Thời gian đã tạo: Th4 13, 2021 lúc 08:07 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -339,12 +339,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `avatar`, `name`, `gender`, `email`, `phone`, `address`, `history`, `date_created`, `rank`, `birthday`, `otp`, `bought`, `sumBought`, `voucher`, `code`, `status`, `loginFalse`, `isBanned`) VALUES
-(1, 'user', '5fae9938df84816184df36304ec2a4be', './avatar/defaultAvatar.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam1@gmail.com', '84354714955', 'Bình Định Việt Nam', '', '2021-04-07 07:23:08', 1, '2001-05-05', 0, '1|2', 2, '1|2', 0, 'Verified', 0, 'false'),
+(1, 'user', 'c4ca4238a0b923820dcc509a6f75849b', './avatar/defaultAvatar.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam1@gmail.com', '84354714955', 'Bình Định Việt Nam', '', '2021-04-07 07:23:08', 1, '2001-05-05', 0, '1|2', 2, '1|2', 0, 'Verified', 0, 'false'),
 (2, 'htp', '1cd979309246dcf03c76739887ba0aec', './avatar/defaultAvatar.jpg', 'Huỳnh Thanh Phong', 1, 'htp@gmail.com', '0629443532', 'VIETNAM', '', '2021-04-08 12:15:55', 2, '2021-04-22', 0, '', 1, '', 0, 'Verified', 0, 'false'),
 (3, 'hmh', 'c2a8d80346c3921053faccd823ae6ace', './avatar/defaultAvatar.jpg', 'Huỳnh Minh Hậu', 1, 'hmh@gmail.com', '0476313256', 'VIETNAM', '', '2021-04-08 12:17:19', 3, '2021-04-22', 0, '', 5, '', 0, 'Verified', 0, 'false'),
 (4, 'nnl', '87ea0982e46405bb334cb2534be9e5ef', './avatar/defaultAvatar.jpg', 'Nguyễn Nhật Linh', 3, 'nnl@gmail.com', '0322259085', 'VIETNAM', '', '2021-04-08 12:17:56', 4, '2021-04-22', 0, '', 10, '', 0, 'Verified', 0, 'false'),
 (5, 'ntnl', 'e60d017908a09ba9f3221661faca9dd5', './avatar/defaultAvatar.jpg', 'Nguyễn Thị Nhật Linh', 2, 'ntnl@gmail.com', '0678366486', 'VIETNAM', '', '2021-04-08 12:18:41', 5, '2021-04-22', 0, '', 20, '', 0, 'Verified', 0, 'false'),
-(30, 'vhnvohoainam', 'c7c74df9b7d2dd702e622c5dc1670657', './avatar/defaultAvatar.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam@gmail.com', '0354714955', 'Bình Định Việt Nam', '', '2021-04-12 17:41:52', 1, '2001-05-05', 0, '', 0, '', 0, 'Verified', 0, 'false');
+(30, 'vhnvohoainam', '5fae9938df84816184df36304ec2a4be', './avatar/60751f30a1e245.03441701.jpg', 'Võ Hoài Nam', 1, 'vhnvohoainam@gmail.com', '0354714955', 'Bình Định Việt Nam', '', '2021-04-12 17:41:52', 1, '2001-05-05', 0, '', 0, '', 0, 'Verified', 0, 'false');
 
 -- --------------------------------------------------------
 
