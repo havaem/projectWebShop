@@ -1,7 +1,7 @@
 <?php 
 require_once "./controllerLogin.php";
-$email = $_SESSION['email'];
-if($email == false){
+$status = $_SESSION['status'];
+if($status == false){
   header('Location: dangnhap.php');
 }
 ?>
@@ -50,7 +50,7 @@ if($email == false){
             <div class="form__content">
                 <form action="./user-otp.php" class="form__content-form" method="POST">
                     <label for="otp">Mã xác minh của bạn :</label>
-                    <input type="text" name="otp" id="otp" placeholder="Nhập mã xác minh của bạn" minlength="6" maxlength="6">
+                    <input type="text" name="otp" id="otp" placeholder="Mã xác minh đã được gửi đến bạn" minlength="6" maxlength="6">
                     <button type="submit" class="form__submit" name="checkOTP">Xác nhận</button>
                 </form>
             </div>

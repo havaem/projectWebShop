@@ -36,7 +36,7 @@ if (isset($_SESSION['idUserLogin'])) {
                                 <span>Võ Hoài Nam</span>
                                 <div class="mini__user-sub">
                                     <a href="http://localhost/projectWebshop/dashboard/user.php">PROFILE</a>
-                                     <a href="../login/dangxuat.php">LOGOUT</a>
+                                     <a href="http://localhost/projectWebshop/login/dangxuat.php">LOGOUT</a>
                                 </div>
                             </div>
                         XXX;

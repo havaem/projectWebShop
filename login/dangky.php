@@ -1,5 +1,6 @@
 <?php
 require './controllerLogin.php';
+$_SESSION['email'] = null;
 ?>
 <!DOCTYPE html>
 <html lang="vn">

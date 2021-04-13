@@ -1,5 +1,6 @@
 <?php
 require './controllerLogin.php';
+$_SESSION['status'] = null;
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -49,7 +50,7 @@ require './controllerLogin.php';
                     <button class="form__submit" type="submit" name="login">ĐĂNG NHẬP</button>
                 </form>
                 <div class="form__content__forgot">
-                    <a href="#">Quên mật khẩu?</a>
+                    <a href="./quenmatkhau.php">Quên mật khẩu?</a>
                 </div>
             </div>
         </div>
