@@ -1334,6 +1334,7 @@ body {
     display: none;
   }
   .hotphone__more {
+    display: block;
     padding: 1.5rem;
     text-align: center;
   }

@@ -6,6 +6,7 @@ if (isset($_SESSION['idUserLogin'])) {
     $resultUser = $connect->query("SELECT * from user where id = $idUserLogin") or die('false to connect to user');
     $rowUser = mysqli_fetch_assoc($resultUser);
 }
+
 ?>
 <div class="header">
     <div class="container">

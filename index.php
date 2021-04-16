@@ -1,5 +1,46 @@
 <?php
     session_start();
+    include("./config.php");
+    $rowLaptop = mysqli_fetch_all($connect->query("SELECT * from product where type = 2"));
+    $rowTablet = mysqli_fetch_all($connect->query("SELECT * from product where type = 3"));
+    $rowWatch = mysqli_fetch_all($connect->query("SELECT * from product where type = 4"));
+    $rowDisplay = mysqli_fetch_all($connect->query("SELECT * from product where type = 5"));
+    // Hiển thị số sao để đổ comment cho user 
+    
+function exportStar($number){
+    switch ($number) {
+        case 1:
+            return "<i class='active item__rate-star fas fa-star'></i>
+                    <i class='item__rate-star fas fa-star'></i>
+        <i class='item__rate-star fas fa-star'></i>
+        <i class='item__rate-star fas fa-star'></i>
+        <i class='item__rate-star fas fa-star'></i>";
+        case 2:
+            return "<i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>";
+        case 3:
+            return "<i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>";
+        case 4:
+            return "<i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='item__rate-star fas fa-star'></i>";
+        case 5:
+            return "<i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>
+            <i class='active item__rate-star fas fa-star'></i>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -107,7 +148,8 @@
                                 <span>30 đánh giá</span>
                             </div>
                         </a>
-                    </div><div class="hotdeal__item">
+                    </div>
+                    <div class="hotdeal__item">
                         <div class="hotdeal__item-tagdeal">
                             <p class="tagdeal__giamsoc">
                                 Giảm sốc
@@ -126,7 +168,8 @@
                                 <span>30 đánh giá</span>
                             </div>
                         </a>
-                    </div><div class="hotdeal__item">
+                    </div>
+                    <div class="hotdeal__item">
                         <div class="hotdeal__item-tagdeal">
                             <p class="tagdeal__tragop">
                                 Trả góp <strong>0%</strong>
@@ -577,11 +620,14 @@
                         <h2>Điện thoại nổi bật nhất</h2>
                     </div>
                     <div class="hotphone__desc-phone">
-                        <a href="#">Samsung Galaxy S21</a>
-                        <a href="#">iPhone 12 Pro Max 128GB</a>
-                        <a href="#">OPPO Reno5</a>
-                        <a href="#">Redmi 9A</a>
-                        <a href="#">Xem tất cả <strong>100</strong> điện thoại</a>
+                    <?php
+                        $titlePhone = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 1 order by view asc limit 4"));
+                        for($i=0;$i<4;$i++){
+                            echo "<a href='./product/detail.php?id=".$titlePhone[$i][0]."'>".$titlePhone[$i][1]."</a>";
+                        }
+                        $sumPhone = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1"));
+                        echo "<a href='./product/phone.php'>Xem tất cả <strong>".$sumPhone['count']."</strong> điện thoại</a>";
+                    ?>
                     </div>
                 </div>
                 <div class="hotphone__content">
@@ -598,45 +644,22 @@
                             <span>30 đánh giá</span>
                         </div>
                     </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-new-600x600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Samsung Galaxy S21 Ultra 5G 128GB</h3>
-                        <strong class="item__price">27.990.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-xanh-duong-new-600x600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">iPhone 12 64GB</h3>
-                        <strong class="item__price">22.490.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/229228/xiaomi-redmi-note-10-pro-thumb-xam-600x600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Xiaomi Redmi Note 10 Pro (8GB/128GB)</h3>
-                        <strong class="item__price">7.490.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
+                    <?php
+                        $resultPhone = $connect->query("SELECT * from product where type = 1 order by view desc limit 6");
+                        for($i=0;$i<3;$i++){
+                            $rowPhone = mysqli_fetch_assoc($resultPhone);
+                            $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowPhone['id']}"));
+                            echo "<a href='./product/detail.php?id=".$rowPhone['id']."'class='hotphone__content-item'>
+                                    <img src='".substr($rowPhone['image'],1)."' class='item__img'/>
+                                    <h3 class='item__title'>".$rowPhone['name']."</h3>
+                                    <strong class='item__price'>".number_format($rowPhone['price'])."</strong>
+                                        <div class='item__rate'>
+                                            ".exportStar($rowPhone['rate'])."
+                                            <span>".$countRate['count']." đánh giá</span>
+                                        </div>
+                                </a>";
+                        }
+                    ?>
                     <a href="#" class="hotphone__content-item big">
                         <img src="https://cdn.tgdd.vn/Products/Images/42/234315/Feature/samsung-galaxy-a32-4g-ft.jpg" class="item__img"/>
                         <h3 class="item__title">Samsung Galaxy A32</h3>
@@ -650,48 +673,26 @@
                             <span>30 đánh giá</span>
                         </div>
                     </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/226436/vsmart-live-4-xanh-la-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">OPPO A15</h3>
-                        <strong class="item__price">3.490.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/228950/vivo-y51-bac-600x600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Vsmart Live 4 4GB</h3>
-                        <strong class="item__price">4.090.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotphone__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/42/226316/samsung-galaxy-s21-ultra-bac-600x600-1-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Vivo Y51 (2020)</h3>
-                        <strong class="item__price">5.590.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
+                    <?php
+                        for($i=0;$i<3;$i++){
+                            $rowPhone = mysqli_fetch_assoc($resultPhone);
+                            $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowPhone['id']}"));
+                            echo "<a href='./product/detail.php?id=".$rowPhone['id']."'class='hotphone__content-item'>
+                                    <img src='".substr($rowPhone['image'],1)."' class='item__img'/>
+                                    <h3 class='item__title'>".$rowPhone['name']."</h3>
+                                    <strong class='item__price'>".number_format($rowPhone['price'])."</strong>
+                                        <div class='item__rate'>
+                                            ".exportStar($rowPhone['rate'])."
+                                            <span>".$countRate['count']." đánh giá</span>
+                                        </div>
+                                </a>";
+                        }
+                    ?>
                 </div>
                 <div class="hotphone__more">
-                    <a href="#">Xem tất cả <strong>100</strong> điện thoại</a>
+                <?php
+                    echo "<a href='#'>Xem tất cả <strong>".$sumPhone['count']."</strong> điện thoại</a>";
+                ?>
                 </div>
             </div>
         </div>
@@ -703,6 +704,14 @@
                         <h2>Laptop nổi bật nhất</h2>
                     </div>
                     <div class="hotlaptop__desc-laptop">
+                    <!-- <?php
+                        $titleLaptop = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 2 order by view asc limit 4"));
+                        for($i=0;$i<4;$i++){
+                            echo "<a href='./product/detail.php?id=".$titleLaptop[$i][0]."'>".$titleLaptop[$i][1]."</a>";
+                        }
+                        $sumLaptop = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1"));
+                        echo "<a href='./product/laptop.php'>Xem tất cả <strong>".$sumLaptop['count']."</strong> laptop</a>";
+                    ?> -->
                         <a href="#">Laptop Asus</a>
                         <a href="#">Laptop HP</a>
                         <a href="#">Laptop Lenovo</a>
@@ -777,11 +786,14 @@
                         <h2>Tablet nổi bật nhất</h2>
                     </div>
                     <div class="hottablet__desc-tablet">
-                        <a href="#">iPad Air 4 Wifi 64GB</a>
-                        <a href="#">Samsung Galaxy Tab A8</a>
-                        <a href="#">Máy tính bảng Huawei</a>
-                        <a href="#">iPad 8 Wifi 32GB</a>
-                        <a href="#">Xem tất cả <strong>36</strong> tablet</a>
+                    <?php
+                        $titleTablet = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 3 order by view asc limit 4"));
+                        for($i=0;$i<4;$i++){
+                            echo "<a href='./product/detail.php?id=".$titleTablet[$i][0]."'>".$titleTablet[$i][1]."</a>";
+                        }
+                        $sumTablet = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=3"));
+                        echo "<a href='./product/tablet.php'>Xem tất cả <strong>".$sumTablet['count']."</strong> tablet</a>";
+                    ?>
                     </div>
                 </div>
                 <div class="hottablet__content">
@@ -798,48 +810,25 @@
                             <span>30 đánh giá</span>
                         </div>
                     </a>
-                    <a href="#"class="hottablet__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hottablet__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                        <strong class="item__price">9.090.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hottablet__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                        <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
+                    <?php
+                        $resultTablet = $connect->query("SELECT * from product where type = 3 order by view desc limit 6");
+                        for($i=0;$i<3;$i++){
+                            $rowTablet = mysqli_fetch_assoc($resultTablet);
+                            $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowTablet['id']}"));
+                            echo "<a href='./product/detail.php?id=".$rowTablet['id']."'class='hottablet__content-item'>
+                                    <img src='".substr($rowTablet['image'],1)."' class='item__img'/>
+                                    <h3 class='item__title'>".$rowTablet['name']."</h3>
+                                    <strong class='item__price'>".number_format($rowTablet['price'])."</strong>
+                                        <div class='item__rate'>
+                                            ".exportStar($rowTablet['rate'])."
+                                            <span>".$countRate['count']." đánh giá</span>
+                                        </div>
+                                </a>";
+                        }
+                    ?>
                 </div>
                 <div class="hottablet__more">
-                    <a href="#">Xem tất cả <strong>36</strong> tablet</a>
+                    <?php echo "<a href='#'>Xem tất cả <strong>".$sumTablet['count']."</strong> điện thoại</a>"; ?>
                 </div>
             </div>
         </div>
@@ -851,68 +840,35 @@
                         <h2>Đồng hồ thông minh</h2>
                     </div>
                     <div class="hotwatch__desc-watch">
-                        <a href="#">Apple</a>
-                        <a href="#">Samsung</a>
-                        <a href="#">Huawei</a>
-                        <a href="#">Xiaomi</a>
-                        <a href="#">Xem tất cả <strong>100</strong> đồng hồ thông minh</a>
+                    <?php
+                        $titleWatch = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 3 order by view asc limit 4"));
+                        for($i=0;$i<3;$i++){
+                            echo "<a href='./product/detail.php?id=".$titleWatch[$i][0]."'>".$titleWatch[$i][1]."</a>";
+                        }
+                        $sumWatch = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=4"));
+                        echo "<a href='./product/watch.php'>Xem tất cả <strong>".$sumWatch['count']."</strong> đồng hồ thông minh.</a>";
+                    ?>
                     </div>
                 </div>
                 
                 <div class="hotwatch__content">
-                    <a href="#"class="hotwatch__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/7077/229033/apple-watch-s6-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">Apple Watch S6 LTE 40mm viền nhôm dây cao su xanh</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotwatch__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/7077/232899/mi-watch-255520-015535-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">Đồng hồ thông minh Mi Watch</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotwatch__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/7077/219147/samsung-galaxy-watch-active-2-40-mm-den-ava-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">Samsung Galaxy Watch Active 2 40mm viền nhôm dây silicone</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotwatch__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/7077/230634/samsung-galaxy-watch-3-41mm-bac-054220-104255-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">Samsung Galaxy Watch 3 41mm viền thép bạc dây da</h3>
-                        <strong class="item__price">9.090.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotwatch__content-item">
+                    <?php
+                        $resultWatch = $connect->query("SELECT * from product where type = 4 order by view desc limit 5");
+                        for($i=0;$i<5;$i++){
+                            $rowWatch = mysqli_fetch_assoc($resultWatch);
+                            $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowWatch['id']}"));
+                            echo "<a href='./product/detail.php?id=".$rowWatch['id']."'class='hotwatch__content-item'>
+                                    <img src='".substr($rowWatch['image'],1)."' class='item__img'/>
+                                    <h3 class='item__title'>".$rowWatch['name']."</h3>
+                                    <strong class='item__price'>".number_format($rowWatch['price'])."</strong>
+                                        <div class='item__rate'>
+                                            ".exportStar($rowWatch['rate'])."
+                                            <span>".$countRate['count']." đánh giá</span>
+                                        </div>
+                                </a>";
+                        }
+                    ?>
+                    <!-- <a href="#"class="hotwatch__content-item">
                         <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
                         <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
                         <strong class="item__price">5.190.000₫</strong>
@@ -924,7 +880,7 @@
                             <i class="item__rate-star fas fa-star"></i>
                             <span>30 đánh giá</span>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

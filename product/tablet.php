@@ -1,5 +1,7 @@
 <?php 
-    session_start();
+session_start();
+include("../config.php");
+$rowTablet = mysqli_fetch_all($connect->query("SELECT * from product where type = 3"));
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -96,7 +98,7 @@
         </div>
         <!-- 20 items -->
         <div class="tablet__content">
-            <a href="#"class="tablet__content-item">
+            <!-- <a href="#"class="tablet__content-item">
                 <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
                 <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
                 <strong class="item__price">5.190.000₫</strong>
@@ -108,254 +110,76 @@
                     <i class="item__rate-star fas fa-star"></i>
                     <span>30 đánh giá</span>
                 </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/235365/tab-m10-fhd-plus-600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Lenovo Tab M10 - FHD Plus</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/233257/huawei-t10s-600x600-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Huawei MatePad T10s (Nền tảng Huawei Mobile Service)</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="tablet__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/522/219912/samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Tab S6 Lite</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
+            </a> -->
+            <?php
+              foreach ($rowTablet as $tablet) {
+                $price = number_format($tablet[4]);
+                echo "
+                        <a href='./detail.php?id=$tablet[0]' class='tablet__content-item'>
+                          <img
+                            src='$tablet[3]'
+                            class='item__img'
+                          />
+                          <h3 class='item__title'>$tablet[2]</h3>
+                          <strong class='item__price'>$price</strong>";
+                        if($tablet[6] == 5){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($tablet[6] == 4){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($tablet[6] == 3){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($tablet[6] == 2){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($tablet[6] == 1){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+              
+                echo "
+                            <span>30 đánh giá</span>
+                          </div>
+                        </a>
+                        ";
+                }
+              ?>
         </div>
       </div>
     </div>

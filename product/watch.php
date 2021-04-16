@@ -1,5 +1,7 @@
 <?php 
-    session_start();
+session_start();
+include("../config.php");
+$rowWatch = mysqli_fetch_all($connect->query("SELECT * from product where type = 4"));
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -96,7 +98,7 @@
         </div>
         <!-- 20 items -->
         <div class="watch__content">
-            <a href="#"class="watch__content-item">
+            <!-- <a href="#"class="watch__content-item">
                 <img src="https://cdn.tgdd.vn/Products/Images/7077/229033/apple-watch-s6-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg" class="item__img"/>
                 <h3 class="item__title">Apple Watch S6 LTE 40mm viền nhôm dây cao su xanh</h3>
                 <strong class="item__price">5.190.000₫</strong>
@@ -108,254 +110,76 @@
                     <i class="item__rate-star fas fa-star"></i>
                     <span>30 đánh giá</span>
                 </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/232899/mi-watch-255520-015535-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Đồng hồ thông minh Mi Watch</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/219147/samsung-galaxy-watch-active-2-40-mm-den-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch Active 2 40mm viền nhôm dây silicone</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/230634/samsung-galaxy-watch-3-41mm-bac-054220-104255-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch 3 41mm viền thép bạc dây da</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/229033/apple-watch-s6-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S6 LTE 40mm viền nhôm dây cao su xanh</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/232899/mi-watch-255520-015535-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Đồng hồ thông minh Mi Watch</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/219147/samsung-galaxy-watch-active-2-40-mm-den-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch Active 2 40mm viền nhôm dây silicone</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/230634/samsung-galaxy-watch-3-41mm-bac-054220-104255-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch 3 41mm viền thép bạc dây da</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/229033/apple-watch-s6-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S6 LTE 40mm viền nhôm dây cao su xanh</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/232899/mi-watch-255520-015535-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Đồng hồ thông minh Mi Watch</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/219147/samsung-galaxy-watch-active-2-40-mm-den-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch Active 2 40mm viền nhôm dây silicone</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/230634/samsung-galaxy-watch-3-41mm-bac-054220-104255-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch 3 41mm viền thép bạc dây da</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/229033/apple-watch-s6-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S6 LTE 40mm viền nhôm dây cao su xanh</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/232899/mi-watch-255520-015535-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Đồng hồ thông minh Mi Watch</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/219147/samsung-galaxy-watch-active-2-40-mm-den-ava-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch Active 2 40mm viền nhôm dây silicone</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/230634/samsung-galaxy-watch-3-41mm-bac-054220-104255-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Samsung Galaxy Watch 3 41mm viền thép bạc dây da</h3>
-                <strong class="item__price">9.090.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
-            <a href="#"class="watch__content-item">
-                <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
-                <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
-                <strong class="item__price">5.190.000₫</strong>
-                <div class="item__rate">
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="active item__rate-star fas fa-star"></i>
-                    <i class="item__rate-star fas fa-star"></i>
-                    <span>30 đánh giá</span>
-                </div>
-            </a>
+            </a> -->
+            <?php
+              foreach ($rowWatch as $watch) {
+                $price = number_format($watch[4]);
+                echo "
+                        <a href='./detail.php?id=$watch[0]' class='watch__content-item'>
+                          <img
+                            src='$watch[3]'
+                            class='item__img'
+                          />
+                          <h3 class='item__title'>$watch[2]</h3>
+                          <strong class='item__price'>$price</strong>";
+                        if($watch[6] == 5){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($watch[6] == 4){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($watch[6] == 3){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($watch[6] == 2){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+                        if($watch[6] == 1){
+                          echo "
+                          <div class='item__rate'>
+                            <i class='active item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            <i class='item__rate-star fas fa-star'></i>
+                            ";
+                        }
+              
+                echo "
+                            <span>30 đánh giá</span>
+                          </div>
+                        </a>
+                        ";
+              }
+        ?>
         </div>
       </div>
     </div>

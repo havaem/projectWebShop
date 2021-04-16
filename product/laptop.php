@@ -1,5 +1,7 @@
 <?php 
     session_start();
+    include("../config.php");
+    $rowLaptop = mysqli_fetch_all($connect->query("SELECT * from product where type = 2"));
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -96,7 +98,7 @@
         </div>
         <!-- 16 items -->
         <div class="laptop__content">
-          <a href="#" class="laptop__content-item">
+          <!-- <a href="#" class="laptop__content-item">
             <img
               src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
               class="item__img"
@@ -111,311 +113,76 @@
               <i class="item__rate-star fas fa-star"></i>
               <span>30 đánh giá</span>
             </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
-          <a href="#" class="laptop__content-item">
-            <img
-              src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg"
-              class="item__img"
-            />
-            <h3 class="item__title">OPPO Reno5</h3>
-            <strong class="item__price">8.690.000₫</strong>
-            <div class="item__rate">
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="active item__rate-star fas fa-star"></i>
-              <i class="item__rate-star fas fa-star"></i>
-              <span>30 đánh giá</span>
-            </div>
-          </a>
+          </a> -->
+          <?php
+        foreach ($rowLaptop as $lap) {
+          $price = number_format($lap[4]);
+          echo "
+                  <a href='./detail.php?id=$lap[0]' class='lap__content-item'>
+                    <img
+                      src='$lap[3]'
+                      class='item__img'
+                    />
+                    <h3 class='item__title'>$lap[2]</h3>
+                    <strong class='item__price'>$price</strong>";
+                  if($lap[6] == 5){
+                    echo "
+                    <div class='item__rate'>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      ";
+                  }
+                  if($lap[6] == 4){
+                    echo "
+                    <div class='item__rate'>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      ";
+                  }
+                  if($lap[6] == 3){
+                    echo "
+                    <div class='item__rate'>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      ";
+                  }
+                  if($lap[6] == 2){
+                    echo "
+                    <div class='item__rate'>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      ";
+                  }
+                  if($lap[6] == 1){
+                    echo "
+                    <div class='item__rate'>
+                      <i class='active item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      <i class='item__rate-star fas fa-star'></i>
+                      ";
+                  }
+         
+          echo "
+                      <span>30 đánh giá</span>
+                    </div>
+                  </a>
+                  ";
+        }
+        ?>
         </div>
       </div>
     </div>
