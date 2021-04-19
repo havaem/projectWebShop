@@ -396,6 +396,7 @@ body {
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;
 }
 .phone .container {
+  padding-bottom: 1rem;
   background: white;
 }
 .phone__desc {
@@ -479,6 +480,23 @@ body {
 }
 .phone__content-item:hover h3 {
   color: #ff0000;
+}
+.phone__more {
+  padding: 1.5rem;
+  text-align: center;
+}
+.phone__more a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 10px 10px;
+  color: #ff0000;
+  border: 1px solid #d70018;
+  transition: 0.2s;
+}
+.phone__more a:hover {
+  border: 1px solid #e47474;
+  color: white;
+  background: #e47474;
 }
 
 /*============================ 5. Service ============================ */
@@ -691,22 +709,6 @@ body {
   .phone__content-item {
     width: 50%;
     height: 338px;
-  }
-  .phone__more {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .phone__more a {
-    vertical-align: middle;
-    font-size: 14px;
-    padding: 14px 10px;
-    color: #ff0000;
-  }
-  .phone__more a:hover {
-    text-decoration: underline;
-  }
-  .phone__more strong {
-    color: #d70018;
   }
 
   /*============================ 5. Service ============================ */

@@ -126,6 +126,7 @@ body {
 .phone {
   border-top: 1px solid #eee;
   .container {
+    padding-bottom: 1rem;
     background: rgb(255, 255, 255);
   }
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans,
@@ -209,6 +210,23 @@ body {
       }
       &:hover h3 {
         color: $hover-red;
+      }
+    }
+  }
+  &__more {
+    padding: 1.5rem;
+    text-align: center;
+    a {
+      vertical-align: middle;
+      font-size: 14px;
+      padding: 10px 10px;
+      color: $hover-red;
+      border: 1px solid $red;
+      transition: .2s;
+      &:hover {
+        border: 1px solid #e47474;
+        color: white;
+        background: #e47474;
       }
     }
   }
@@ -305,22 +323,6 @@ body {
       &-item {
         width: 50%;
         height: 338px;
-      }
-    }
-    &__more {
-      padding: 1.5rem;
-      text-align: center;
-      a {
-        vertical-align: middle;
-        font-size: 14px;
-        padding: 14px 10px;
-        color: $hover-red;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      strong {
-        color: $red;
       }
     }
   }

@@ -481,6 +481,23 @@ body {
 .laptop__content-item:hover h3 {
   color: #ff0000;
 }
+.laptop__more {
+  padding: 1.5rem;
+  text-align: center;
+}
+.laptop__more a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 10px 10px;
+  color: #ff0000;
+  border: 1px solid #d70018;
+  transition: 0.2s;
+}
+.laptop__more a:hover {
+  border: 1px solid #e47474;
+  color: white;
+  background: #e47474;
+}
 
 /*============================ 5. Service ============================ */
 .service {
@@ -692,22 +709,6 @@ body {
   .laptop__content-item {
     width: 50%;
     height: 338px;
-  }
-  .laptop__more {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .laptop__more a {
-    vertical-align: middle;
-    font-size: 14px;
-    padding: 14px 10px;
-    color: #ff0000;
-  }
-  .laptop__more a:hover {
-    text-decoration: underline;
-  }
-  .laptop__more strong {
-    color: #d70018;
   }
 
   /*============================ 5. Service ============================ */

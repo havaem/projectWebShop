@@ -212,6 +212,23 @@ body {
       }
     }
   }
+  &__more {
+    padding: 1.5rem;
+    text-align: center;
+    a {
+      vertical-align: middle;
+      font-size: 14px;
+      padding: 10px 10px;
+      color: $hover-red;
+      border: 1px solid $red;
+      transition: .2s;
+      &:hover {
+        border: 1px solid #e47474;
+        color: white;
+        background: #e47474;
+      }
+    }
+  }
 }
 /*============================ 5. Service ============================ */
 .service {
@@ -305,22 +322,6 @@ body {
       &-item {
         width: 50%;
         height: 338px;
-      }
-    }
-    &__more {
-      padding: 1.5rem;
-      text-align: center;
-      a {
-        vertical-align: middle;
-        font-size: 14px;
-        padding: 14px 10px;
-        color: $hover-red;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      strong {
-        color: $red;
       }
     }
   }

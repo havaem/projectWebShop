@@ -480,6 +480,23 @@ body {
 .tablet__content-item:hover h3 {
   color: #ff0000;
 }
+.tablet__more {
+  padding: 1.5rem;
+  text-align: center;
+}
+.tablet__more a {
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 10px 10px;
+  color: #ff0000;
+  border: 1px solid #d70018;
+  transition: 0.2s;
+}
+.tablet__more a:hover {
+  border: 1px solid #e47474;
+  color: white;
+  background: #e47474;
+}
 
 /*============================ 5. Service ============================ */
 .service {
@@ -691,22 +708,6 @@ body {
   .tablet__content-item {
     width: 50%;
     height: 338px;
-  }
-  .tablet__more {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .tablet__more a {
-    vertical-align: middle;
-    font-size: 14px;
-    padding: 14px 10px;
-    color: #ff0000;
-  }
-  .tablet__more a:hover {
-    text-decoration: underline;
-  }
-  .tablet__more strong {
-    color: #d70018;
   }
 
   /*============================ 5. Service ============================ */
