@@ -52,6 +52,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
 ?>
 <!DOCTYPE html>
 <html lang="vn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -165,7 +166,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 ?>
             </div>
             <div class="detail__desc">
-                <p class="detail__desc-title"><?php echo $data['name']; ?></p>
+                <p class="detail__desc-title"><?php echo $data['name'] . " " . number_format($data['price']) . "vnđ"; ?></p>
                 <div class="detail__desc-rate">
                     <?php
                     echo exportStar($data['rate']);
@@ -248,8 +249,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         }
                         echo "<a class='comment__page-item' href='javascript:void(0)'>" . $i . "</a>";
                     }
-                }
-                else{
+                } else {
                     echo "<h1 style='color:red'>KHÔNG CÓ COMMENT NÀO :(</h1>";
                 }
                 ?>
@@ -269,7 +269,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 paragraphmorebutton.style.display = 'none';
             }
             currentPage = 1;
-            
+
             $.ajax({
                 url: "http://localhost/projectWebshop/product/commentData.php",
                 type: 'POST',
