@@ -556,6 +556,7 @@ body {
     width: 50%;
   }
 }
+/* RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE RESPONSIVE */
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -570,6 +571,18 @@ body {
   .form .form__content {
     width: 90%;
     padding-right: unset;
+  }
+  .form .form__title {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .form .form__title h2 {
+    display: inline-block;
+    float: none;
+  }
+  .form .form__title h3 {
+    display: inline-block;
+    float: none;
   }
 }
 

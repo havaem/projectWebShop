@@ -512,23 +512,6 @@ body {
         &.active {
           display: block;
         }
-        .content__title {
-          padding-bottom: 2rem;
-          border-bottom: 1px solid #ccc;
-          margin-bottom: 2rem;
-          h2 {
-            font-size: 2rem;
-            font-weight: 100;
-            color: #333;
-            padding-top: 1rem;
-          }
-          p {
-            font-size: 1.4rem;
-            line-height: 1.0625rem;
-            color: #555;
-            margin-top: 3px;
-          }
-        }
         .content__content {
           width: 100%;
           &-row{
@@ -609,5 +592,214 @@ body {
   .container {
     margin: 0 auto;
     width: 100%;
+  }
+  .dashboard {
+    .container {
+      flex-direction: column;
+    }
+    &__left {
+      width: 95%;
+      margin: 0 auto;
+      padding: unset;
+      &-info {
+        .info__img {
+          width: 10rem;
+          height: 10rem;
+          margin-right: 1.5rem;
+        }
+        .info__name {
+          font-size: 1.7rem;
+        }
+      }
+      &-action {
+        margin-top: 1.4rem;
+        align-items: center;
+        .action__type {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    &__right {
+      width: 95%;
+      margin: 0 auto;
+      &-content.form__profile {
+        padding: 2rem 2rem;
+        width: 100%;
+        display: none;
+        .content__content {
+          &-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .form__left {
+              width: 100%;
+              &-left {
+                width: 40%;
+              }
+              &-right {
+                width: 60%;
+              }
+            }
+            .form__right {
+              width: 100%;
+            }
+            button {
+              width: 20%;
+            }
+          }
+        }
+      }
+      &-content.form__password {
+        width: 100%;
+        .content__content {
+          width: 100%;
+          &-form {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+            .form__left {
+              width: 100%;
+              &-left {
+                width: 50%;
+              }
+              &-right {
+                width: 50%;
+              }
+            }
+            button {
+              width: 20%;
+            }
+          }
+        }
+      }
+      &-content.form__rank {
+        &.active {
+          display: block;
+        }
+        .content__content {
+          margin: 0 auto;
+          width: 100%;
+          &-process {
+            width: 100%;
+          }
+        }
+      }
+      &-content.form__voucher {
+        width: 100%;
+        .content__content {
+          width: 100%;
+          &-row{
+              width: 100%;
+              display: flex;
+              div{
+                  padding: 1.4rem 1rem;
+                  font-size: 1.4rem;
+                  text-align: center;
+                  color:#555;
+              }
+              .row__title{
+                  font-weight: bold;
+                  font-size: 1.4rem;
+                  word-wrap: normal;
+              }
+              .row__title:first-child{
+                  border-left: 1px solid #ccc;
+              }
+              .row__code{
+                  width: 100%;
+                  word-wrap: normal;
+                  word-break: keep-all;
+              }
+              .row__info{
+                  width: 100%;
+                  word-wrap: normal;
+              }
+              .row__initialdate{
+                  width: 13%;
+                  word-wrap: normal;
+                  display: none;
+                }
+                .row__expirydate{
+                display: none;
+                  width: 13%;
+                  word-wrap: normal;
+              }
+              .row__time{
+                  width: 100%;
+                  word-wrap: normal;
+              }
+          }
+        }
+      }
+      &-content.form__history {
+          width: 100%;
+          .content__content {
+            width: 100%;
+            &-row{
+                width: 100%;
+                display: flex;
+                &[data-ship="1"]{
+                    background: rgba(46, 255, 27, 0.541);
+                }
+                &[data-ship="2"]{
+                    background: rgb(252, 255, 75);
+                }
+                &[data-ship="3"]{
+                    background: rgb(255, 167, 167);
+                }
+                div{
+                    padding: 1.4rem 1rem;
+                    font-size: 1.3rem;
+                    text-align: center;
+                    color:#555;
+                }
+                .row__title{
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                    text-align: center;
+                    border-bottom: 1px solid #ccc;
+                    border-top: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                }
+                .row__title:first-child{
+                    border-left: 1px solid #ccc;
+                }
+                .row__code{
+                    width: 100%;
+                    border-left: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                }
+                .row__info{
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                }
+                .row__initialdate{
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                }
+                .row__expirydate{
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                }
+                .row__time{
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    word-wrap: break-word;
+                    font-weight: bold;
+                }
+            }
+          }
+      }
+    }
   }
 }

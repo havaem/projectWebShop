@@ -1,5 +1,5 @@
 <?php
-$id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
+$id = isset($_REQUEST["id"]) ? (int)$_REQUEST["id"] : 0;
 if ($id !== 0) {
     $code = rand(100000, 999999);
     $connect = mysqli_connect('localhost', 'admin', 'admin', 'cnpm webshop');
@@ -14,6 +14,7 @@ if ($id !== 0) {
     $sender .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     $sender .= "From: ADMIN TECHSHOP";
     if (mail($email, $subject, $message, $sender)) {
-        echo "<script>window.close();</script>";
+        // echo "<script>window.close();</script>";
+        echo "Mã xác nhận đã được gửi đến email của bạn";
     }
 }

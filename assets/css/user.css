@@ -795,23 +795,6 @@ body {
 .dashboard__right-content.form__history.active {
   display: block;
 }
-.dashboard__right-content.form__history .content__title {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 2rem;
-}
-.dashboard__right-content.form__history .content__title h2 {
-  font-size: 2rem;
-  font-weight: 100;
-  color: #333;
-  padding-top: 1rem;
-}
-.dashboard__right-content.form__history .content__title p {
-  font-size: 1.4rem;
-  line-height: 1.0625rem;
-  color: #555;
-  margin-top: 3px;
-}
 .dashboard__right-content.form__history .content__content {
   width: 100%;
 }
@@ -998,6 +981,208 @@ body {
   .container {
     margin: 0 auto;
     width: 100%;
+  }
+
+  .dashboard .container {
+    flex-direction: column;
+  }
+  .dashboard__left {
+    width: 95%;
+    margin: 0 auto;
+    padding: unset;
+  }
+  .dashboard__left-info .info__img {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 1.5rem;
+  }
+  .dashboard__left-info .info__name {
+    font-size: 1.7rem;
+  }
+  .dashboard__left-action {
+    margin-top: 1.4rem;
+    align-items: center;
+  }
+  .dashboard__left-action .action__type {
+    font-size: 1.4rem;
+  }
+  .dashboard__right {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .dashboard__right-content.form__profile {
+    padding: 2rem 2rem;
+    width: 100%;
+    display: none;
+  }
+  .dashboard__right-content.form__profile .content__content-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dashboard__right-content.form__profile .content__content-form .form__left {
+    width: 100%;
+  }
+  .dashboard__right-content.form__profile .content__content-form .form__left-left {
+    width: 40%;
+  }
+  .dashboard__right-content.form__profile .content__content-form .form__left-right {
+    width: 60%;
+  }
+  .dashboard__right-content.form__profile .content__content-form .form__right {
+    width: 100%;
+  }
+  .dashboard__right-content.form__profile .content__content-form button {
+    width: 20%;
+  }
+  .dashboard__right-content.form__password {
+    width: 100%;
+  }
+  .dashboard__right-content.form__password .content__content {
+    width: 100%;
+  }
+  .dashboard__right-content.form__password .content__content-form {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dashboard__right-content.form__password .content__content-form .form__left {
+    width: 100%;
+  }
+  .dashboard__right-content.form__password .content__content-form .form__left-left {
+    width: 50%;
+  }
+  .dashboard__right-content.form__password .content__content-form .form__left-right {
+    width: 50%;
+  }
+  .dashboard__right-content.form__password .content__content-form button {
+    width: 20%;
+  }
+  .dashboard__right-content.form__rank.active {
+    display: block;
+  }
+  .dashboard__right-content.form__rank .content__content {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .dashboard__right-content.form__rank .content__content-process {
+    width: 100%;
+  }
+  .dashboard__right-content.form__voucher {
+    width: 100%;
+  }
+  .dashboard__right-content.form__voucher .content__content {
+    width: 100%;
+  }
+  .dashboard__right-content.form__voucher .content__content-row {
+    width: 100%;
+    display: flex;
+  }
+  .dashboard__right-content.form__voucher .content__content-row div {
+    padding: 1.4rem 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #555;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    word-wrap: normal;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__title:first-child {
+    border-left: 1px solid #ccc;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__code {
+    width: 100%;
+    word-wrap: normal;
+    word-break: keep-all;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__info {
+    width: 100%;
+    word-wrap: normal;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__initialdate {
+    width: 13%;
+    word-wrap: normal;
+    display: none;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__expirydate {
+    display: none;
+    width: 13%;
+    word-wrap: normal;
+  }
+  .dashboard__right-content.form__voucher .content__content-row .row__time {
+    width: 100%;
+    word-wrap: normal;
+  }
+  .dashboard__right-content.form__history {
+    width: 100%;
+  }
+  .dashboard__right-content.form__history .content__content {
+    width: 100%;
+  }
+  .dashboard__right-content.form__history .content__content-row {
+    width: 100%;
+    display: flex;
+  }
+  .dashboard__right-content.form__history .content__content-row[data-ship="1"] {
+    background: rgba(46, 255, 27, 0.541);
+  }
+  .dashboard__right-content.form__history .content__content-row[data-ship="2"] {
+    background: #fcff4b;
+  }
+  .dashboard__right-content.form__history .content__content-row[data-ship="3"] {
+    background: #ffa7a7;
+  }
+  .dashboard__right-content.form__history .content__content-row div {
+    padding: 1.4rem 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #555;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__title:first-child {
+    border-left: 1px solid #ccc;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__code {
+    width: 100%;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__info {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__initialdate {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__expirydate {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+  }
+  .dashboard__right-content.form__history .content__content-row .row__time {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    word-wrap: break-word;
+    font-weight: bold;
   }
 }
 

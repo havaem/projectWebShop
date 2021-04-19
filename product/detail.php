@@ -11,8 +11,9 @@ if (mysqli_num_rows($check_id) == 0) {
 // End check for id
 $data = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $id"));
 
-// Hiển thị số sao để đổ comment cho user 
-function exportStar($number){
+// Hiển thị số sao để đổ  
+function exportStar($number)
+{
     switch ($number) {
         case 1:
             return "<i class='active fas fa-star'></i>
@@ -46,18 +47,11 @@ function exportStar($number){
             <i class='active fas fa-star'></i>";
     }
 }
-
 //Tăng lượt xem sau khi load
 $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product.id = $data[id]");
-
-$commentResult = $connect->query("SELECT * FROM comment WHERE id_product = $id order by release_date desc") or die("mysqli_error");
-if (mysqli_num_rows($commentResult) > 0) {
-    $rowComment = mysqli_fetch_all($commentResult);
-}
 ?>
 <!DOCTYPE html>
 <html lang="vn">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +64,7 @@ if (mysqli_num_rows($commentResult) > 0) {
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css">
+    <script src="../assets/script/jquery-3.6.0.min.js"></script>
     <script>
         function imageZoom(imgID, resultID) {
             var img, lens, result, cx, cy;
@@ -161,21 +156,21 @@ if (mysqli_num_rows($commentResult) > 0) {
     <div class="detail" style="padding-top:100px;">
         <div class="container">
             <div class="detail__type">
-            <?php
-                $type=mysqli_fetch_assoc($connect->query("SELECT producttype.name from producttype where producttype.id = ${data['type']}"));
+                <?php
+                $type = mysqli_fetch_assoc($connect->query("SELECT producttype.name from producttype where producttype.id = ${data['type']}"));
                 echo "<a href=''>${type['name']}</a>";
                 $manufacturer = mysqli_fetch_assoc($connect->query("SELECT name FROM manufacturer WHERE id = ${data['manufacturer']}"));
                 echo "<i class='fas fa-chevron-right'></i>";
-                echo "<a href='#'>".$type['name']." ".$manufacturer["name"]."</a>";
-            ?>
+                echo "<a href='#'>" . $type['name'] . " " . $manufacturer["name"] . "</a>";
+                ?>
             </div>
             <div class="detail__desc">
                 <p class="detail__desc-title"><?php echo $data['name']; ?></p>
                 <div class="detail__desc-rate">
                     <?php
-                        echo exportStar($data['rate']);
-                        $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${data['id']}"));
-                        echo "<a href='#danhgia'> - ".$countRate['count']." đánh giá</a>";
+                    echo exportStar($data['rate']);
+                    $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${data['id']}"));
+                    echo "<a href='#danhgia'> " . $countRate['count'] . " đánh giá</a>";
                     ?>
                     <a href="#">- <?php echo $data['view']; ?> lượt xem</a>
                 </div>
@@ -215,8 +210,8 @@ if (mysqli_num_rows($commentResult) > 0) {
         <div class="container">
             <h1 class="comment__title">Bình luận sản phẩm</h1>
             <?php
-                if(isset($_SESSION['idUserLogin'])){
-                    echo "<form class='comment__form' action='' method='post'>
+            if (isset($_SESSION['idUserLogin'])) {
+                echo "<form class='comment__form' action='' method='post'>
                             <textarea value=''></textarea>
                             <select name='' id=''>
                                 <option value='1'>1 sao</option>
@@ -227,9 +222,8 @@ if (mysqli_num_rows($commentResult) > 0) {
                             </select>
                             <button type='submit'>GỬI BÌNH LUẬN</button>
                         </form>";
-                }
-                else{
-                    echo <<<ABC
+            } else {
+                echo <<<ABC
                         <div class="comment__warning">
                             <h1>VUI LÒNG
                                 <a href="../login/dangnhap.php">ĐĂNG NHẬP</a>
@@ -237,35 +231,26 @@ if (mysqli_num_rows($commentResult) > 0) {
                             </h1>
                         </div>
                     ABC;
-                }
+            }
             ?>
-            
-            
             <div class="comment__content">
-            <?php
-                if (!empty($rowComment)) {
-                    foreach ($rowComment as $item) {
-                        //lấy rank từ db
-                        $rankResult = $connect->query("SELECT rank.name FROM user,rank WHERE user.rank = $item[2] AND rank.id = user.rank") or die("mysqli_error");
-                        $rowRank = mysqli_fetch_assoc($rankResult);
-                        //Lấy tên từ db
-                        $nameResult = $connect->query("SELECT user.name FROM user WHERE  user.id = $item[2]") or die("mysqli_error");
-                        $rowName = mysqli_fetch_assoc($nameResult);
-                        //Lấy số sao đánh giá từ db
-                        $starResult = $connect->query("SELECT star FROM rate WHERE id_user = $item[2] and id_product = ${data['id']}") or die("mysqli_error");
-                        $rowStar = mysqli_fetch_assoc($starResult);
-                        echo "
-                            <div class='comment__content-item'>
-                            <h3 class='item__name'>${rowName["name"]}<i class='fas fa-check-circle' title='${rowRank["name"]}'></i></h3>
-                            <span class='item__time'>$item[4]</span>
-                            <div class='item__rate'>";
-                        echo exportStar($rowStar['star']);
-                        echo "
-                            </div>
-                            <h4 class='item__comment'>$item[3]</h4>
-                            </div>
-                        ";
+                <!-- Import here -->
+            </div>
+            <div class="comment__page">
+                <?php
+                $totalRecord = mysqli_num_rows($connect->query("SELECT * FROM comment WHERE id_product = $id"));
+                if ($totalRecord != 0) {
+                    $totalPages = ceil($totalRecord / 4);
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        if ($i == 1) {
+                            echo "<a class='comment__page-item active' href='javascript:void(0)'>" . $i . "</a>";
+                            continue;
+                        }
+                        echo "<a class='comment__page-item' href='javascript:void(0)'>" . $i . "</a>";
                     }
+                }
+                else{
+                    echo "<h1 style='color:red'>KHÔNG CÓ COMMENT NÀO :(</h1>";
                 }
                 ?>
             </div>
@@ -275,7 +260,7 @@ if (mysqli_num_rows($commentResult) > 0) {
     include_once('../footer.php');
     ?>
     <script>
-        window.addEventListener('DOMContentLoaded', function() {
+        $(document).ready(function() {
             imageZoom("myimage", "myresult");
             paragraph = document.querySelector('.paragraph');
             paragraphmorebutton = document.querySelector('.paragraph__more');
@@ -283,6 +268,44 @@ if (mysqli_num_rows($commentResult) > 0) {
                 paragraph.style.height = 'unset';
                 paragraphmorebutton.style.display = 'none';
             }
+            currentPage = 1;
+            
+            $.ajax({
+                url: "http://localhost/projectWebshop/product/commentData.php",
+                type: 'POST',
+                data: {
+                    id: <?php echo $id; ?>,
+                    currentPage: currentPage
+                },
+                success: function(data) {
+                    $(".comment__content").html(data);
+                }
+            });
+            commentRequest = document.querySelectorAll(".comment__page-item");
+            removeActive = () => {
+                commentRequest.forEach(element => {
+                    element.classList.remove('active');
+                })
+            }
+            commentRequest.forEach(element => {
+                element.onclick = () => {
+                    currentPage = element.innerText;
+                    removeActive();
+                    element.classList.add('active');
+                    $.ajax({
+                        url: "http://localhost/projectWebshop/product/commentData.php",
+                        type: 'POST',
+                        data: {
+                            id: <?php echo $id; ?>,
+                            currentPage: currentPage
+                        },
+                        success: function(data) {
+                            $(".comment__content").html(data);
+                        }
+                    });
+                }
+            });
+
 
         });
     </script>

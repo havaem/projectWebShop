@@ -209,9 +209,9 @@ $rowPhone = mysqli_fetch_all($connect->query("SELECT * from product where type =
                       <i class='item__rate-star fas fa-star'></i>
                       ";
                   }
-         
+                  $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = $phone[0]"));
           echo "
-                      <span>30 đánh giá</span>
+                      <span>".$countRate['count']." đánh giá</span>
                     </div>
                   </a>
                   ";

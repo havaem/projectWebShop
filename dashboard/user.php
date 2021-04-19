@@ -16,6 +16,7 @@ require './controllerUserAction.php';
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css" />
+    <script src="../assets/script/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -129,7 +130,7 @@ require './controllerUserAction.php';
                                     <input type="password" name="newpassword" placeholder="Nhập mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
                                     <input type="password" name="renewpassword" placeholder="Nhập lại mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
                                     <div class="right__otp">
-                                        <input type="text" name="otp" minlength="6" maxlength="6" placeholder="Mã xác minh gồm 6 chữ số được gửi về email" required>
+                                        <input type="number" name="otp" min="100000" max="999999" placeholder="Mã xác minh gồm 6 chữ số được gửi về email" required  autocomplete="off">
                                         <a class="sendotp" href="javascript:void(0)">GỬI OTP</a>
                                         <!-- <?php
                                                 echo "<a href='./sendmail.php?id=${id}' target='_blank'>GỬI OTP</a>";
@@ -189,7 +190,7 @@ require './controllerUserAction.php';
                 <div class="dashboard__right-content form__voucher" id="voucher">
                     <div class="content__title">
                         <h2>Mã voucher của bạn</h2>
-                        <p>Mua hàng nhiều hơn để nhận thêm nhiều voucher nhé</p>
+                        <p>Mua hàng nhiều hơn để nhận nhiều voucher nhé</p>
                     </div>
                     <div class='content__content'>
                         <?php
@@ -296,12 +297,27 @@ require './controllerUserAction.php';
                 showID.classList.toggle('active');
             }
         }
-        //Send otp
+        /* //Send otp
         otp = document.querySelector('.sendotp');
         otp.onclick = function() {
             newOTP = window.open('<?php echo "./sendmail.php?id=${id}"; ?>', "OTP", "width=1,height=1");
             otp.style.display = 'none';
-        }
+        } */
+        $(".sendotp").click(function(){
+            $(".sendotp").css("display","none");
+            $.ajax({
+                url: "http://localhost/projectWebshop/dashboard/sendmail.php",
+                type:'POST',
+                data:
+                {
+                    id:<?php echo "${id}"; ?>
+                },
+                success: function(data)
+                {
+                    alert(data);
+                }               
+            });
+        });
     </script>
 </body>
 
