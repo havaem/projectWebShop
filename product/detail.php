@@ -8,6 +8,7 @@ $check_id = $connect->query("SELECT id from product where id = $id");
 if (mysqli_num_rows($check_id) == 0) {
     $id = 1;
 }
+
 // End check for id
 $data = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $id"));
 
@@ -213,13 +214,13 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             <?php
             if (isset($_SESSION['idUserLogin'])) {
                 echo "<form class='comment__form' action='' method='post'>
-                            <textarea value=''></textarea>
-                            <select name='' id=''>
-                                <option value='1'>1 sao</option>
-                                <option value='2'>2 sao</option>
-                                <option value='3'>3 sao</option>
-                                <option value='4'>4 sao</option>
+                            <textarea class='comment__form-content' value=''></textarea>
+                            <select name='comment__form-rate' id=''>
                                 <option value='5'>5 sao</option>
+                                <option value='4'>4 sao</option>
+                                <option value='3'>3 sao</option>
+                                <option value='2'>2 sao</option>
+                                <option value='1'>1 sao</option>
                             </select>
                             <button type='submit'>GỬI BÌNH LUẬN</button>
                         </form>";
@@ -238,21 +239,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 <!-- Import here -->
             </div>
             <div class="comment__page">
-                <?php
-                $totalRecord = mysqli_num_rows($connect->query("SELECT * FROM comment WHERE id_product = $id"));
-                if ($totalRecord != 0) {
-                    $totalPages = ceil($totalRecord / 4);
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        if ($i == 1) {
-                            echo "<a class='comment__page-item active' href='javascript:void(0)'>" . $i . "</a>";
-                            continue;
-                        }
-                        echo "<a class='comment__page-item' href='javascript:void(0)'>" . $i . "</a>";
-                    }
-                } else {
-                    echo "<h1 style='color:red'>KHÔNG CÓ COMMENT NÀO :(</h1>";
-                }
-                ?>
+
             </div>
         </div>
     </div>
@@ -268,45 +255,109 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 paragraph.style.height = 'unset';
                 paragraphmorebutton.style.display = 'none';
             }
-            currentPage = 1;
 
-            $.ajax({
-                url: "http://localhost/projectWebshop/product/commentData.php",
-                type: 'POST',
-                data: {
-                    id: <?php echo $id; ?>,
-                    currentPage: currentPage
-                },
-                success: function(data) {
-                    $(".comment__content").html(data);
-                }
-            });
+
             commentRequest = document.querySelectorAll(".comment__page-item");
+
+
+            getPages = () => document.querySelectorAll('.comment__page-item');
+            currentPage = 1;
+            $('.comment__form').submit(function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost/projectWebshop/product/commentAdd.php",
+                    type: 'POST',
+                    data: {
+                        id_product: <?php echo $id; ?>,
+                        id_user: <?php echo $rowUser['id']; ?>,
+                        rate: $('select').find('option:selected').text(),
+                        comment: $('.comment__form-content').val()
+                    },
+                    success: function(data) {
+                        console.log(data)
+                        loadComment();
+                        loadPage();
+                        setTimeout(() => {
+                            again();
+                        }, 1000);
+                    }
+                });
+            })
+            loadPage = () => {
+                $.ajax({
+                    url: "http://localhost/projectWebshop/product/commentPage.php",
+                    type: 'POST',
+                    data: {
+                        id: <?php echo $id; ?>,
+                    },
+                    success: function(data) {
+                        $(".comment__page").html(data);
+                    }
+                });
+                commentRequest = getPages();
+            }
+            loadComment = () => {
+                $.ajax({
+                    url: "http://localhost/projectWebshop/product/commentData.php",
+                    type: 'POST',
+                    data: {
+                        id: <?php echo $id; ?>,
+                        currentPage: currentPage
+                    },
+                    success: function(data) {
+                        $(".comment__content").html(data);
+                    }
+                });
+            }
+            loadPage();
+            loadComment();
+            setTimeout(() => {
+                commentRequest = getPages();
+                commentRequest.forEach(element => {
+                    element.onclick = () => {
+                        currentPage = element.innerText;
+                        removeActive();
+                        element.classList.add('active');
+                        $.ajax({
+                            url: "http://localhost/projectWebshop/product/commentData.php",
+                            type: 'POST',
+                            data: {
+                                id: <?php echo $id; ?>,
+                                currentPage: currentPage
+                            },
+                            success: function(data) {
+                                $(".comment__content").html(data);
+                            }
+                        });
+                    }
+                });
+            }, 100);
+            const again = () => {
+                commentRequest = getPages();
+                commentRequest.forEach(element => {
+                    element.onclick = () => {
+                        currentPage = element.innerText;
+                        removeActive();
+                        element.classList.add('active');
+                        $.ajax({
+                            url: "http://localhost/projectWebshop/product/commentData.php",
+                            type: 'POST',
+                            data: {
+                                id: <?php echo $id; ?>,
+                                currentPage: currentPage
+                            },
+                            success: function(data) {
+                                $(".comment__content").html(data);
+                            }
+                        });
+                    }
+                });
+            }
             removeActive = () => {
                 commentRequest.forEach(element => {
                     element.classList.remove('active');
                 })
             }
-            commentRequest.forEach(element => {
-                element.onclick = () => {
-                    currentPage = element.innerText;
-                    removeActive();
-                    element.classList.add('active');
-                    $.ajax({
-                        url: "http://localhost/projectWebshop/product/commentData.php",
-                        type: 'POST',
-                        data: {
-                            id: <?php echo $id; ?>,
-                            currentPage: currentPage
-                        },
-                        success: function(data) {
-                            $(".comment__content").html(data);
-                        }
-                    });
-                }
-            });
-
-
         });
     </script>
 </body>
