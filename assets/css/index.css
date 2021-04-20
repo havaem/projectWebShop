@@ -493,11 +493,7 @@ body {
 
 .slide .container {
   position: relative;
-  overflow: auto;
-}
-
-.slide .container::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
 }
 
 .slide__image {

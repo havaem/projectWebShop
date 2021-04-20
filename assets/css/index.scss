@@ -74,10 +74,7 @@ body {
   }
   .container {
     position: relative;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    overflow: hidden;
   }
   &__image {
     width: 100%;
