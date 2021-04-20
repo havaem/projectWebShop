@@ -111,7 +111,7 @@ $height-header__nav: 4.5rem;
           // display:flex;
           flex-direction: column;
           position: absolute;
-          top: 4rem;
+          top: 100%;
           left: 0;
           width: 100%;
           z-index: 100;
@@ -195,7 +195,7 @@ $height-header__nav: 4.5rem;
         width: 100%;
         background: #e44051;
         position: absolute;
-        box-shadow: 5px 3px 15px 0 rgb(0 0 0 / 12%);
+        box-shadow: 5px 3px 15px 0 #0000002e;
         z-index: 99;
         &-item {
           padding: 1.2rem 1.2rem;

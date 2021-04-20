@@ -2,65 +2,75 @@ window.addEventListener('DOMContentLoaded', function () {
     /* Slide 1 */
     slideIndex = 1;
     slideImage = document.querySelector('.slide__image')
-    slideButtonLeft = document.querySelector('.slide__button-left')
-    slideButtonRight = document.querySelector('.slide__button-right');
+    prevBtn = document.querySelector('.slide__button-left')
+    nextBtn = document.querySelector('.slide__button-right');
     switchButton = document.querySelectorAll(".slide__channel-switch")
-    let tp = 0;
-    slideButtonLeft.onclick = function () {
-        (slideIndex - 1) >= 1
-            ? slideIndex -= 1
-            : slideIndex = 5;
-        (tp - 100) >= 0
-            ? tp -= 100
-            : tp = 400;
-        textBold(slideIndex);
-        slideImage.style.transform = "translateX(" + (-tp) + "%)";
-    }
-    slideButtonRight.onclick = function () {
-        (slideIndex + 1) <= 5
-            ? slideIndex += 1
-            : slideIndex = 1;
-        (tp + 100) <= 400
-            ? tp += 100
-            : tp = 0;
-        textBold(slideIndex);
-        slideImage.style.transform = "translateX(" + (-tp) + "%)";
-    }
-    // Move to slide {number}
-    slideTo = (index) => {
-        switch (index) {
-            case 1:
-                {
-                    tp = 0;
-                    slideImage.style.transform = "translateX(0px)";
-                    break;
-                }
-            case 2:
-                {
-                    tp = 100;
-                    slideImage.style.transform = "translateX(-100%)";
-                    break;
-                }
-            case 3:
-                {
-                    tp = 200;
-                    slideImage.style.transform = "translateX(-200%)";
-                    break;
-                }
-            case 4:
-                {
-                    tp = 300;
-                    slideImage.style.transform = "translateX(-300%)";
-                    break;
-                }
-            case 5:
-                {
-                    tp = 400;
-                    slideImage.style.transform = "translateX(-400%)";
-                    break;
-                }
+    slides = document.querySelectorAll('.slide__image-item');
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    //tạo img trước và sau
+    firstClone.id = 'first-clone';
+    lastClone.id = 'last-clone';
+    //gán vào slideImg
+    slideImage.append(firstClone);
+    slideImage.prepend(lastClone);
+    // Nhảy tới slide 2
+    const slideWidth = slides[slideIndex].clientWidth;
+    slideImage.style.transform = `translateX(${- slideWidth * slideIndex}px)`;
+    const getSlides = () => document.querySelectorAll('.slide__image-item');
+    const moveToNextSlide = () => {
+        slides = getSlides();
+        if (slideIndex >= slides.length - 1)
+            return;
+        slideIndex++;
+        if(slideIndex > 0 && slideIndex < 6){
+            textBold(slideIndex)
+        }
+        if(slideIndex == 6){
+            textBold(1)
+        }
+        slideImage.style.transition = '.7s ease-out';
+        slideImage.style.transform = `translateX(${- slideWidth * slideIndex}px)`;
+    };
+    const moveToPreviousSlide = () => {
+        if (slideIndex <= 0)
+            return;
+        slideIndex--;
+        if(slideIndex > 0 && slideIndex < 6){
+            textBold(slideIndex)
+        }
+        if(slideIndex == 0){
+            textBold(5)
+        }
+        slideImage.style.transition = '.7s ease-out';
+        slideImage.style.transform = `translateX(${- slideWidth * slideIndex}px)`;
+    };
+    const moveToSlide = (slideMove) => {
+        slideImage.style.transition = '.7s ease-out';
+        if (slideMove !== slideIndex) {
+            slideID = slideIndex;
+            needMove = slideWidth*slideMove;
+            if (slideImage.style.transform = `translateX(-${needMove}px)`) {
+                slideIndex = slideMove;
+            }
         }
     }
+    nextBtn.addEventListener('click', moveToNextSlide);
+    prevBtn.addEventListener('click', moveToPreviousSlide);
+    slideImage.addEventListener('transitionend', () => {
+        slides = getSlides();
+        if (slides[slideIndex].id === firstClone.id) {
+            slideIndex = 1;
+            slideImage.style.transition = 'none';
+            slideImage.style.transform = `translateX(${- slideWidth * slideIndex}px)`;
+        }
+        else if (slides[slideIndex].id === lastClone.id) {
+            slideIndex = slides.length - 2;
+            slideImage.style.transition = 'none';
+            slideImage.style.transform = `translateX(${- slideWidth * slideIndex}px)`;
+        }
+        
+    });
     textBold = (slideIndex) => {
         for (var x of switchButton) {
             x.style.fontWeight = "100";
@@ -69,11 +79,21 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     for (let i = 0; i < switchButton.length; i++) {
         switchButton[i].onclick = () => {
-            slideIndex = i + 1;
-            slideTo(i + 1)
+            moveToSlide(i + 1)
             textBold(i + 1)
         }
     }
+    // Bắt sự kiện blur của slide và tự động chạy
+    const slideContainer = document.querySelector('.container');
+    const startSlide = () => {
+        slideId = setInterval(() => {
+            moveToNextSlide();
+        }, 10000);
+    };
+    slideContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideId);
+    });
+    startSlide();
     /* Slide 2 */
     indexslidePr = 0;
     slidePr = document.querySelector('.hotdeal__items')
