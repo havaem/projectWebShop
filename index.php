@@ -621,7 +621,7 @@ function exportStar($number){
                     </div>
                     <div class="hotphone__desc-phone">
                     <?php
-                        $titlePhone = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 1 order by view asc limit 4"));
+                        $titlePhone = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 1 and id!=25 order by view asc limit 4"));
                         for($i=0;$i<4;$i++){
                             echo "<a href='./product/detail.php?id=".$titlePhone[$i][0]."'>".$titlePhone[$i][1]."</a>";
                         }
@@ -631,7 +631,7 @@ function exportStar($number){
                     </div>
                 </div>
                 <div class="hotphone__content">
-                    <a href="#" class="hotphone__content-item big">
+                    <a href="./product/detail.php?id=25" class="hotphone__content-item big">
                         <img src="https://cdn.tgdd.vn/Products/Images/42/220438/Feature/oppo-reno5-ft-4g.jpg" class="item__img"/>
                         <h3 class="item__title">OPPO Reno5</h3>
                         <strong class="item__price">8.690.000₫</strong>
@@ -645,7 +645,7 @@ function exportStar($number){
                         </div>
                     </a>
                     <?php
-                        $resultPhone = $connect->query("SELECT * from product where type = 1 order by view desc limit 6");
+                        $resultPhone = $connect->query("SELECT * from product where type = 1 and id!=25 order by view desc limit 6");
                         for($i=0;$i<3;$i++){
                             $rowPhone = mysqli_fetch_assoc($resultPhone);
                             $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowPhone['id']}"));
@@ -704,19 +704,20 @@ function exportStar($number){
                         <h2>Laptop nổi bật nhất</h2>
                     </div>
                     <div class="hotlaptop__desc-laptop">
-                    <!-- <?php
-                        $titleLaptop = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 2 order by view asc limit 4"));
-                        for($i=0;$i<4;$i++){
+                    <?php
+                        $resultLaptop = $connect->query("SELECT * from product where type = 2 order by view desc limit 6");
+                        $titleLaptop = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 2 order by view asc limit 1"));
+/*                         for($i=0;$i<2;$i++){
                             echo "<a href='./product/detail.php?id=".$titleLaptop[$i][0]."'>".$titleLaptop[$i][1]."</a>";
-                        }
+                        } */
                         $sumLaptop = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1"));
                         echo "<a href='./product/laptop.php'>Xem tất cả <strong>".$sumLaptop['count']."</strong> laptop</a>";
-                    ?> -->
-                        <a href="#">Laptop Asus</a>
+                    ?>
+                       <!--  <a href="#">Laptop Asus</a>
                         <a href="#">Laptop HP</a>
                         <a href="#">Laptop Lenovo</a>
                         <a href="#">Macbook Pro</a>
-                        <a href="#">Xem tất cả <strong>100</strong> laptop</a>
+                        <a href="#">Xem tất cả <strong>100</strong> laptop</a> -->
                     </div>
                 </div>
                 <div class="hotlaptop__content">
@@ -733,45 +734,21 @@ function exportStar($number){
                             <span>30 đánh giá</span>
                         </div>
                     </a>
-                    <a href="#"class="hotlaptop__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">OPPO Reno5</h3>
-                        <strong class="item__price">8.690.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotlaptop__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">OPPO Reno5</h3>
-                        <strong class="item__price">8.690.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
-                    <a href="#"class="hotlaptop__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/44/214708/lenovo-ideapad-s340-14iil-i5-1035g1-8gb-512gb-win1-8-214708-2-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">OPPO Reno5</h3>
-                        <strong class="item__price">8.690.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a>
+                    <?php
+                        for($i=0;$i<3;$i++){
+                            $rowLaptop = mysqli_fetch_assoc($resultLaptop);
+                            $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowPhone['id']}"));
+                            echo "<a href='./product/detail.php?id=".$rowLaptop['id']."'class='hotlaptop__content-item'>
+                                    <img src='".substr($rowLaptop['image'],1)."' class='item__img'/>
+                                    <h3 class='item__title'>".$rowLaptop['name']."</h3>
+                                    <strong class='item__price'>".number_format($rowLaptop['price'])."</strong>
+                                        <div class='item__rate'>
+                                            ".exportStar($rowLaptop['rate'])."
+                                            <span>".$countRate['count']." đánh giá</span>
+                                        </div>
+                                </a>";
+                        }
+                    ?>
                 </div>
                 <div class="hotlaptop__more">
                     <a href="#">Xem tất cả <strong>100</strong> điện thoại</a>

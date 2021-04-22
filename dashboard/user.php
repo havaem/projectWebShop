@@ -95,8 +95,8 @@ require './controllerUserAction.php';
                                 </div>
                             </div>
                             <div class="form__right">
-                                <img src="<?php echo $avatar; ?>" alt="">
-                                <input type="file" alt="" accept=".png, .jpg, .jpeg, .gif" name="file">
+                                <img class="form__right-img" src="<?php echo $avatar; ?>" alt="">
+                                <input type="file" alt="" accept=".png, .jpg, .jpeg, .gif" name="file" onChange="onFileSelected(event)">
                             </div>
                             <button type="submit" name="updateInfoByUser">Lưu</button>
                         </form>
@@ -130,7 +130,7 @@ require './controllerUserAction.php';
                                     <input type="password" name="newpassword" placeholder="Nhập mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
                                     <input type="password" name="renewpassword" placeholder="Nhập lại mật khẩu mới" minlength="8" maxlength="32" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off">
                                     <div class="right__otp">
-                                        <input type="number" name="otp" min="100000" max="999999" placeholder="Mã xác minh gồm 6 chữ số được gửi về email" required  autocomplete="off">
+                                        <input type="number" name="otp" min="100000" max="999999" placeholder="Mã xác minh gồm 6 chữ số được gửi về email" required autocomplete="off">
                                         <a class="sendotp" href="javascript:void(0)">GỬI OTP</a>
                                         <!-- <?php
                                                 echo "<a href='./sendmail.php?id=${id}' target='_blank'>GỬI OTP</a>";
@@ -303,21 +303,29 @@ require './controllerUserAction.php';
             newOTP = window.open('<?php echo "./sendmail.php?id=${id}"; ?>', "OTP", "width=1,height=1");
             otp.style.display = 'none';
         } */
-        $(".sendotp").click(function(){
-            $(".sendotp").css("display","none");
+        $(".sendotp").click(function() {
+            $(".sendotp").css("display", "none");
             $.ajax({
                 url: "http://localhost/projectWebshop/dashboard/sendmail.php",
-                type:'POST',
-                data:
-                {
-                    id:<?php echo "${id}"; ?>
+                type: 'POST',
+                data: {
+                    id: <?php echo "${id}"; ?>
                 },
-                success: function(data)
-                {
+                success: function(data) {
                     alert(data);
-                }               
+                }
             });
         });
+        function onFileSelected(event) {
+            let selectedFile = event.target.files[0];
+            let reader = new FileReader();
+            let imgtag = document.querySelector(".form__right-img");
+            imgtag.title = selectedFile.name;
+            reader.onload = function(event) {
+                imgtag.src = event.target.result;
+            };
+            reader.readAsDataURL(selectedFile);
+        }
     </script>
 </body>
 

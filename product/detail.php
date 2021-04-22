@@ -255,34 +255,9 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 paragraph.style.height = 'unset';
                 paragraphmorebutton.style.display = 'none';
             }
-
-
             commentRequest = document.querySelectorAll(".comment__page-item");
-
-
             getPages = () => document.querySelectorAll('.comment__page-item');
             currentPage = 1;
-            $('.comment__form').submit(function(event) {
-                event.preventDefault();
-                $.ajax({
-                    url: "http://localhost/projectWebshop/product/commentAdd.php",
-                    type: 'POST',
-                    data: {
-                        id_product: <?php echo $id; ?>,
-                        id_user: <?php echo $rowUser['id']; ?>,
-                        rate: $('select').find('option:selected').text(),
-                        comment: $('.comment__form-content').val()
-                    },
-                    success: function(data) {
-                        console.log(data)
-                        loadComment();
-                        loadPage();
-                        setTimeout(() => {
-                            again();
-                        }, 1000);
-                    }
-                });
-            })
             loadPage = () => {
                 $.ajax({
                     url: "http://localhost/projectWebshop/product/commentPage.php",
@@ -311,6 +286,9 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             }
             loadPage();
             loadComment();
+            setInterval(() => {
+                loadComment();
+            }, 1000);
             setTimeout(() => {
                 commentRequest = getPages();
                 commentRequest.forEach(element => {
@@ -332,6 +310,30 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                     }
                 });
             }, 100);
+            idLogin = <?php echo isset($rowUser['id']) ? $rowUser['id'] : 0 ?>;
+            if (idLogin != 0) {
+                $('.comment__form').submit(function(event) {
+                    event.preventDefault();
+                    $.ajax({
+                        url: "http://localhost/projectWebshop/product/commentAdd.php",
+                        type: 'POST',
+                        data: {
+                            id_product: <?php echo $id; ?>,
+                            id_user: <?php echo isset($rowUser['id']) ? $rowUser['id'] : 0 ?>,
+                            rate: $('select').find('option:selected').text(),
+                            comment: $('.comment__form-content').val()
+                        },
+                        success: function(data) {
+                            console.log(data)
+                            loadComment();
+                            loadPage();
+                            setTimeout(() => {
+                                again();
+                            }, 1000);
+                        }
+                    });
+                })
+            }
             const again = () => {
                 commentRequest = getPages();
                 commentRequest.forEach(element => {

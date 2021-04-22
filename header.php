@@ -8,6 +8,7 @@ if (isset($_SESSION['idUserLogin'])) {
 }
 
 ?>
+
 <div class="header">
     <div class="container">
         <div class="header__main">
@@ -32,17 +33,16 @@ if (isset($_SESSION['idUserLogin'])) {
                 </a> -->
                 <?php
                 if (isset($idUserLogin)) {
-                     echo <<<XXX
+                    echo <<<XXX
                             <div class="mini__history mini__user">
                                 <span>${rowUser['name']}</span>
                                 <div class="mini__user-sub">
                                     <a href="http://localhost/projectWebshop/dashboard/user.php">PROFILE</a>
-                                     <a href="http://localhost/projectWebshop/login/dangxuat.php">LOGOUT</a>
+                                     <a class="mini__user-logout" href="http://localhost/projectWebshop/login/dangxuat.php">LOGOUT</a>
                                 </div>
                             </div>
                         XXX;
-                } 
-                else {
+                } else {
                     echo <<<XXX
                         <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
                         <span>ĐĂNG NHẬP</span>
@@ -50,7 +50,7 @@ if (isset($_SESSION['idUserLogin'])) {
                         XXX;
                 }
                 ?>
-                
+
 
             </div>
         </div>
