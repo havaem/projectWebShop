@@ -306,7 +306,7 @@ require './controllerUserAction.php';
         $(".sendotp").click(function() {
             $(".sendotp").css("display", "none");
             $.ajax({
-                url: "http://localhost/projectWebshop/dashboard/sendmail.php",
+                url: "<?php echo $domain."/dashboard/sendmail.php"?>",
                 type: 'POST',
                 data: {
                     id: <?php echo "${id}"; ?>

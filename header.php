@@ -8,11 +8,10 @@ if (isset($_SESSION['idUserLogin'])) {
 }
 
 ?>
-
 <div class="header">
     <div class="container">
         <div class="header__main">
-            <a href="http://localhost/projectWebshop/index.php" class="header__main-logo">
+            <a href="<?php echo $domain?>" class="header__main-logo">
                 <!-- <img src="./assets/image/logo.png" alt=""> -->
                 <h1>TechShop</h1>
                 <h1 class="mobile-logo">T</h1>
@@ -24,7 +23,7 @@ if (isset($_SESSION['idUserLogin'])) {
                 </button>
             </form>
             <div class="header__main-mini">
-                <a href="" class="mini__cart">
+                <a href="<?php echo $domain."/cart.php";?>" class="mini__cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Giỏ hàng</span>
                 </a>
@@ -37,14 +36,14 @@ if (isset($_SESSION['idUserLogin'])) {
                             <div class="mini__history mini__user">
                                 <span>${rowUser['name']}</span>
                                 <div class="mini__user-sub">
-                                    <a href="http://localhost/projectWebshop/dashboard/user.php">PROFILE</a>
-                                     <a class="mini__user-logout" href="http://localhost/projectWebshop/login/dangxuat.php">LOGOUT</a>
+                                    <a href="$domain/dashboard/user.php">PROFILE</a>
+                                     <a class="mini__user-logout" href="$domain/login/dangxuat.php">LOGOUT</a>
                                 </div>
                             </div>
                         XXX;
                 } else {
                     echo <<<XXX
-                        <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
+                        <a href="$domain/login/dangnhap.php" class="mini__history">
                         <span>ĐĂNG NHẬP</span>
                         </a>
                         XXX;
@@ -56,19 +55,19 @@ if (isset($_SESSION['idUserLogin'])) {
         </div>
         <div class="header__nav">
             <div class="header__nav-item">
-                <a href="http://localhost/projectWebshop/product/phone.php" class="item__title">
+                <a href="<?php echo $domain."/product/phone.php";?>" class="item__title">
                     <i class="item__icon flaticon-phone"></i>
                     <span>Điện thoại</span>
                 </a>
             </div>
             <div class="header__nav-item">
-                <a href="http://localhost/projectWebshop/product/laptop.php" class="item__title">
+                <a href="<?php echo $domain."/product/laptop.php";?>" class="item__title">
                     <i class="item__icon flaticon-analytics"></i>
                     <span>Laptop</span>
                 </a>
             </div>
             <div class="header__nav-item">
-                <a href="http://localhost/projectWebshop/product/tablet.php" class="item__title">
+                <a href="<?php echo $domain."/product/tablet.php";?>" class="item__title">
                     <i class="item__icon fas fa-tablet-alt"></i>
                     <span>Tablet</span>
                 </a>
@@ -89,14 +88,14 @@ if (isset($_SESSION['idUserLogin'])) {
                 </div>
             </div>
             <div class="header__nav-item">
-                <a href="http://localhost/projectWebshop/product/watch.php" class="item__title">
+                <a href="<?php echo $domain."/product/watch.php";?>" class="item__title">
                     <i class="item__icon flaticon-smartwatch"></i>
                     <span>Đồng hồ thông minh</span>
                 </a>
 
             </div>
             <div class="header__nav-item">
-                <a href="http://localhost/projectWebshop/product/pc.php" class="item__title">
+                <a href="<?php echo $domain."/product/pc.php";?>" class="item__title">
                     <i class="item__icon fas fa-desktop"></i>
                     <span>PC, Máy in</span>
                 </a>

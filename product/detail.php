@@ -260,7 +260,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             currentPage = 1;
             loadPage = () => {
                 $.ajax({
-                    url: "http://localhost/projectWebshop/product/commentPage.php",
+                    url: "<?php echo $domain."/product/commentPage.php"?>",
                     type: 'POST',
                     data: {
                         id: <?php echo $id; ?>,
@@ -273,7 +273,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             }
             loadComment = () => {
                 $.ajax({
-                    url: "http://localhost/projectWebshop/product/commentData.php",
+                    url: "<?php echo $domain."/product/commentData.php"?>",
                     type: 'POST',
                     data: {
                         id: <?php echo $id; ?>,
@@ -297,7 +297,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         removeActive();
                         element.classList.add('active');
                         $.ajax({
-                            url: "http://localhost/projectWebshop/product/commentData.php",
+                            url: "<?php echo $domain."/product/commentData.php"?>",
                             type: 'POST',
                             data: {
                                 id: <?php echo $id; ?>,
@@ -315,7 +315,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 $('.comment__form').submit(function(event) {
                     event.preventDefault();
                     $.ajax({
-                        url: "http://localhost/projectWebshop/product/commentAdd.php",
+                        url: "<?php echo $domain."/product/commentAdd.php"?>",
                         type: 'POST',
                         data: {
                             id_product: <?php echo $id; ?>,
@@ -342,7 +342,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         removeActive();
                         element.classList.add('active');
                         $.ajax({
-                            url: "http://localhost/projectWebshop/product/commentData.php",
+                            url: "<?php echo $domain."/product/commentData.php"?>",
                             type: 'POST',
                             data: {
                                 id: <?php echo $id; ?>,
