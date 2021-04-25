@@ -91,13 +91,10 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             img.addEventListener("touchmove", moveLens);
             img.addEventListener("mouseout", () => {
                 document.querySelector(".img-zoom-result").style.opacity = 0;
-                console.log('out')
             });
             img.addEventListener("mouseover", () => {
                 document.querySelector(".img-zoom-result").style.opacity = 1;
-                console.log('in')
             });
-
             function moveLens(e) {
                 var pos, x, y;
                 /* Prevent any other actions that may occur when moving over the image */
@@ -192,11 +189,11 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 </div>
             </div>
             <div class="description__action">
-                <a href="" class="description__action-buy" title="MUA NGAY">
+                <a href="javascript:void(0)" class="description__action-buy" title="MUA NGAY">
                     <p>MUA NGAY</p>
                     <p>Giao hàng tận nơi hoặc nhận tại cửa hàng</p>
                 </a>
-                <a href="" class="description__action-addToCart" title="MUA NGAY">
+                <a href="javascript:void(0)" class="description__action-addToCart" title="MUA NGAY">
                     <p>THÊM VÀO GIỎ HÀNG</p>
                     <p>Tiện cho việc thanh toán</p>
                 </a>
@@ -249,18 +246,20 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
     <script>
         $(document).ready(function() {
             imageZoom("myimage", "myresult");
+            // Xem thêm 
             paragraph = document.querySelector('.paragraph');
             paragraphmorebutton = document.querySelector('.paragraph__more');
             paragraphmorebutton.onclick = () => {
                 paragraph.style.height = 'unset';
                 paragraphmorebutton.style.display = 'none';
             }
+            //Xử lí comment 
             commentRequest = document.querySelectorAll(".comment__page-item");
             getPages = () => document.querySelectorAll('.comment__page-item');
             currentPage = 1;
             loadPage = () => {
                 $.ajax({
-                    url: "<?php echo $domain."/product/commentPage.php"?>",
+                    url: "<?php echo $domain . "/product/commentPage.php" ?>",
                     type: 'POST',
                     data: {
                         id: <?php echo $id; ?>,
@@ -273,7 +272,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             }
             loadComment = () => {
                 $.ajax({
-                    url: "<?php echo $domain."/product/commentData.php"?>",
+                    url: "<?php echo $domain . "/product/commentData.php" ?>",
                     type: 'POST',
                     data: {
                         id: <?php echo $id; ?>,
@@ -297,7 +296,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         removeActive();
                         element.classList.add('active');
                         $.ajax({
-                            url: "<?php echo $domain."/product/commentData.php"?>",
+                            url: "<?php echo $domain . "/product/commentData.php" ?>",
                             type: 'POST',
                             data: {
                                 id: <?php echo $id; ?>,
@@ -315,7 +314,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 $('.comment__form').submit(function(event) {
                     event.preventDefault();
                     $.ajax({
-                        url: "<?php echo $domain."/product/commentAdd.php"?>",
+                        url: "<?php echo $domain . "/product/commentAdd.php" ?>",
                         type: 'POST',
                         data: {
                             id_product: <?php echo $id; ?>,
@@ -342,7 +341,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         removeActive();
                         element.classList.add('active');
                         $.ajax({
-                            url: "<?php echo $domain."/product/commentData.php"?>",
+                            url: "<?php echo $domain . "/product/commentData.php" ?>",
                             type: 'POST',
                             data: {
                                 id: <?php echo $id; ?>,
@@ -359,6 +358,21 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 commentRequest.forEach(element => {
                     element.classList.remove('active');
                 })
+            }
+
+            //Thêm vào giỏ hàng
+            addToCartBtn = document.querySelector(".description__action-addToCart");
+            addToCartBtn.onclick = () => {
+                $.ajax({
+                    url: "<?php echo $domain . "/product/cartAdd.php" ?>",
+                    type: 'POST',
+                    data: {
+                        id: <?php echo $data['id']; ?>,
+                    },
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
             }
         });
     </script>

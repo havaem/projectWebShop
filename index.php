@@ -56,6 +56,7 @@ function exportStar($number){
         <!-- FontAwesome -->
         <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="./assets/icon/flaticon.css">
+        <script src="./assets/script/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <button class="scrollbutton" style="z-index:99;border-radius:1rem;display:none;position: fixed; right: 1rem;bottom: 2rem;padding: 1.2rem 1.4rem;background:#D70018;outline: none;border: none;cursor:pointer">

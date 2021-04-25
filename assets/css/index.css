@@ -208,10 +208,21 @@ body {
   border: 0.01rem solid white;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  position: relative;
 }
 
 .header__main-mini .mini__cart:hover {
   background: rgba(255, 255, 255, 0.404);
+}
+
+.header__main-mini .mini__cart p {
+  position: absolute;
+  top: 20%;
+  left: 6%;
+  background: white;
+  padding: .5rem .8rem;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .header__main-mini .mini__history {

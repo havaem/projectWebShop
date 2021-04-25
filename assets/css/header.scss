@@ -95,8 +95,18 @@ $height-header__nav: 4.5rem;
         border-radius: 0.7rem;
         border: 0.01rem solid white;
         transition: all 0.2s;
+        position: relative;
         &:hover {
           background: rgba(255, 255, 255, 0.404);
+        }
+        p{
+          position: absolute;
+          top: 20%;
+          left: 6%;
+          background: white;
+          padding: .5rem .8rem;
+          border-radius: 50%;
+          font-weight: bold;
         }
       }
       .mini__history {
