@@ -2,7 +2,7 @@
 session_start();
 include("../config.php");
 $id = $_SESSION['idUserLogin'];
-if(!isset($_SESSION['idUserLogin'])){
+if (!isset($_SESSION['idUserLogin'])) {
     header('location: ../login/dangnhap.php');
     exit();
 }

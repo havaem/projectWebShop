@@ -128,7 +128,6 @@ window.addEventListener('DOMContentLoaded', function () {
        }
     })
     scrollbtn.onclick = () => {
-        console.log('sss');
         window.scrollTo(0,0);
     }
 });

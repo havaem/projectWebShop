@@ -11,3 +11,12 @@ https://vhnvohoainam.github.io/projectWebShop/
 <h1>Update : 25/04/2021 by Võ Hoài Nam</h1>
 <p>1. Chỉnh sửa 1 số lỗi cơ bản về hiển thị</p>
 <p>2. Giỏ hàng đã hoàn chỉnh nhưng chưa thanh toán được</p>
+
+<h1>Update : 11/05/2021 by Võ Hoài Nam</h1>
+<p>1. Chỉnh sửa 1 số lỗi cơ bản về hiển thị</p>
+<p>2. Hiển thị lịch sử đánh giá và hiển thị chính xác số sao đánh giá</p>
+<p>3. Chỉnh sửa trang giỏ hàng hoàn thiện</p>
+
+<h1>Update : 12/05/2021 by Võ Hoài Nam</h1>
+<p>1. Thêm thông báo trực quan dễ đọc hơn</p>
+<p>2. Kiểm tra coupon</p>

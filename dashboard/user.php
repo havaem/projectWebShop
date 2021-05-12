@@ -17,6 +17,8 @@ require './controllerUserAction.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css" />
     <script src="../assets/script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/notify.css">
+    <script src="../assets/script/notyf.min.js"></script>
 </head>
 
 <body>
@@ -47,15 +49,33 @@ require './controllerUserAction.php';
                     </div>
                     <div class="content__content">
                         <?php
+                        echo<<<XXX
+                            <script>
+                                var notyf = new Notyf({
+                                    duration: 3000,
+                                    position: {
+                                        x: 'left',
+                                        y: 'bottom',
+                                    },
+                                    ripple: true,
+                                    dismissible: true,
+                                });
+                            </script>
+                        XXX;
                         if (count($error) > 0) {
-                            echo "<div class='content__content-error'>";
+                            // echo "<div class='content__content-error'>";
                             foreach ($error as $item) {
-                                echo "<p>$item</p>";
+                                echo<<<XXX
+                                    <script>
+                                        notyf.error('$item')
+                                    </script>
+                                    XXX;
+                                // echo "<p>$item</p>";
                             }
-                            echo "</div>";
+                            // echo "</div>";
                         }
                         ?>
-                        <form action="./controllerUserAction.php" class="content__content-form" method="post" enctype="multipart/form-data">
+                        <form action="" class="content__content-form" method="post" enctype="multipart/form-data">
                             <div class="form__left">
                                 <div class="form__left-left">
                                     <p class="left__title">Tên đăng nhập</p>
@@ -109,13 +129,13 @@ require './controllerUserAction.php';
                     </div>
                     <div class="content__content">
                         <?php
-                        if (count($error) > 0) {
+                        /* if (count($error) > 0) {
                             echo "<div class='content__content-error'>";
                             foreach ($error as $item) {
                                 echo "<p>$item</p>";
                             }
                             echo "</div>";
-                        }
+                        } */
                         ?>
                         <form action="" class="content__content-form" method="post">
                             <div class="form__left">
@@ -297,16 +317,11 @@ require './controllerUserAction.php';
                 showID.classList.toggle('active');
             }
         }
-        /* //Send otp
-        otp = document.querySelector('.sendotp');
-        otp.onclick = function() {
-            newOTP = window.open('<?php echo "./sendmail.php?id=${id}"; ?>', "OTP", "width=1,height=1");
-            otp.style.display = 'none';
-        } */
+        //Button send otp
         $(".sendotp").click(function() {
             $(".sendotp").css("display", "none");
             $.ajax({
-                url: "<?php echo $domain."/dashboard/sendmail.php"?>",
+                url: "<?php echo $domain . "/dashboard/sendmail.php" ?>",
                 type: 'POST',
                 data: {
                     id: <?php echo "${id}"; ?>
@@ -316,6 +331,7 @@ require './controllerUserAction.php';
                 }
             });
         });
+        //Button change img
         function onFileSelected(event) {
             let selectedFile = event.target.files[0];
             let reader = new FileReader();

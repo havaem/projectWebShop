@@ -15,6 +15,7 @@ $_SESSION['status'] = null;
     <!-- Source CSS -->
     <link rel="stylesheet" href="../assets/css/dangnhap.css" />
     <!-- FontAwesome -->
+    <script src="../assets/script/jquery-3.6.0.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -30,7 +31,7 @@ $_SESSION['status'] = null;
         <div class="container">
             <div class="form__title">
                 <h2>Chào mừng bạn đến với TechShop</h2>
-                <h3>Thành viên mớii ? Đăng kí <a href="./dangky.php">tại đây</a></h3>
+                <h3>Thành viên mới ? Đăng kí <a href="./dangky.php">tại đây</a></h3>
             </div>
             <?php
                 if(count($errors)>0){

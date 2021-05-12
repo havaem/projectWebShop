@@ -101,8 +101,11 @@
                 $statusDB = $upDB['status'];
                 print_r($statusDB);
                 if ($statusDB === 'Verified') {
-                    $_SESSION['idUserLogin'] = $upDB['id'];;
-                    header('location: http://localhost/projectWebshop/dashboard/user.php');
+                    $_SESSION['idUserLogin'] = $upDB['id'];
+                    // header('location: http://localhost/projectWebshop/dashboard/user.php');
+                    // header("Location: " . $_SERVER["HTTP_REFERER"]);
+                    echo "<script>window.history.go(-2);</script>";
+                    echo "<script>window.location.reload();</script>";
                     exit();
                 } 
                 else {

@@ -16,36 +16,42 @@ $data = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $id
 function exportStar($number)
 {
     switch ($number) {
+        case 0:
+            return "<i style='font-size:14px;color:#dfdfdf;' class='far fa-star'></i>
+                    <i style='font-size:14px;color:#dfdfdf;' class='far fa-star'></i>
+                    <i style='font-size:14px;color:#dfdfdf;' class='far fa-star'></i>
+                    <i style='font-size:14px;color:#dfdfdf;' class='far fa-star'></i>
+                    <i style='font-size:14px;color:#dfdfdf;' class='far fa-star'></i>";
         case 1:
             return "<i class='active fas fa-star'></i>
-        <i class='fas fa-star'></i>
-        <i class='fas fa-star'></i>
-        <i class='fas fa-star'></i>
-        <i class='fas fa-star'></i>";
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>";
         case 2:
             return "<i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='fas fa-star'></i>
-            <i class='fas fa-star'></i>
-            <i class='fas fa-star'></i>";
+                    <i class='active fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>";
         case 3:
             return "<i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='fas fa-star'></i>
-            <i class='fas fa-star'></i>";
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>
+                    <i class='fas fa-star'></i>
+                    <i class='fas fa-star'></i>";
         case 4:
             return "<i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='fas fa-star'></i>";
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>
+                    <i class='fas fa-star'></i>";
         case 5:
             return "<i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>
-            <i class='active fas fa-star'></i>";
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>
+                    <i class='active fas fa-star'></i>";
     }
 }
 //Tăng lượt xem sau khi load
@@ -95,6 +101,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             img.addEventListener("mouseover", () => {
                 document.querySelector(".img-zoom-result").style.opacity = 1;
             });
+
             function moveLens(e) {
                 var pos, x, y;
                 /* Prevent any other actions that may occur when moving over the image */
@@ -143,6 +150,8 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             }
         }
     </script>
+    <link rel="stylesheet" href="../assets/css/notify.css">
+    <script src="../assets/script/notyf.min.js"></script>
 </head>
 
 <body>
@@ -210,23 +219,68 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             <h1 class="comment__title">Bình luận sản phẩm</h1>
             <?php
             if (isset($_SESSION['idUserLogin'])) {
-                echo "<form class='comment__form' action='' method='post'>
-                            <textarea class='comment__form-content' value=''></textarea>
-                            <select name='comment__form-rate' id=''>
-                                <option value='5'>5 sao</option>
-                                <option value='4'>4 sao</option>
-                                <option value='3'>3 sao</option>
-                                <option value='2'>2 sao</option>
-                                <option value='1'>1 sao</option>
-                            </select>
-                            <button type='submit'>GỬI BÌNH LUẬN</button>
-                        </form>";
+                if (mysqli_num_rows($connect->query("SELECT star from rate where id_product=$data[id] and id_user=$_SESSION[idUserLogin]")) > 0) {
+                    $getStar = mysqli_fetch_assoc($connect->query("SELECT star from rate where id_product=$data[id] and id_user=$_SESSION[idUserLogin]"))['star'];
+                    echo "  <form class='comment__form' action='' method='post'>
+                                <textarea class='comment__form-content' value=''></textarea>
+                                <select name='comment__form-rate' id=''>";
+                    if ($getStar == 0 || $getStar == 5) {
+                        echo "      <option value='5'>5 sao</option>
+                                    <option value='4'>4 sao</option>
+                                    <option value='3'>3 sao</option>
+                                    <option value='2'>2 sao</option>
+                                    <option value='1'>1 sao</option>";
+                    }
+                    if ($getStar == 1) {
+                        echo "      <option value='5'>5 sao</option>
+                                    <option value='4'>4 sao</option>
+                                    <option value='3'>3 sao</option>
+                                    <option value='2'>2 sao</option>
+                                    <option value='1' selected>1 sao</option>";
+                    }
+                    if ($getStar == 2) {
+                        echo "      <option value='5'>5 sao</option>
+                                    <option value='4'>4 sao</option>
+                                    <option value='3'>3 sao</option>
+                                    <option value='2' selected>2 sao</option>
+                                    <option value='1'>1 sao</option>";
+                    }
+                    if ($getStar == 3) {
+                        echo "      <option value='5'>5 sao</option>
+                                    <option value='4'>4 sao</option>
+                                    <option value='3' selected>3 sao</option>
+                                    <option value='2'>2 sao</option>
+                                    <option value='1'>1 sao</option>";
+                    }
+                    if ($getStar == 4) {
+                        echo "      <option value='5'>5 sao</option>
+                                    <option value='4' selected>4 sao</option>
+                                    <option value='3'>3 sao</option>
+                                    <option value='2'>2 sao</option>
+                                    <option value='1'>1 sao</option>";
+                    }
+                    echo "      </select>
+                                <button type='submit'>GỬI BÌNH LUẬN</button>
+                            </form>";
+                } else {
+                    echo "    <form class='comment__form' action='' method='post'>
+                                <textarea class='comment__form-content' value=''></textarea>
+                                <select name='comment__form-rate' id=''>  
+                                    <option value='5'>5 sao</option>
+                                    <option value='4'>4 sao</option>
+                                    <option value='3'>3 sao</option>
+                                    <option value='2'>2 sao</option>
+                                    <option value='1'>1 sao</option>
+                                </select>
+                                <button type='submit'>GỬI BÌNH LUẬN</button>
+                            </form>";
+                }
             } else {
                 echo <<<ABC
                         <div class="comment__warning">
-                            <h1>VUI LÒNG
+                            <h1>
                                 <a href="../login/dangnhap.php">ĐĂNG NHẬP</a>
-                                ĐỂ BÌNH LUẬN
+                                ĐỂ BÌNH LUẬN VÀ ĐÁNH GIÁ
                             </h1>
                         </div>
                     ABC;
@@ -236,15 +290,28 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 <!-- Import here -->
             </div>
             <div class="comment__page">
-
+                <!-- Import here -->
             </div>
         </div>
     </div>
     <?php
     include_once('../footer.php');
     ?>
+
     <script>
-        $(document).ready(function() {
+        window.addEventListener('DOMContentLoaded', function() {
+            /* Scroll button */
+            scrollbtn = document.querySelector('.scrollbutton')
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    scrollbtn.classList.add('show');
+                } else {
+                    scrollbtn.classList.remove('show');
+                }
+            })
+            scrollbtn.onclick = () => {
+                window.scrollTo(0, 0);
+            }
             imageZoom("myimage", "myresult");
             // Xem thêm 
             paragraph = document.querySelector('.paragraph');
@@ -323,7 +390,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                             comment: $('.comment__form-content').val()
                         },
                         success: function(data) {
-                            console.log(data)
+                            console.log(data + 'ne')
                             loadComment();
                             loadPage();
                             setTimeout(() => {
@@ -359,7 +426,15 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                     element.classList.remove('active');
                 })
             }
-
+            var notyf = new Notyf({
+                duration: 1500,
+                position: {
+                    x: 'left',
+                    y: 'bottom',
+                },
+                ripple: true,
+                dismissible: true,
+            });
             //Thêm vào giỏ hàng
             addToCartBtn = document.querySelector(".description__action-addToCart");
             addToCartBtn.onclick = () => {
@@ -370,7 +445,12 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         id: <?php echo $data['id']; ?>,
                     },
                     success: function(data) {
-                        console.log(data);
+                        if (data == 1) {
+                            notyf.success('Thêm vào giỏ hàng thành công');
+                        }
+                        if (data == 2) {
+                            notyf.success('Tăng số lượng thành công');
+                        }
                     }
                 });
             }

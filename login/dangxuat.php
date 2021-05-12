@@ -1,6 +1,5 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
+$_SESSION['idUserLogin'] = null;
 header('location: http://localhost/projectWebshop/login/dangnhap.php');
 ?>
