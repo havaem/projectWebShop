@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("./config.php");
+include("../config.php");
 if (!isset($_SESSION['cart'])) {
     $cart = array();
     $_SESSION['cart'] = $cart;
@@ -13,38 +13,38 @@ if (!isset($_SESSION['cart'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TECHSHOP ✔</title>
-    <link rel="icon" href="./assets/image/icon.png" sizes="">
+    <link rel="icon" href="../assets/image/icon.png" sizes="">
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
     <!-- Source CSS -->
-    <link rel="stylesheet" href="./assets/css/cart.css">
+    <link rel="stylesheet" href="../assets/css/cart.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/icon/flaticon.css">
-    <script src="./assets/script/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/notify.css">
-    <script src="./assets/script/notyf.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css">
+    <script src="../assets/script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/notify.css">
+    <script src="../assets/script/notyf.min.js"></script>
 </head>
 
 <body>
 
     <?php
-    include_once('./header.php');
+    include_once('../header.php');
     ?>
     <div class="cart">
         <?php
-        echo "<div class='container'>";
-        if (count($_SESSION['cart']) === 0) {
-            echo <<<XXX
-                <img src="./assets/image/empty-cart.png" alt="" sizes="" srcset=""
+                echo "<div class='container'>";
+                if (count($_SESSION['cart']) === 0) {
+                    echo <<<XXX
+                <img src="$domain/assets/image/empty-cart.png" alt="" sizes="" srcset=""
                 class="cart__empty"> 
                 <p class="cart__info">Không có sản phẩm nào trong giỏ
                 hàng</p> 
                 <a href="$domain" class="cart__button">VỀ TRANG CHỦ</a>
                 XXX;
-            echo "</div>";
-        } else {
-            echo <<<XXX
+                    echo "</div>";
+                } else {
+                    echo <<<XXX
                     <div class="cart__header">
                         <div class="cart__header-title colName colTitle">Sản phẩm</div>
                         <div class="cart__header-price colQuanity colTitle">Số lượng</div>
@@ -54,18 +54,18 @@ if (!isset($_SESSION['cart'])) {
                     <div class="cart__content">
                 XXX;
 
-            $cartItems = $_SESSION['cart'];
-            for ($i = 0; $i < count($cartItems); $i++) {
-                $cartItemId = $cartItems[$i]['id'];
-                $cartItem = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $cartItemId"));
-                $imageItem = substr($cartItem["image"], 1);
-                $quanityId = "quanity" . $i;
-                $priceItem = number_format($_SESSION['cart'][$i]['pricePay']) . "đ";
-                $quanity = $cartItems[$i]['quanity'];
-                echo <<<XXX
+                    $cartItems = $_SESSION['cart'];
+                    for ($i = 0; $i < count($cartItems); $i++) {
+                        $cartItemId = $cartItems[$i]['id'];
+                        $cartItem = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $cartItemId"));
+                        $imageItem = substr($cartItem["image"], 1);
+                        $quanityId = "quanity" . $i;
+                        $priceItem = number_format($_SESSION['cart'][$i]['pricePay']) . "đ";
+                        $quanity = $cartItems[$i]['quanity'];
+                        echo <<<XXX
                         <div class="cart__content-item">
                             <div class="item__title colName colContent">
-                                <img class="item__title-img" src="$imageItem" alt="">
+                                <img class="item__title-img" src="$domain$imageItem" alt="">
                                 <a href="$domain/product/detail.php?id=$cartItemId">${cartItem["name"]}</a>
                             </div>
                             <div class="item__quanity colQuanity colContent">
@@ -81,19 +81,16 @@ if (!isset($_SESSION['cart'])) {
                             </div>
                         </div>
                         XXX;
-            }
-            echo <<<XXX
+                    }
+                    echo <<<XXX
                     </div>
                     <div class="cart__pay">
                         <input type="text" name="" id="couponInp" placeholder="Nhập coupon của bạn" oninput="this.value = this.value.toUpperCase()" />
                         <button class="pay-cart">THANH TOÁN</button>
                     </div>
                     XXX;
-        }
-        ?>
-
-
-
+                }
+                ?> 
     </div>
     </div>
 
@@ -146,7 +143,7 @@ if (!isset($_SESSION['cart'])) {
                     // Chưa login
                     else {
                         alert('Vui lòng đăng nhập để thanh toán!!');
-                        window.location.href = './login/dangnhap.php';
+                        window.location.href = "<?php echo $domain . "/login/dangnhap.php" ?>";
                     }
                 }
             });
@@ -169,7 +166,7 @@ if (!isset($_SESSION['cart'])) {
                 if (quanity.value >= 2) {
                     quanity.value--;
                     $.ajax({
-                        url: "<?php echo $domain . "/product/cartAction.php" ?>",
+                        url: "<?php echo $domain . "/actions/actionCart.php" ?>",
                         type: 'POST',
                         data: {
                             aT: 1,
@@ -190,7 +187,7 @@ if (!isset($_SESSION['cart'])) {
                 quanity = document.querySelector(`.${upFor}`);
                 quanity.value++;
                 $.ajax({
-                    url: "<?php echo $domain . "/product/cartAction.php" ?>",
+                    url: "<?php echo $domain . "/actions/actionCart.php" ?>",
                     type: 'POST',
                     data: {
                         aT: 1,
@@ -213,7 +210,7 @@ if (!isset($_SESSION['cart'])) {
             btnDelete[i].onclick = function() {
                 deleteWhere = this.getAttribute("data-index")
                 $.ajax({
-                    url: "<?php echo $domain . "/product/cartAction.php" ?>",
+                    url: "<?php echo $domain . "/actions/actionCart.php" ?>",
                     type: 'POST',
                     data: {
                         aT: 0,

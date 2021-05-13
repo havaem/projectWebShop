@@ -120,6 +120,9 @@
     margin: 0 auto;
     position: relative;
 }
+.notyf__icon--size{
+    font-size: 21px;
+}
 .notyf__icon--error:after,
 .notyf__icon--error:before {
     content: "";

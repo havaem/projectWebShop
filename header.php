@@ -23,7 +23,7 @@ if (isset($_SESSION['idUserLogin'])) {
                 </button>
             </form>
             <div class="header__main-mini">
-                <a href="<?php echo $domain . "/cart.php"; ?>" class="mini__cart">
+                <a href="<?php echo $domain . "/cart/cart.php"; ?>" class="mini__cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Giỏ hàng</span>
                     <p class="sumItem">0</p>
@@ -108,7 +108,7 @@ if (isset($_SESSION['idUserLogin'])) {
     window.addEventListener('DOMContentLoaded', function() {
         function getSum() {
             $.ajax({
-                url: "<?php echo $domain . "/product/cartSum.php" ?>",
+                url: "<?php echo $domain . "/actions/actionCartSum.php" ?>",
                 type: 'POST',
                 success: function(data) {
                     document.querySelector(".sumItem").innerText = data;

@@ -335,7 +335,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         $(".comment__page").html(data);
                     }
                 });
-                commentRequest = getPages();
+                // commentRequest = getPages();
             }
             loadComment = () => {
                 $.ajax({
@@ -439,7 +439,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             addToCartBtn = document.querySelector(".description__action-addToCart");
             addToCartBtn.onclick = () => {
                 $.ajax({
-                    url: "<?php echo $domain . "/product/cartAdd.php" ?>",
+                    url: "<?php echo $domain . "/actions/actionCartAdd.php" ?>",
                     type: 'POST',
                     data: {
                         id: <?php echo $data['id']; ?>,

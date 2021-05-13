@@ -20,3 +20,8 @@ https://vhnvohoainam.github.io/projectWebShop/
 <h1>Update : 12/05/2021 by Võ Hoài Nam</h1>
 <p>1. Thêm thông báo trực quan dễ đọc hơn</p>
 <p>2. Kiểm tra coupon</p>
+
+<h1>Update : 13/05/2021 by Võ Hoài Nam</h1>
+<p>1. Nâng cấp shopping cart lên tầm cao mới (không load lại, có thông báo)</p>
+<p>2. Dọn dẹp code và phân loại file</p>
+
