@@ -1,6 +1,15 @@
 <?php
 session_start();
 include("./config.php");
+if (!isset($_SESSION['cart'])) {
+    $cart = array();
+    $cartInfo = array();
+    $cartInfo['code'] = '';
+    $cartInfo['percent'] = 0;
+    $cartInfo['price'] = 0;
+    $cart[0] = $cartInfo;
+    $_SESSION['cart'] = $cart;
+}
 $rowLaptop = mysqli_fetch_all($connect->query("SELECT * from product where type = 2"));
 $rowTablet = mysqli_fetch_all($connect->query("SELECT * from product where type = 3"));
 $rowWatch = mysqli_fetch_all($connect->query("SELECT * from product where type = 4"));

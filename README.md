@@ -25,3 +25,7 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>1. Nâng cấp shopping cart lên tầm cao mới (không load lại, có thông báo)</p>
 <p>2. Dọn dẹp code và phân loại file</p>
 
+<h1>Update : 14/05/2021 by Võ Hoài Nam</h1>
+<p>1. Giới hạn số lượng dựa vào stock</p>
+<p>2. Nhập coupon và check được coupon, lưu vào ss</p>
+

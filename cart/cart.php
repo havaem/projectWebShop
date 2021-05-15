@@ -1,8 +1,13 @@
 <?php
 session_start();
 include("../config.php");
-if (!isset($_SESSION['cart'])) {
+if (isset($_SESSION['cart']) === false) {
     $cart = array();
+    $cartInfo = array();
+    $cartInfo['code'] = '';
+    $cartInfo['percent'] = 0;
+    $cartInfo['price'] = 0;
+    $cart[0] = $cartInfo;
     $_SESSION['cart'] = $cart;
 }
 ?>
@@ -33,65 +38,7 @@ if (!isset($_SESSION['cart'])) {
     include_once('../header.php');
     ?>
     <div class="cart">
-        <!-- <?php
-                echo "<div class='container'>";
-                if (count($_SESSION['cart']) === 0) {
-                    echo <<<XXX
-                <img src="$domain/assets/image/empty-cart.png" alt="" sizes="" srcset=""
-                class="cart__empty"> 
-                <p class="cart__info">Không có sản phẩm nào trong giỏ
-                hàng</p> 
-                <a href="$domain" class="cart__button">VỀ TRANG CHỦ</a>
-                XXX;
-                    echo "</div>";
-                } else {
-                    echo <<<XXX
-                    <div class="cart__header">
-                        <div class="cart__header-title colName colTitle">Sản phẩm</div>
-                        <div class="cart__header-price colQuanity colTitle">Số lượng</div>
-                        <div class="cart__header-quanity colPrice colTitle">Đơn giá</div>
-                        <div class="cart__header-action colAction colTitle">Thao tác</div>
-                    </div>
-                    <div class="cart__content">
-                XXX;
-
-                    $cartItems = $_SESSION['cart'];
-                    for ($i = 0; $i < count($cartItems); $i++) {
-                        $cartItemId = $cartItems[$i]['id'];
-                        $cartItem = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $cartItemId"));
-                        $imageItem = substr($cartItem["image"], 1);
-                        $quanityId = "quanity" . $i;
-                        $priceItem = number_format($_SESSION['cart'][$i]['pricePay']) . "đ";
-                        $quanity = $cartItems[$i]['quanity'];
-                        echo <<<XXX
-                        <div class="cart__content-item">
-                            <div class="item__title colName colContent">
-                                <img class="item__title-img" src="$domain$imageItem" alt="">
-                                <a href="$domain/product/detail.php?id=$cartItemId">${cartItem["name"]}</a>
-                            </div>
-                            <div class="item__quanity colQuanity colContent">
-                                <button type="button" data-index=$i data-upfor="$quanityId" class="buttonDown">-</button>
-                                <input type="number" value="$quanity" min="1" minlength="1" maxlength="3" name="" id="" class="quanity $quanityId" pattern="[0-9]+" disabled>
-                                <button type="button" data-index=$i data-upfor="$quanityId" class="buttonUp">+</button>
-                            </div>
-                            <div class="item__price colPrice colContent priceId">
-                                $priceItem
-                            </div>
-                            <div class="item__action colAction colContent">
-                                <button class="item__action-delete" data-index=$i>XÓA</button>
-                            </div>
-                        </div>
-                        XXX;
-                    }
-                    echo <<<XXX
-                    </div>
-                    <div class="cart__pay">
-                        <input type="text" name="" id="couponInp" placeholder="Nhập coupon của bạn" oninput="this.value = this.value.toUpperCase()" />
-                        <button class="pay-cart">THANH TOÁN</button>
-                    </div>
-                    XXX;
-                }
-                ?> -->
+        <!-- Ajax here -->
     </div>
     </div>
 
@@ -109,6 +56,8 @@ if (!isset($_SESSION['cart'])) {
         });
         cart = document.querySelector(".cart");
 
+        couponSubmit = document.querySelector(".coupon__submit");
+        getCouponSubmit = () => document.querySelector(".coupon__submit");
         couponInp = document.querySelector("#couponInp");
         getcouponInp = () => document.querySelector("#couponInp");
         payBtn = document.querySelector(".pay-cart");
@@ -134,6 +83,7 @@ if (!isset($_SESSION['cart'])) {
         }
         // Get all selector again
         const getSelector = () => {
+            couponSubmit = getCouponSubmit();
             couponInp = getcouponInp();
             payBtn = getpayBtn();
             quanity = getquanity();
@@ -143,6 +93,51 @@ if (!isset($_SESSION['cart'])) {
         }
         const renderFeauted = () => {
             getSelector();
+            // Nhấn vào nút kiểm tra voucher
+            couponSubmit.onclick = () => {
+                cb = couponInp.value;
+                if (couponInp.disabled === true) {
+                    document.querySelector(".iconCoupon").setAttribute("class", "iconCoupon fas fa-check")
+                    couponInp.disabled = false;
+                    $.ajax({
+                        url: "<?php echo $domain . "/actions/actionCheckVoucher.php" ?>",
+                        type: 'POST',
+                        success: function(data) {
+                            if (data == 4) {
+                                notyf.success('Xóa coupon thành công !!');
+                                renderCart();
+                            }
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: "<?php echo $domain . "/actions/actionCheckVoucher.php" ?>",
+                        type: 'POST',
+                        data: {
+                            coupon: cb
+                        },
+                        success: function(data) {
+                            if (data == 1) {
+                                notyf.error('Coupon của bạn đã hết lượt sử dụng !!');
+                            }
+                            if (data == 2) {
+                                notyf.error('Coupon của bạn đã hết hạn sử dụng !!');
+                            }
+                            if (data == 3) {
+                                notyf.error('Coupon không tồn tại !!');
+                            }
+                            if (data == 5) {
+                                notyf.success('Coupon đã được áp dụng !!');
+                                document.querySelector(".iconCoupon").setAttribute("class", "iconCoupon fas fa-times")
+                                couponInp.disabled = true;
+                                renderCart();
+                            }
+                        }
+                    });
+                }
+
+            }
+            //Nhấn vào nút thanh toán
             payBtn.onclick = () => {
                 // Kiểm tra user xem đã login chưa
                 $.ajax({
@@ -151,27 +146,11 @@ if (!isset($_SESSION['cart'])) {
                     success: function(data) {
                         // Đã login rồi
                         if (data == 1) {
-                            cb = couponInp.value;
-                            // Kiểm tra voucher xem có tồn tại không
                             $.ajax({
-                                url: "<?php echo $domain . "/actions/actionCheckVoucher.php" ?>",
+                                url: "<?php echo $domain . "/actions/actionCartPay.php" ?>",
                                 type: 'POST',
-                                data: {
-                                    coupon: cb
-                                },
                                 success: function(data) {
-                                    if (data == 1) {
-                                        notyf.error('Coupon của bạn đã hết lượt sử dụng !!');
-                                    }
-                                    if (data == 2) {
-                                        notyf.error('Coupon của bạn đã hết hạn sử dụng !!');
-                                    }
-                                    if (data == 3) {
-                                        notyf.error('Coupon không tồn tại !!');
-                                    }
-                                    if (data == 5) {
-                                        notyf.success('Áp dụng coupon thành công');
-                                    }
+                                    window.location.href = "<?php echo $domain . "/dashboard/user.php" ?>";
                                 }
                             });
                         }
@@ -208,7 +187,7 @@ if (!isset($_SESSION['cart'])) {
                                         type: 'warning',
                                         message: 'Giảm số lượng thành công',
                                         background: '#cabd22',
-                                        color:'green',
+                                        color: 'green',
                                         icon: {
                                             className: 'notyf__icon--success',
                                             tagName: 'i',
@@ -229,22 +208,28 @@ if (!isset($_SESSION['cart'])) {
                     let upFor = this.getAttribute('data-upFor');
                     editWhere = this.getAttribute("data-index")
                     quanity = document.querySelector(`.${upFor}`);
-                    quanity.value++;
-                    $.ajax({
-                        url: "<?php echo $domain . "/actions/actionCart.php" ?>",
-                        type: 'POST',
-                        data: {
-                            aT: 1,
-                            id: editWhere,
-                            value: quanity.value,
-                        },
-                        success: function(data) {
-                            if (data == 2) {
-                                notyf.success('Tăng số lượng thành công');
+                    console.log(quanity.value);
+                    console.log(quanity.getAttribute('max'));
+                    if (+quanity.value < +quanity.getAttribute('max')) {
+                        quanity.value++;
+                        $.ajax({
+                            url: "<?php echo $domain . "/actions/actionCart.php" ?>",
+                            type: 'POST',
+                            data: {
+                                aT: 1,
+                                id: editWhere,
+                                value: quanity.value,
+                            },
+                            success: function(data) {
+                                if (data == 2) {
+                                    notyf.success('Tăng số lượng thành công');
+                                }
+                                renderCart();
                             }
-                            renderCart();
-                        }
-                    });
+                        });
+                    } else {
+                        notyf.error('Số lượng đạt tối đa');
+                    }
                 }
             }
             for (var i = 0; i < btnDelete.length; i++) {

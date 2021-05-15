@@ -161,19 +161,66 @@ body {
             }
         }
     }
+    &__sum{
+        width:90%;
+        display: flex;
+        padding: 3rem;
+        background:#e5e5e5;
+        &-title{
+            width: 40%;
+        }
+        &-info{
+            width: 60%;
+            .info__item{
+                display: flex;
+                justify-content: flex-end;
+                padding: 1rem;
+                &-title{
+                    font-size: 1.7rem;
+                    color:#494949;
+                    margin-right: 3rem;
+                }
+                &-price{
+                    color:#494949;
+                    font-size: 1.7rem;
+                }
+                &-sum{
+                    color:#494949;
+                    font-size: 2.5rem;
+                    color:red;
+                }
+            }
+        }
+    }
     &__pay{
         width: 90%;
         display: flex;
         justify-content: space-between;
         padding: 2rem 0;
-        input{
-            width: 30%;
-            display:block;
+        &-coupon{
+            display: flex;
+            width: 40%;
             height: 5rem;
-            font-size: 1.7rem;
-            padding: 0 3rem;
+            .coupon__submit{
+                width: 5rem;
+                height: 5rem;
+                background-color: #ff4646;
+                border: none;outline: none;
+                cursor: pointer;
+                i{
+                    color:white;
+                    font-size: 2.6rem;
+                }
+            }
+            input{
+                width: calc(100% - 5rem);
+                height:100%;
+                display:block;
+                font-size: 1.7rem;
+                padding: 0 3rem;
+            }
         }
-        button{
+        .pay-cart{
             display:block;
             width: 15%;
             height: 5rem;

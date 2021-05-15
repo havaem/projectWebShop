@@ -6,7 +6,26 @@ $noti = 0;
 // 1 : Thêm vào giỏ hàng thành công
 // 2 : Tăng số lượng thành công
 if ($idProduct != 0) {
-    $iP = mysqli_fetch_assoc($connect->query("SELECT id,name,price FROM product WHERE id = $idProduct"));
+    $iP = mysqli_fetch_assoc($connect->query("SELECT id,name,price,stock FROM product WHERE id = $idProduct"));
+    if (isset($_SESSION['idUserLogin'])) {
+        $idUser = $_SESSION['idUserLogin'];
+        $dataUser = mysqli_fetch_assoc($connect->query("SELECT * from user where id = $idUser"));
+        if ($dataUser['voucher']) {
+            $arrayVoucher = explode('|', $dataUser['voucher']);
+            if (count($arrayVoucher) > 0) {
+                foreach ($arrayVoucher as $vc) {
+                    $rowVoucher  = mysqli_fetch_assoc($connect->query("SELECT * from voucher where id = $vc"));
+                    if ($rowVoucher['id_product'] == $idProduct) {
+                        if ($rowVoucher['type'] == 1) {
+                            $iP['price'] = $iP['price'] * (100 - $rowVoucher['percent']) / 100;
+                        } else if ($rowVoucher['type'] == 2) {
+                            $iP['price'] -= $rowVoucher['price'];
+                        }
+                    }
+                }
+            }
+        }
+    }
     $iP['quanity'] = 1;
     $iP['pricePay'] = $iP['price'];
     $inArray = true; // price check 

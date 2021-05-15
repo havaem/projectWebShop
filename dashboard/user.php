@@ -187,8 +187,7 @@ require './controllerUserAction.php';
                         </div>
                         <div class="content__content-desc">
                             <?php
-                            $resultRank = $connect->query("SELECT id,name from rank where id = ${dataUser['rank']}");
-                            $rowRank = mysqli_fetch_assoc($resultRank);
+                            $rowRank = mysqli_fetch_assoc($connect->query("SELECT id,name from rank where id = ${dataUser['rank']}"));
                             if ($rowRank['name'] !== "VIP4") {
                                 $resultNextPointRank = $connect->query("SELECT point from rank where id =${dataUser['rank']}+1");
                                 $rowNextPointRank = mysqli_fetch_assoc($resultNextPointRank);

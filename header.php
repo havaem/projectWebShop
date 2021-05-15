@@ -111,13 +111,16 @@ if (isset($_SESSION['idUserLogin'])) {
                 url: "<?php echo $domain . "/actions/actionCartSum.php" ?>",
                 type: 'POST',
                 success: function(data) {
-                    document.querySelector(".sumItem").innerText = data;
+                    if (+data - 1 <= 0) {
+                        document.querySelector(".sumItem").innerText = 0;
+                    } else
+                        document.querySelector(".sumItem").innerText = +data - 1;
                 }
             });
         }
-        getSum() 
+        getSum()
         setInterval(() => {
             getSum();
-        }, 1000);
+        }, 100);
     });
 </script>

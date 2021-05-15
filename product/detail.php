@@ -8,7 +8,16 @@ $check_id = $connect->query("SELECT id from product where id = $id");
 if (mysqli_num_rows($check_id) == 0) {
     $id = 1;
 }
-
+// Khởi tạo cart
+if (isset($_SESSION['cart']) === false) {
+    $cart = array();
+    $cartInfo = array();
+    $cartInfo['code'] = '';
+    $cartInfo['percent'] = 0;
+    $cartInfo['price'] = 0;
+    $cart[0] = $cartInfo;
+    $_SESSION['cart'] = $cart;
+}
 // End check for id
 $data = mysqli_fetch_assoc($connect->query("SELECT * FROM product WHERE id = $id"));
 
@@ -300,6 +309,15 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
 
     <script>
         window.addEventListener('DOMContentLoaded', function() {
+            var notyf = new Notyf({
+                duration: 1700,
+                ripple: true,
+                dismissible: true,
+                position: {
+                    x: 'left',
+                    y: 'bottom',
+                }
+            });
             /* Scroll button */
             scrollbtn = document.querySelector('.scrollbutton')
             window.addEventListener('scroll', () => {
@@ -396,6 +414,12 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                             setTimeout(() => {
                                 again();
                             }, 1000);
+                            if ($('.comment__form-content').val() != '') {
+                                notyf.success('Gửi bình luận thành công');
+                            } else {
+                                notyf.success('Đánh giá thành công');
+
+                            }
                         }
                     });
                 })

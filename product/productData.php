@@ -35,7 +35,7 @@ foreach ($data as $item) {
           class='item__img'
         />
         <h3 class='item__title'>$item[2]</h3>
-        <strong class='item__price'>$price</strong>";
+        <strong class='item__price'>$price vnđ</strong>";
   if ($item[6] == 5) {
     echo "
         <div class='item__rate'>

@@ -637,6 +637,50 @@ body {
   color: white;
 }
 
+.cart__sum {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3rem;
+  background: #e5e5e5;
+}
+
+.cart__sum-title {
+  width: 40%;
+}
+
+.cart__sum-info {
+  width: 60%;
+}
+
+.cart__sum-info .info__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1rem;
+}
+
+.cart__sum-info .info__item-title {
+  font-size: 1.7rem;
+  color: #494949;
+  margin-right: 3rem;
+}
+
+.cart__sum-info .info__item-price {
+  color: #494949;
+  font-size: 1.7rem;
+}
+
+.cart__sum-info .info__item-sum {
+  color: #494949;
+  font-size: 2.5rem;
+  color: red;
+}
+
 .cart__pay {
   width: 90%;
   display: -webkit-box;
@@ -648,15 +692,37 @@ body {
   padding: 2rem 0;
 }
 
-.cart__pay input {
-  width: 30%;
-  display: block;
+.cart__pay-coupon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
   height: 5rem;
+}
+
+.cart__pay-coupon .coupon__submit {
+  width: 5rem;
+  height: 5rem;
+  background-color: #ff4646;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.cart__pay-coupon .coupon__submit i {
+  color: white;
+  font-size: 2.6rem;
+}
+
+.cart__pay-coupon input {
+  width: calc(100% - 5rem);
+  height: 100%;
+  display: block;
   font-size: 1.7rem;
   padding: 0 3rem;
 }
 
-.cart__pay button {
+.cart__pay .pay-cart {
   display: block;
   width: 15%;
   height: 5rem;
