@@ -29,3 +29,12 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>1. Giới hạn số lượng dựa vào stock</p>
 <p>2. Nhập coupon và check được coupon, lưu vào ss</p>
 
+<h1>Update : 15/05/2021 by Võ Hoài Nam</h1>
+<p>1. Thanh toán và xóa giỏ hàng</p>
+<p>2. Thực hiện thăng cấp user và quản lí số lượng sản phẩm</p>
+
+
+<h1>Update : 17/05/2021 by Võ Hoài Nam</h1>
+<p>1. Tạo trang admin và đăng nhập</p>
+<!-- <p>2. Nhập coupon và check được coupon, lưu vào ss</p> -->
+
