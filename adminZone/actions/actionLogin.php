@@ -9,7 +9,8 @@ $noti = 0;
 // 1 : Đăng nhập thành công
 // $resultCheck = 
 if (mysqli_num_rows($connect->query("SELECT * from admin where username='$username' and password='$password'")) > 0) {
-    // $_SESSION['idAdminLogin'] = $username;
+    $adminData = mysqli_fetch_assoc($connect->query("SELECT id from admin where username='$username' and password='$password'"));
+    $_SESSION['idAdminLogin'] = $adminData['id'];
     $noti = 1;
 }
 echo $noti;

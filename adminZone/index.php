@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['idAdminLogin'])){
+    header('Location: ./pages/dashboard/dashboard.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -69,7 +72,7 @@ session_start();
                 if(data == 1){
                     notyf.success('Đăng nhập thành công !!');
                     setTimeout(()=>{
-                        window.location.href = './dashboard.php';
+                        window.location.href = './pages/dashboard/dashboard.php';
                     },2000)
                 }
                 else{
