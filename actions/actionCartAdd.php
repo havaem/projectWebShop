@@ -30,7 +30,7 @@ if ($idProduct != 0) {
     $iP['pricePay'] = $iP['price'];
     $inArray = true; // price check 
     // Kiểm tra id tồn tại trong mảng không ?
-    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+    for ($i = 1; $i < count($_SESSION['cart']); $i++) {
         if ($_SESSION['cart'][$i]['id'] === $iP['id']) {
             $inArray = false; // Tồn tại thì ko add
         }
@@ -40,7 +40,7 @@ if ($idProduct != 0) {
         array_push($_SESSION['cart'], $iP);
     } else {
         $noti = 2;
-        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+        for ($i = 1; $i < count($_SESSION['cart']); $i++) {
             if ($_SESSION['cart'][$i]['id'] == $iP['id']) {
                 $_SESSION['cart'][$i]['quanity'] += 1;
                 $_SESSION['cart'][$i]['pricePay'] = $_SESSION['cart'][$i]['price'] * $_SESSION['cart'][$i]['quanity'];
@@ -49,7 +49,3 @@ if ($idProduct != 0) {
     }
 }
 echo $noti;
-/* echo "<pre>";
-print_r($_SESSION['cart']);
-echo "</pre>";
- */

@@ -36,5 +36,8 @@ https://vhnvohoainam.github.io/projectWebShop/
 
 <h1>Update : 17/05/2021 by Võ Hoài Nam</h1>
 <p>1. Tạo trang admin và đăng nhập</p>
-<!-- <p>2. Nhập coupon và check được coupon, lưu vào ss</p> -->
+
+<h1>Update : 19/05/2021 by Võ Hoài Nam</h1>
+<p>1. Hiển thị thông tin thống kê trực quan</p>
+
 

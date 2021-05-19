@@ -94,7 +94,8 @@ if (isset($_SESSION['cart']) === false) {
         const renderFeauted = () => {
             getSelector();
             // Nhấn vào nút kiểm tra voucher
-            couponSubmit.onclick = () => {
+            
+            couponSubmit ? couponSubmit.onclick = () => {
                 cb = couponInp.value;
                 if (couponInp.disabled === true) {
                     document.querySelector(".iconCoupon").setAttribute("class", "iconCoupon fas fa-check")
@@ -136,9 +137,9 @@ if (isset($_SESSION['cart']) === false) {
                     });
                 }
 
-            }
+            }:null;
             //Nhấn vào nút thanh toán
-            payBtn.onclick = () => {
+            payBtn ? payBtn.onclick = () => {
                 // Kiểm tra user xem đã login chưa
                 $.ajax({
                     url: "<?php echo $domain . "/actions/actionCheckUserLogin.php" ?>",
@@ -161,7 +162,7 @@ if (isset($_SESSION['cart']) === false) {
                         }
                     }
                 });
-            }
+            }:null;
             //Quanity
             quanity.forEach(element => {
                 element.disabled = true;
