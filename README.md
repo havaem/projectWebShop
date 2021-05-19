@@ -39,5 +39,7 @@ https://vhnvohoainam.github.io/projectWebShop/
 
 <h1>Update : 19/05/2021 by Võ Hoài Nam</h1>
 <p>1. Hiển thị thông tin thống kê trực quan</p>
+<p>2. Hiển thị danh sách user cho admin</p>
+<p>3. Xóa sửa thông tin user</p>
 
 

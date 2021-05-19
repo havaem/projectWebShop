@@ -14,13 +14,13 @@
         </li>
         <li class="nav-item nav-category">Main Menu</li>
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/dashboard/dashboard.php";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./pages/accountControl/changeInfo.html">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlAccount/";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Quản lý tài khoản</span>
             </a>

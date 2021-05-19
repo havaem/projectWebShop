@@ -5,7 +5,7 @@
             TECHSHOP
             <a class="navbar-brand brand-logo-mini" href="index.html">
                 <!-- <img src="./assets/images/logo-mini.svg" alt="logo" /> </a> -->
-                <img src="http://localhost/projectWebshop/assets/image/icon.png" alt="logo" />
+                <img src="<?php echo $domain."/assets/image/icon.png";?>" alt="logo" />
             </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -27,7 +27,7 @@
                         <p class="mb-1 mt-3 font-weight-semibold"><?=$dataAdmin['name']?></p>
                         <p class="font-weight-light text-muted mb-0">4501104147</p>
                     </div>
-                    <a href="#" class="dropdown-item" style="cursor: pointer;">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                    <a href="<?php echo $domain."/adminZone/actions/actionLogOut.php";?>" class="dropdown-item" style="cursor: pointer;">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
                 </div>
             </li>
         </ul>
