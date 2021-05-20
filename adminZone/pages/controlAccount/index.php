@@ -48,9 +48,7 @@ include("../../actions/initialState.php");
                                 </tr>
                             </thead>
                             <tbody class="tbody">
-                                <?php
-                                // require("./data.php");
-                                ?>
+                                //Ajax here
                             </tbody>
                         </table>
                     </div>

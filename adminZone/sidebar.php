@@ -26,19 +26,19 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./pages/productControl/productStatus.html">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlProduct/";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Quản lý sản phẩm</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./pages/orderControl/orderAction.html">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlOrder/";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Quản lý đơn hàng</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./pages/adminControl/adminAction.html">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlAdmin/";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Quản lý admin</span>
             </a>

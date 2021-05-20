@@ -1,390 +1,61 @@
-<html lang="vn">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHSHOP ✔</title>
-    <link rel="icon" href="../assets/image/icon.png" sizes="">
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <!-- Source CSS -->
-    <link rel="stylesheet" href="../assets/css/cart.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon.css">
-    <script src="../assets/script/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/notify.css">
-    <script src="../assets/script/notyf.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous">
-</head>
-
-<body>
-
-    <!-- <script src="./assets/script/jquery-3.6.0.min.js"></script> -->
-    <div class="header">
-        <div class="container">
-            <div class="header__main">
-                <a href="http://localhost/projectWebshop" class="header__main-logo">
-                    <!-- <img src="./assets/image/logo.png" alt=""> -->
-                    <h1>TechShop</h1>
-                    <h1 class="mobile-logo">T</h1>
-                </a>
-                <form action="" class="header__main-search">
-                    <input type="text" class="search__input" placeholder="Bạn tìm gì...">
-                    <button type="submit" class="search__button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <div class="header__main-mini">
-                    <a href="http://localhost/projectWebshop/cart/cart.php" class="mini__cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Giỏ hàng</span>
-                        <p class="sumItem">2</p>
-                    </a>
-                    <!-- <a href="" class="mini__history">
-                    <span>LỊCH SỬ <br />MUA HÀNG</span>
-                </a> -->
-                    <a href="http://localhost/projectWebshop/login/dangnhap.php" class="mini__history">
-                        <span>ĐĂNG NHẬP</span>
-                    </a>
-
-                </div>
-            </div>
-            <div class="header__nav">
-                <div class="header__nav-item">
-                    <a href="http://localhost/projectWebshop/product/phone.php" class="item__title">
-                        <i class="item__icon flaticon-phone"></i>
-                        <span>Điện thoại</span>
-                    </a>
-                </div>
-                <div class="header__nav-item">
-                    <a href="http://localhost/projectWebshop/product/laptop.php" class="item__title">
-                        <i class="item__icon flaticon-analytics"></i>
-                        <span>Laptop</span>
-                    </a>
-                </div>
-                <div class="header__nav-item">
-                    <a href="http://localhost/projectWebshop/product/tablet.php" class="item__title">
-                        <i class="item__icon fas fa-tablet-alt"></i>
-                        <span>Tablet</span>
-                    </a>
-                </div>
-                <div class="header__nav-item">
-                    <a href="#" class="item__title">
-                        <i class="item__icon flaticon-headphones"></i>
-                        <span style="margin-right: 1rem;">Phụ kiện</span>
-                        <i class="fas fa-sort-down" style="font-size: 1.8rem;transform: translateY(-25%);"></i>
-                        <i class="fas fa-sort-up" style="font-size: 1.8rem;transform: translateY(25%);"></i>
-                    </a>
-                    <div class="item__subitem">
-                        <a href="#" class="item__subitem-item">Sạc dự phòng</a>
-                        <a href="#" class="item__subitem-item">Tai nghe</a>
-                        <a href="#" class="item__subitem-item">Bàn phím</a>
-                        <a href="#" class="item__subitem-item">Chuột</a>
-                        <a href="#" class="item__subitem-item">Miếng dán màn hình</a>
-                    </div>
-                </div>
-                <div class="header__nav-item">
-                    <a href="http://localhost/projectWebshop/product/watch.php" class="item__title">
-                        <i class="item__icon flaticon-smartwatch"></i>
-                        <span>Đồng hồ thông minh</span>
-                    </a>
-
-                </div>
-                <div class="header__nav-item">
-                    <a href="http://localhost/projectWebshop/product/pc.php" class="item__title">
-                        <i class="item__icon fas fa-desktop"></i>
-                        <span>PC, Máy in</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            function getSum() {
-                $.ajax({
-                    url: "http://localhost/projectWebshop/actions/actionCartSum.php",
-                    type: 'POST',
-                    success: function (data) {
-                        document.querySelector(".sumItem").innerText = +data - 1;
-                    }
-                });
-            }
-            getSum()
-            setInterval(() => {
-                getSum();
-            }, 100);
-        });
-    </script>
-    <div class="cart">
-        <script src="../assets/script/jquery-3.6.0.min.js"></script>
-        <div class="container">
-            <div class="cart__header">
-                <div class="cart__header-title colName colTitle">Sản phẩm</div>
-                <div class="cart__header-price colQuanity colTitle">Số lượng</div>
-                <div class="cart__header-quanity colPrice colTitle">Đơn giá</div>
-                <div class="cart__header-action colAction colTitle">Thao tác</div>
-            </div>
-            <div class="cart__content">
-                <div class="cart__content-item">
-                    <div class="item__title colName colContent">
-                        <img class="item__title-img"
-                            src="http://localhost/projectWebshop./assets/image/products/laptop/Acer-Aspire-5-A514-54-NX.A23SV.009/Nền.jpg"
-                            alt="">
-                        <a href="http://localhost/projectWebshop/product/detail.php?id=66">Acer Aspire 5 A514 54 3204 i3
-                            1115G4/4GB/512GB/Win10 (NX.A23SV.009)</a>
-                    </div>
-                    <div class="item__quanity colQuanity colContent">
-                        <button type="button" data-index="1" data-upfor="quanity1" class="buttonDown">-</button>
-                        <input type="number" value="1" min="1" max="20" minlength="1" maxlength="3" name="" id=""
-                            class="quanity quanity1" pattern="[0-9]+" disabled="">
-                        <button type="button" data-index="1" data-upfor="quanity1" class="buttonUp">+</button>
-                    </div>
-                    <div class="item__price colPrice colContent priceId">
-                        14,290,000đ
-                    </div>
-                    <div class="item__action colAction colContent">
-                        <button class="item__action-delete" data-index="1">XÓA</button>
-                    </div>
-                </div>
-                <div class="cart__content-item">
-                    <div class="item__title colName colContent">
-                        <img class="item__title-img"
-                            src="http://localhost/projectWebshop./assets/image/products/laptop/Lenovo-IdeaPad-Slim-3-15IIL05-81WE0032VN/Nền.jpg"
-                            alt="">
-                        <a href="http://localhost/projectWebshop/product/detail.php?id=64">Lenovo IdeaPad Slim 3 15IIL05
-                            i3 1005G1/4GB/512GB/Win10 (81WE0032VN)</a>
-                    </div>
-                    <div class="item__quanity colQuanity colContent">
-                        <button type="button" data-index="2" data-upfor="quanity2" class="buttonDown">-</button>
-                        <input type="number" value="1" min="1" max="20" minlength="1" maxlength="3" name="" id=""
-                            class="quanity quanity2" pattern="[0-9]+" disabled="">
-                        <button type="button" data-index="2" data-upfor="quanity2" class="buttonUp">+</button>
-                    </div>
-                    <div class="item__price colPrice colContent priceId">
-                        11,990,000đ
-                    </div>
-                    <div class="item__action colAction colContent">
-                        <button class="item__action-delete" data-index="2">XÓA</button>
-                    </div>
-                </div>
-                <div class="cart__pay">
-                    <div class="cart__pay-coupon"><input value="FREESHIP" type="text" name="" id="couponInp"
-                            placeholder="Nhập coupon của bạn" oninput="this.value = this.value.toUpperCase()"
-                            disabled=""><button class="coupon__submit"><i class="iconCoupon fas fa-times"></i></button>
-                    </div>
-                    <button class="pay-cart">THANH TOÁN</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            var notyf = new Notyf({
-                duration: 1700,
-                ripple: true,
-                dismissible: true,
-                position: {
-                    x: 'left',
-                    y: 'bottom',
-                }
-            });
-            cart = document.querySelector(".cart");
-
-            couponSubmit = document.querySelector(".coupon__submit");
-            getCouponSubmit = () => document.querySelector(".coupon__submit");
-            couponInp = document.querySelector("#couponInp");
-            getcouponInp = () => document.querySelector("#couponInp");
-            payBtn = document.querySelector(".pay-cart");
-            getpayBtn = () => document.querySelector(".pay-cart");
-            quanity = document.querySelectorAll(".quanity");
-            getquanity = () => document.querySelectorAll(".quanity");
-            buttonDown = document.querySelectorAll(".buttonDown");
-            getbuttonDown = () => document.querySelectorAll(".buttonDown");
-            buttonUp = document.querySelectorAll(".buttonUp");
-            getbuttonUp = () => document.querySelectorAll(".buttonUp");
-            btnDelete = document.querySelectorAll(".item__action-delete");
-            getbtnDelete = () => document.querySelectorAll(".item__action-delete");
-            //Render cart
-            const renderCart = () => {
-                $.ajax({
-                    url: "http://localhost/projectWebshop/cart/cartData.php",
-                    type: 'POST',
-                    success: function (data) {
-                        cart.innerHTML = data;
-                    }
-                });
-                getSelector();
-            }
-            // Get all selector again
-            const getSelector = () => {
-                couponSubmit = getCouponSubmit();
-                couponInp = getcouponInp();
-                payBtn = getpayBtn();
-                quanity = getquanity();
-                buttonDown = getbuttonDown();
-                buttonUp = getbuttonUp();
-                btnDelete = getbtnDelete();
-            }
-            const renderFeauted = () => {
-                getSelector();
-                // Nhấn vào nút kiểm tra voucher
-                couponSubmit.onclick = () => {
-                    cb = couponInp.value;
-                    if (couponInp.disabled === true) {
-                        document.querySelector(".iconCoupon").setAttribute("class", "iconCoupon fas fa-check")
-                        couponInp.disabled = false;
-                    } else {
-                        $.ajax({
-                            url: "http://localhost/projectWebshop/actions/actionCheckVoucher.php",
-                            type: 'POST',
-                            data: {
-                                coupon: cb
-                            },
-                            success: function (data) {
-                                if (data == 1) {
-                                    notyf.error('Coupon của bạn đã hết lượt sử dụng !!');
-                                }
-                                if (data == 2) {
-                                    notyf.error('Coupon của bạn đã hết hạn sử dụng !!');
-                                }
-                                if (data == 3) {
-                                    notyf.error('Coupon không tồn tại !!');
-                                }
-                                if (data == 5) {
-                                    notyf.success('Coupon đã được áp dụng !!');
-                                    document.querySelector(".iconCoupon").setAttribute("class", "iconCoupon fas fa-times")
-                                    couponInp.disabled = true;
-                                }
-                            }
-                        });
-                    }
-
-                }
-                //Nhấn vào nút thanh toán
-                payBtn.onclick = () => {
-                    // Kiểm tra user xem đã login chưa
-                    $.ajax({
-                        url: "http://localhost/projectWebshop/actions/actionCheckUserLogin.php",
-                        type: 'POST',
-                        success: function (data) {
-                            // Đã login rồi
-                            if (data == 1) {
-
-                            }
-                            // Chưa login
-                            else {
-                                alert('Vui lòng đăng nhập để thanh toán!!');
-                                window.location.href = "http://localhost/projectWebshop/login/dangnhap.php";
-                            }
-                        }
-                    });
-                }
-                //Quanity
-                quanity.forEach(element => {
-                    element.disabled = true;
-                });
-                for (var i = 0; i < buttonDown.length; i++) {
-                    buttonDown[i].onclick = function () {
-                        let upFor = this.getAttribute('data-upFor');
-                        editWhere = this.getAttribute("data-index")
-                        quanity = document.querySelector(`.${upFor}`);
-                        if (quanity.value >= 2) {
-                            quanity.value--;
-                            $.ajax({
-                                url: "http://localhost/projectWebshop/actions/actionCart.php",
-                                type: 'POST',
-                                data: {
-                                    aT: 1,
-                                    id: editWhere,
-                                    value: quanity.value,
-                                },
-                                success: function (data) {
-                                    if (data == 2) {
-                                        notyf.open({
-                                            type: 'warning',
-                                            message: 'Giảm số lượng thành công',
-                                            background: '#cabd22',
-                                            color: 'green',
-                                            icon: {
-                                                className: 'notyf__icon--success',
-                                                tagName: 'i',
-                                                // color: 'white',
-                                                text: '',
-                                            }
-                                        });
-                                    }
-                                    renderCart();
-
-                                }
-                            });
-                        }
-                    }
-                }
-                for (var i = 0; i < buttonUp.length; i++) {
-                    buttonUp[i].onclick = function () {
-                        let upFor = this.getAttribute('data-upFor');
-                        editWhere = this.getAttribute("data-index")
-                        quanity = document.querySelector(`.${upFor}`);
-                        console.log(quanity.value);
-                        console.log(quanity.getAttribute('max'));
-                        if (+quanity.value < +quanity.getAttribute('max')) {
-                            quanity.value++;
-                            $.ajax({
-                                url: "http://localhost/projectWebshop/actions/actionCart.php",
-                                type: 'POST',
-                                data: {
-                                    aT: 1,
-                                    id: editWhere,
-                                    value: quanity.value,
-                                },
-                                success: function (data) {
-                                    if (data == 2) {
-                                        notyf.success('Tăng số lượng thành công');
-                                    }
-                                    renderCart();
-                                }
-                            });
-                        } else {
-                            notyf.error('Số lượng đạt tối đa');
-                        }
-                    }
-                }
-                for (var i = 0; i < btnDelete.length; i++) {
-                    btnDelete[i].onclick = function () {
-                        deleteWhere = this.getAttribute("data-index")
-                        $.ajax({
-                            url: "http://localhost/projectWebshop/actions/actionCart.php",
-                            type: 'POST',
-                            data: {
-                                aT: 0,
-                                id: deleteWhere,
-                            },
-                            success: function (data) {
-                                notyf.error('Xóa sản phẩm thành công');
-                                renderCart();
-                            }
-                        });
-                    }
-                }
-            }
-            renderCart();
-            setInterval(() => {
-                renderFeauted();
-            }, 100);
-        });
-    </script>
-
-    <div class="notyf"></div>
-    <div class="notyf-announcer" aria-atomic="true" aria-live="polite"
-        style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; outline: 0px;">
-    </div>
-</body>
-
-</html>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Công nghệ màn hình</span>
+    <span class=\'content__row-content\'>
+        SUPER AMOLED
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Kích thước màn hình:</span>
+    <span class=\'content__row-content\'>
+        1.2 inch
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Thời gian sử dụng pin:</span>
+    <span class=\'content__row-content\'>
+        Khoảng 40 tiếng
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Hệ điều hành:</span>
+    <span class=\'content__row-content\'>
+        OS TIZEN
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Kết nối với hệ điều hành:</span>
+    <span class=\'content__row-content\'>
+        Android 5.0 trở lên, iOS 9 trở lên
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Chất liệu mặt:</span>
+    <span class=\'content__row-content\'>
+        Kính cường lực Gorilla Glass Dx+
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Đường kính mặt:</span>
+    <span class=\'content__row-content\'>
+        41 mm
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Kết nối:</span>
+    <span class=\'content__row-content\'>
+        Bluetooth v5.0, Wifi, GPS
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Ngôn ngữ:</span>
+    <span class=\'content__row-content\'>
+        Tiếng Việt, Tiếng Anh
+    </span>
+</div>
+<div class=\'content__row\'>
+    <span class=\'content__row-title\'>Theo dõi sức khỏe:</span>
+    <span class=\'content__row-content\'>
+        Đo nồng độ oxy trong máu, Đo nhịp tim, Theo dõi giấc ngủ, Tính lượng calories tiêu thụ, Tính quãng đường chạy,
+        Đếm số bước chân, Chế độ luyện tập
+    </span>
+</div>
