@@ -10,10 +10,10 @@ if (!isset($_SESSION['cart'])) {
     $cart[0] = $cartInfo;
     $_SESSION['cart'] = $cart;
 }
-$rowLaptop = mysqli_fetch_all($connect->query("SELECT * from product where type = 2"));
-$rowTablet = mysqli_fetch_all($connect->query("SELECT * from product where type = 3"));
-$rowWatch = mysqli_fetch_all($connect->query("SELECT * from product where type = 4"));
-$rowDisplay = mysqli_fetch_all($connect->query("SELECT * from product where type = 5"));
+$rowLaptop = mysqli_fetch_all($connect->query("SELECT * from product where type = 2 and isVisible = 1"));
+$rowTablet = mysqli_fetch_all($connect->query("SELECT * from product where type = 3 and isVisible = 1"));
+$rowWatch = mysqli_fetch_all($connect->query("SELECT * from product where type = 4 and isVisible = 1"));
+$rowDisplay = mysqli_fetch_all($connect->query("SELECT * from product where type = 5 and isVisible = 1"));
 // Hiển thị số sao để đổ comment cho user 
 function exportStar($number)
 {
@@ -118,7 +118,7 @@ function exportStar($number)
             </div>
         </div>
     </div>
-    <div class="hotdeal">
+    <!-- <div class="hotdeal">
         <div class="container">
             <div class="hotdeal__items">
                 <div class="hotdeal__item">
@@ -630,8 +630,8 @@ function exportStar($number)
                 </button>
             </div>
         </div>
-    </div>
-    <div class="hotphone">
+    </div> -->
+    <div class="hotphone" style="margin-top:2rem;">
         <div class="container">
             <div class="hotphone__desc">
                 <div class="hotphone__desc-title">
@@ -639,11 +639,11 @@ function exportStar($number)
                 </div>
                 <div class="hotphone__desc-phone">
                     <?php
-                    $titlePhone = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 1 and id!=25 order by view asc limit 4"));
+                    $titlePhone = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 1 and id!=25 and isVisible = 1 order by view asc limit 4"));
                     for ($i = 0; $i < 4; $i++) {
                         echo "<a href='./product/detail.php?id=" . $titlePhone[$i][0] . "'>" . $titlePhone[$i][1] . "</a>";
                     }
-                    $sumPhone = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1"));
+                    $sumPhone = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1 and isVisible = 1"));
                     echo "<a href='./product/phone.php'>Xem tất cả <strong>" . $sumPhone['count'] . "</strong> điện thoại</a>";
                     ?>
                 </div>
@@ -663,7 +663,7 @@ function exportStar($number)
                     </div>
                 </a>
                 <?php
-                $resultPhone = $connect->query("SELECT * from product where type = 1 and id!=25 order by view desc limit 6");
+                $resultPhone = $connect->query("SELECT * from product where type = 1 and id!=25 and isVisible = 1 order by view desc limit 6");
                 for ($i = 0; $i < 3; $i++) {
                     $rowPhone = mysqli_fetch_assoc($resultPhone);
                     $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowPhone['id']}"));
@@ -723,12 +723,12 @@ function exportStar($number)
                 </div>
                 <div class="hotlaptop__desc-laptop">
                     <?php
-                    $resultLaptop = $connect->query("SELECT * from product where type = 2 order by view desc limit 6");
-                    $titleLaptop = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 2 order by view asc limit 1"));
-                    /*                         for($i=0;$i<2;$i++){
-                            echo "<a href='./product/detail.php?id=".$titleLaptop[$i][0]."'>".$titleLaptop[$i][1]."</a>";
-                        } */
-                    $sumLaptop = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=1"));
+                    $resultLaptop = $connect->query("SELECT * from product where type = 2 and isVisible = 1 order by view desc limit 6");
+                    $titleLaptop = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 2 and isVisible = 1 order by view asc limit 1"));
+                    for ($i = 0; $i < 1; $i++) {
+                        echo "<a href='./product/detail.php?id=" . $titleLaptop[$i][0] . "'>" . $titleLaptop[$i][1] . "</a>";
+                    }
+                    $sumLaptop = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=2 and isVisible = 1"));
                     echo "<a href='./product/laptop.php'>Xem tất cả <strong>" . $sumLaptop['count'] . "</strong> laptop</a>";
                     ?>
                     <!--  <a href="#">Laptop Asus</a>
@@ -782,11 +782,11 @@ function exportStar($number)
                 </div>
                 <div class="hottablet__desc-tablet">
                     <?php
-                    $titleTablet = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 3 order by view asc limit 4"));
+                    $titleTablet = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 3 and isVisible = 1 order by view asc limit 4"));
                     for ($i = 0; $i < 4; $i++) {
                         echo "<a href='./product/detail.php?id=" . $titleTablet[$i][0] . "'>" . $titleTablet[$i][1] . "</a>";
                     }
-                    $sumTablet = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=3"));
+                    $sumTablet = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=3 and isVisible = 1"));
                     echo "<a href='./product/tablet.php'>Xem tất cả <strong>" . $sumTablet['count'] . "</strong> tablet</a>";
                     ?>
                 </div>
@@ -806,7 +806,7 @@ function exportStar($number)
                     </div>
                 </a>
                 <?php
-                $resultTablet = $connect->query("SELECT * from product where type = 3 order by view desc limit 6");
+                $resultTablet = $connect->query("SELECT * from product where type = 3 and isVisible = 1 order by view desc limit 6");
                 for ($i = 0; $i < 3; $i++) {
                     $rowTablet = mysqli_fetch_assoc($resultTablet);
                     $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowTablet['id']}"));
@@ -836,11 +836,11 @@ function exportStar($number)
                 </div>
                 <div class="hotwatch__desc-watch">
                     <?php
-                    $titleWatch = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 3 order by view asc limit 4"));
-                    for ($i = 0; $i < 3; $i++) {
+                    $titleWatch = mysqli_fetch_all($connect->query("SELECT id,name from product where type = 4 and isVisible = 1 order by view asc limit 3"));
+                    for ($i = 0; $i < 2; $i++) {
                         echo "<a href='./product/detail.php?id=" . $titleWatch[$i][0] . "'>" . $titleWatch[$i][1] . "</a>";
                     }
-                    $sumWatch = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=4"));
+                    $sumWatch = mysqli_fetch_assoc($connect->query("SELECT COUNT(name) as count FROM product WHERE type=4 and isVisible = 1"));
                     echo "<a href='./product/watch.php'>Xem tất cả <strong>" . $sumWatch['count'] . "</strong> đồng hồ thông minh.</a>";
                     ?>
                 </div>
@@ -848,7 +848,7 @@ function exportStar($number)
 
             <div class="hotwatch__content">
                 <?php
-                $resultWatch = $connect->query("SELECT * from product where type = 4 order by view desc limit 5");
+                $resultWatch = $connect->query("SELECT * from product where type = 4 and isVisible = 1 order by view desc limit 5");
                 for ($i = 0; $i < 5; $i++) {
                     $rowWatch = mysqli_fetch_assoc($resultWatch);
                     $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowWatch['id']}"));
@@ -880,7 +880,7 @@ function exportStar($number)
         </div>
     </div>
 
-    <div class="hotpc">
+    <!-- <div class="hotpc">
         <div class="container">
             <div class="hotpc__desc">
                 <div class="hotpc__desc-title">
@@ -963,7 +963,7 @@ function exportStar($number)
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <?php
     include_once('./footer.php');

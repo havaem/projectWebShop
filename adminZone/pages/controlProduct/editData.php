@@ -33,6 +33,8 @@ if ($dataProduct[1] == "4") {
     <link rel="stylesheet" href="../../assets/css/shared/style.css">
     <link rel="stylesheet" href="../../assets/css/demo_1/style.css">
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="stylesheet" href="../../../assets/css/notify.css">
+    <script src="../../../assets/script/notyf.min.js"></script>
     <script src="../../../assets/script/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -145,6 +147,7 @@ if ($dataProduct[1] == "4") {
                                                 <button type="button" class="btn btn-primary btn-fw btnContentH2" data-show="">H2</button>
                                                 <button type="button" class="btn btn-primary btn-fw btnContentP" data-show="">P</button>
                                                 <button type="button" class="btn btn-primary btn-fw btnContentIMG" data-show="">IMG</button>
+                                                <button type="button" class="btn btn-warning btn-fw btnContentMore" data-show="">Xem thêm</button>
                                             </div>
                                             <textarea class="form-control mt-3" id="newDescriptionProduct" rows="30" spellcheck="false">
                                                 <?php echo trim($dataProduct[11]); ?>
@@ -165,6 +168,15 @@ if ($dataProduct[1] == "4") {
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
+            var notyf = new Notyf({
+                duration: 1800,
+                ripple: true,
+                dismissible: true,
+                position: {
+                    x: 'right',
+                    y: 'bottom',
+                }
+            });
             //<------ Form new ------->
             newProductInputType = document.querySelector("#newProductInputType"); // Loại sản phẩm đã chọn
             newInputInfoType = document.querySelector(".newInputInfoType");
@@ -409,11 +421,18 @@ if ($dataProduct[1] == "4") {
             btnContentP = document.querySelector(".btnContentP");
             btnContentIMG = document.querySelector(".btnContentIMG")
             newDescriptionProduct = document.querySelector("#newDescriptionProduct");
+            btnContentMore = document.querySelector(".btnContentMore");
             btnContentTitle.onclick = function() {
                 if (newDescriptionProduct.value) {
                     newDescriptionProduct.value += '\n';
                 }
                 newDescriptionProduct.value += `<b class="paragraph__title"> </b>`;
+            }
+            btnContentMore.onclick = function() {
+                if (newDescriptionProduct.value) {
+                    newDescriptionProduct.value += '\n';
+                }
+                newDescriptionProduct.value += `<button class="paragraph__more">Xem thêm !</button>`;
             }
             btnContentH1.onclick = function() {
                 if (newDescriptionProduct.value) {
@@ -541,7 +560,7 @@ if ($dataProduct[1] == "4") {
                                         phonePIN: newPhoneInputPIN,
                                     },
                                     success: function(data) {
-                                        console.log(data)
+                                        window.history.go('-1');
                                     },
                                 });
                             } else if (newProductInputType == 2) {
@@ -570,7 +589,7 @@ if ($dataProduct[1] == "4") {
                                         laptopReleaseDate: newLaptopInputReleaseDate,
                                     },
                                     success: function(data) {
-                                        console.log(data)
+                                        window.history.go('-1');
                                     },
                                 });
                             } else if (newProductInputType == 3) {
@@ -597,7 +616,7 @@ if ($dataProduct[1] == "4") {
                                         tabletPin: newTabletInputPin,
                                     },
                                     success: function(data) {
-                                        console.log(data)
+                                        window.history.go('-1');
                                     },
                                 });
                             } else if (newProductInputType == 4) {
@@ -626,7 +645,7 @@ if ($dataProduct[1] == "4") {
                                         watchFollowHealth: newWatchInputFollowHealth,
                                     },
                                     success: function(data) {
-                                        console.log(data)
+                                        window.history.go('-1');
                                     },
                                 });
                             }
@@ -661,7 +680,7 @@ if ($dataProduct[1] == "4") {
                                 phonePIN: newPhoneInputPIN,
                             },
                             success: function(data) {
-                                console.log(data)
+                                window.history.go('-1');
                             },
                         });
                     } else if (newProductInputType == 2) {
@@ -689,7 +708,7 @@ if ($dataProduct[1] == "4") {
                                 laptopReleaseDate: newLaptopInputReleaseDate,
                             },
                             success: function(data) {
-                                console.log(data)
+                                window.history.go('-1');
                             },
                         });
                     } else if (newProductInputType == 3) {
@@ -715,7 +734,7 @@ if ($dataProduct[1] == "4") {
                                 tabletPin: newTabletInputPin,
                             },
                             success: function(data) {
-                                console.log(data)
+                                window.history.go('-1');
                             },
                         });
                     } else if (newProductInputType == 4) {
@@ -743,7 +762,7 @@ if ($dataProduct[1] == "4") {
                                 watchFollowHealth: newWatchInputFollowHealth,
                             },
                             success: function(data) {
-                                console.log(data)
+                                window.history.go('-1');
                             },
                         });
                     }

@@ -42,4 +42,7 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>2. Hiển thị danh sách user cho admin</p>
 <p>3. Xóa sửa thông tin user</p>
 
+<h1>Update : 22/05/2021 by Võ Hoài Nam</h1>
+<p>1. Đã quản lý được product,user ,account</p>
+
 
