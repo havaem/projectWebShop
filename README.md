@@ -1,4 +1,6 @@
 https://vhnvohoainam.github.io/projectWebShop/
+// Vui lòng chỉnh sửa config.php trước khi khởi chạy trong xampp.
+// phpMail cũng cần được config để có thể gửi mail để xác nhận tài khoản và quên mật khẩu
 <h1>Update : 22/04/2021 by Võ Hoài Nam</h1>
 <p>1. Ảnh sẽ được hiển thị sau khi chọn ảnh trong cập nhật avatar.</p>
 <p>2. Fix lỗi không hiển thị comment khi không đăng nhập.</p>
@@ -32,7 +34,6 @@ https://vhnvohoainam.github.io/projectWebShop/
 <h1>Update : 15/05/2021 by Võ Hoài Nam</h1>
 <p>1. Thanh toán và xóa giỏ hàng</p>
 <p>2. Thực hiện thăng cấp user và quản lí số lượng sản phẩm</p>
-
 
 <h1>Update : 17/05/2021 by Võ Hoài Nam</h1>
 <p>1. Tạo trang admin và đăng nhập</p>
