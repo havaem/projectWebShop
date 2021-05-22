@@ -109,23 +109,21 @@ include("../../actions/initialState.php");
             </div>
         </div>
     </div>
-    <script>
-        var notyf = new Notyf({
-            duration: 1800,
-            ripple: true,
-            dismissible: true,
-            position: {
-                x: 'right',
-                y: 'bottom',
-            }
-        });
-    </script>
     <!-- <script src="../../assets/vendors/js/vendor.bundle.base.js"></script> -->
     <script src="../../assets/vendors/js/vendor.bundle.addons.js"></script>
     <script src="../../assets/js/shared/off-canvas.js"></script>
     <script src="../../assets/js/shared/misc.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
+            var notyf = new Notyf({
+                duration: 1800,
+                ripple: true,
+                dismissible: true,
+                position: {
+                    x: 'right',
+                    y: 'bottom',
+                }
+            });
             const renderTab1 = () => {
                 $.ajax({
                     url: './dataTab1.php',
@@ -220,16 +218,18 @@ include("../../actions/initialState.php");
                         btnOrderDelete = document.querySelectorAll(".btnOrderDelete");
                         for (i = 0; i < btnOrderDelete.length; i++) {
                             btnOrderDelete[i].onclick = function() {
-                                $.ajax({
-                                    url: "<?= $domain . "/adminZone/actions/actionRemoveOrder.php" ?>",
-                                    type: "POST",
-                                    data: {
-                                        id: this.getAttribute("data-idSelect")
-                                    },
-                                    success: function(data) {
-                                        renderAll();
-                                    }
-                                })
+                                if (window.confirm('Bạn thực sự muốn xóa ?')) {
+                                    $.ajax({
+                                        url: "<?= $domain . "/adminZone/actions/actionRemoveOrder.php" ?>",
+                                        type: "POST",
+                                        data: {
+                                            id: this.getAttribute("data-idSelect")
+                                        },
+                                        success: function(data) {
+                                            renderAll();
+                                        }
+                                    })
+                                }
                             }
                         }
                     }

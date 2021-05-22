@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../config.php");
-$rowTablet = $connect->query("SELECT * from product where type = 3");
+$rowTablet = $connect->query("SELECT * from product where type = 3 and isVisible = 1");
 $dt = ceil(mysqli_num_rows($rowTablet) /10);
 ?>
 <!DOCTYPE html>

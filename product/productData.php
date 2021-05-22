@@ -25,7 +25,7 @@ switch ($type) {
   default:
     break;
 }
-$data = mysqli_fetch_all($connect->query("SELECT * from product where type = $type limit $amount"));
+$data = mysqli_fetch_all($connect->query("SELECT * from product where type = $type and isVisible = 1 limit $amount"));
 foreach ($data as $item) {
   $price = number_format($item[4]);
   echo "

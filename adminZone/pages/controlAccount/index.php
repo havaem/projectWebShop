@@ -48,7 +48,7 @@ include("../../actions/initialState.php");
                                 </tr>
                             </thead>
                             <tbody class="tbody">
-                                //Ajax here
+                                <!-- //Ajax here -->
                             </tbody>
                         </table>
                     </div>
@@ -109,17 +109,19 @@ include("../../actions/initialState.php");
                     }
                     for (var i = 0; i < deleteUser.length; i++) {
                         deleteUser[i].onclick = function() {
-                            $.ajax({
-                                url: "<?= $domain . "/adminZone/actions/actionDeleteUser.php" ?>",
-                                type: 'POST',
-                                data: {
-                                    id: this.getAttribute('data-idSelect'),
-                                },
-                                success: function(data) {
-                                    notyf.success(data);
-                                    renderData();
-                                }
-                            });
+                            if (window.confirm('Bạn thực sự muốn xóa ?')) {
+                                $.ajax({
+                                    url: "<?= $domain . "/adminZone/actions/actionDeleteUser.php" ?>",
+                                    type: 'POST',
+                                    data: {
+                                        id: this.getAttribute('data-idSelect'),
+                                    },
+                                    success: function(data) {
+                                        notyf.success(data);
+                                        renderData();
+                                    }
+                                });
+                            }
                         }
                     }
 

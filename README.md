@@ -44,5 +44,6 @@ https://vhnvohoainam.github.io/projectWebShop/
 
 <h1>Update : 22/05/2021 by Võ Hoài Nam</h1>
 <p>1. Đã quản lý được product,user ,account</p>
+<p>2. Code gọi là tạm hoàn chỉnh (vẫn còn 1 số tính năng chưa có logic)</p>
 
 

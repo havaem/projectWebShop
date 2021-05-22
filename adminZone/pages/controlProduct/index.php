@@ -822,22 +822,24 @@ include("../../actions/initialState.php");
                     btnDeleteProduct = querybtnDeleteProduct();
                     for (i = 0; i < btnDeleteProduct.length; i++) {
                         btnDeleteProduct[i].onclick = function() {
-                            $.ajax({
-                                url: "<?= $domain . "/adminZone/actions/actionDeleteProduct.php" ?>",
-                                type: "POST",
-                                data: {
-                                    id: this.getAttribute('data-idSelect')
-                                },
-                                success: function(data) {
-                                    if (data == 0) {
-                                        notyf.error("Xóa thất bại");
-                                    } else {
-                                        notyf.success("Xóa thành công!");
-                                        renderData();
-                                        loadTab2();
+                            if (window.confirm('Bạn thực sự muốn xóa ?')) {
+                                $.ajax({
+                                    url: "<?= $domain . "/adminZone/actions/actionDeleteProduct.php" ?>",
+                                    type: "POST",
+                                    data: {
+                                        id: this.getAttribute('data-idSelect')
+                                    },
+                                    success: function(data) {
+                                        if (data == 0) {
+                                            notyf.error("Xóa thất bại");
+                                        } else {
+                                            notyf.success("Xóa thành công!");
+                                            renderData();
+                                            loadTab2();
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }
                         }
                     }
                     isVisibleCB = [...document.querySelectorAll(".isVisibleCB")];
@@ -853,6 +855,7 @@ include("../../actions/initialState.php");
                                 success: function(data) {
                                     loadTab2();
                                     renderData();
+                                    notyf.success("Thay đổi trạng thái thành công!");
                                 }
                             })
                         }

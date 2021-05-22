@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../config.php");
-$rowPhone = $connect->query("SELECT * from product where type = 1");
+$rowPhone = $connect->query("SELECT * from product where type = 1 and isVisible = 1");
 $dt = ceil(mysqli_num_rows($rowPhone) /10);
 ?>
 <!DOCTYPE html>

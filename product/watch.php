@@ -1,7 +1,8 @@
 <?php
 session_start();
+  
 include("../config.php");
-$rowWatch = $connect->query("SELECT * from product where type = 4");
+$rowWatch = $connect->query("SELECT * from product where type = 4 and isVisible = 1");
 $dt = ceil(mysqli_num_rows($rowWatch) /10);
 ?>
 <!DOCTYPE html>
