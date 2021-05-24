@@ -1,16 +1,16 @@
 <div class="footer">
     <div class="container">
         <div class="footer__col">
-            <a href="#">Lịch sử mua hàng</a>
-            <a href="#">Tìm hiểu về mua trả góp</a>
-            <a href="#">Chính sách bảo hành</a>
-            <a href="#">Chính sách đổi trả</a>
+            <a href="https://www.thegioididong.com/lich-su-mua-hang/dang-nhap">Lịch sử mua hàng</a>
+            <a href="https://www.thegioididong.com/tra-gop">Tìm hiểu về mua trả góp</a>
+            <a href="https://www.thegioididong.com/bao-hanh">Chính sách bảo hành</a>
+            <a href="https://www.thegioididong.com/chinh-sach-bao-hanh-san-pham">Chính sách đổi trả</a>
         </div>
         <div class="footer__col">
-            <a href="#">Giới thiệu công ty</a>
-            <a href="#">Tuyển dụng</a>
-            <a href="#">Gửi góp ý, khiếu nại</a>
-            <a href="#">Tìm siêu thị (2.460 shop)</a>
+            <a href="https://mwg.vn/">Giới thiệu công ty</a>
+            <a href="https://vieclam.thegioididong.com/">Tuyển dụng</a>
+            <a href="https://www.thegioididong.com/lien-he">Gửi góp ý, khiếu nại</a>
+            <a href="https://www.thegioididong.com/he-thong-sieu-thi-the-gioi-di-dong">Tìm siêu thị (2.460 shop)</a>
         </div>
         <div class="footer__col">
             <p>
@@ -29,7 +29,7 @@
                 <a target="_blank" href="https://facebook.com/thegioididongcom" class="linkfb" rel="noopener">
                     <i class="fab fa-facebook-square"></i>3.5tr
                 </a>
-                <a target="_blank" href="https://facebook.com/thegioididongcom" class="linkfb" rel="noopener">
+                <a target="_blank" href="https://www.youtube.com/user/TGDDVideoReviews" class="linkfb" rel="noopener">
                     <i class="fab fa-youtube"></i>3.5tr
                 </a>
             </div>
