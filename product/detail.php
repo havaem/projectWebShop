@@ -370,9 +370,9 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             }
             loadPage();
             loadComment();
-            setInterval(() => {
+            /* setInterval(() => {
                 loadComment();
-            }, 1000);
+            }, 1000); */
             setTimeout(() => {
                 commentRequest = getPages();
                 commentRequest.forEach(element => {
@@ -475,6 +475,20 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                         if (data == 2) {
                             notyf.success('Tăng số lượng thành công');
                         }
+                    }
+                });
+            }
+            //Thêm và chuyển hướng vào giỏ hàng
+            addAndBuy = document.querySelector(".description__action-buy");
+            addAndBuy.onclick = () => {
+                $.ajax({
+                    url: "<?php echo $domain . "/actions/actionCartAdd.php" ?>",
+                    type: 'POST',
+                    data: {
+                        id: <?php echo $data['id']; ?>,
+                    },
+                    success: function(data) {
+                        window.location.href = "<?php echo $domain."/cart/cart.php";?>"
                     }
                 });
             }

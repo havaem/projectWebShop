@@ -85,11 +85,11 @@ function exportStar($number)
     <div class="slide">
         <div class="container">
             <div class="slide__image">
-                <img src="./assets/image/slide 1.1.png" alt="" class="slide__image-item">
-                <img src="./assets/image/slide 1.2.png" alt="" class="slide__image-item">
-                <img src="./assets/image/slide 1.3.png" alt="" class="slide__image-item">
-                <img src="./assets/image/slide 1.4.png" alt="" class="slide__image-item">
-                <img src="./assets/image/slide 1.5.png" alt="" class="slide__image-item">
+                <img src="./assets/image/slide 1.1.png" alt="1" class="slide__image-item">
+                <img src="./assets/image/slide 1.2.png" alt="2" class="slide__image-item">
+                <img src="./assets/image/slide 1.3.png" alt="3" class="slide__image-item">
+                <img src="./assets/image/slide 1.4.png" alt="4" class="slide__image-item">
+                <img src="./assets/image/slide 1.5.png" alt="5" class="slide__image-item">
             </div>
             <div class="slide__button">
                 <div class="slide__button-left">
@@ -678,7 +678,7 @@ function exportStar($number)
                                 </a>";
                 }
                 ?>
-                <a href="#" class="hotphone__content-item big">
+                <a href="./product/detail.php?id=167" class="hotphone__content-item big">
                     <img src="https://cdn.tgdd.vn/Products/Images/42/234315/Feature/samsung-galaxy-a32-4g-ft.jpg" class="item__img" />
                     <h3 class="item__title">Samsung Galaxy A32</h3>
                     <strong class="item__price">6.690.000₫</strong>
@@ -769,7 +769,9 @@ function exportStar($number)
                 ?>
             </div>
             <div class="hotlaptop__more">
-                <a href="#">Xem tất cả <strong>100</strong> điện thoại</a>
+                <?php
+                echo "<a href='./product/laptop.php'>Xem tất cả <strong>" . $sumLaptop['count'] . "</strong> laptop</a>";
+                ?>
             </div>
         </div>
     </div>
@@ -792,7 +794,7 @@ function exportStar($number)
                 </div>
             </div>
             <div class="hottablet__content">
-                <a href="#" class="hottablet__content-item big">
+                <a href="./product/detail.php?id=166" class="hottablet__content-item big">
                     <img src="https://cdn.tgdd.vn/Products/Images/522/228144/Feature/samsung-galaxy-tab-a7-2020-ft.jpg" class="item__img" />
                     <h3 class="item__title">Samsung Galaxy Tab A7 (2020)</h3>
                     <strong class="item__price">7.390.000₫</strong>
@@ -806,7 +808,7 @@ function exportStar($number)
                     </div>
                 </a>
                 <?php
-                $resultTablet = $connect->query("SELECT * from product where type = 3 and isVisible = 1 order by view desc limit 6");
+                $resultTablet = $connect->query("SELECT * from product where type = 3 and id != 166 and isVisible = 1 order by view desc limit 6");
                 for ($i = 0; $i < 3; $i++) {
                     $rowTablet = mysqli_fetch_assoc($resultTablet);
                     $countRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(*) as count FROM rate WHERE id_product = ${rowTablet['id']}"));
@@ -823,7 +825,7 @@ function exportStar($number)
                 ?>
             </div>
             <div class="hottablet__more">
-                <?php echo "<a href='#'>Xem tất cả <strong>" . $sumTablet['count'] . "</strong> điện thoại</a>"; ?>
+                <?php echo "<a href='./product/tablet.php'>Xem tất cả <strong>" . $sumTablet['count'] . "</strong> máy tính bảng</a>"; ?>
             </div>
         </div>
     </div>
@@ -863,19 +865,9 @@ function exportStar($number)
                                 </a>";
                 }
                 ?>
-                <!-- <a href="#"class="hotwatch__content-item">
-                        <img src="https://cdn.tgdd.vn/Products/Images/7077/215817/apple-watch-s5-lte-104520-104549-400x400.jpg" class="item__img"/>
-                        <h3 class="item__title">Apple Watch S5 LTE 44mm viền nhôm dây cao su hồng</h3>
-                        <strong class="item__price">5.190.000₫</strong>
-                        <div class="item__rate">
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="active item__rate-star fas fa-star"></i>
-                            <i class="item__rate-star fas fa-star"></i>
-                            <span>30 đánh giá</span>
-                        </div>
-                    </a> -->
+            </div>
+            <div class="hotwatch__more">
+                <?php echo "<a href='./product/watch.php'>Xem tất cả <strong>" . $sumWatch['count'] . "</strong> đồng hồ</a>"; ?>
             </div>
         </div>
     </div>

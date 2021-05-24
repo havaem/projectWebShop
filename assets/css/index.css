@@ -516,6 +516,7 @@ body {
 }
 
 .slide__image-item {
+  cursor: pointer;
   width: 100%;
   height: 100%;
 }
@@ -1879,6 +1880,7 @@ body {
     display: none;
   }
   .hotlaptop__more {
+    display: block;
     padding: 1.5rem;
     text-align: center;
   }
@@ -1923,6 +1925,7 @@ body {
     display: none;
   }
   .hottablet__more {
+    display: block;
     padding: 1.5rem;
     text-align: center;
   }
@@ -1961,6 +1964,7 @@ body {
     display: none;
   }
   .hotwatch__more {
+    display: block;
     padding: 1.5rem;
     text-align: center;
   }
@@ -1999,6 +2003,7 @@ body {
     display: none;
   }
   .hotpc__more {
+    display: block;
     padding: 1.5rem;
     text-align: center;
   }

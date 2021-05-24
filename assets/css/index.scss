@@ -82,6 +82,7 @@ body {
     display: flex;
     // transition: 1.4s;
     &-item {
+      cursor: pointer;
       width: 100%;
       height: 100%;
     }
@@ -1020,6 +1021,7 @@ body {
       }
     }
     &__more {
+      display: block;
       padding: 1.5rem;
       text-align: center;
       a {
@@ -1069,6 +1071,7 @@ body {
       }
     }
     &__more {
+      display: block;
       padding: 1.5rem;
       text-align: center;
       a {
@@ -1111,6 +1114,7 @@ body {
       }
     }
     &__more {
+      display: block;
       padding: 1.5rem;
       text-align: center;
       a {
@@ -1153,6 +1157,7 @@ body {
       }
     }
     &__more {
+      display: block;
       padding: 1.5rem;
       text-align: center;
       a {
