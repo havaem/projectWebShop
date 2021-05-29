@@ -44,6 +44,21 @@ function exportStar($number)
             <i class='active fas fa-star'></i>";
     }
 }
+function exportLevel($level)
+{
+    switch ($level) {
+        case "NewMember":
+            return "new";
+        case "VIP1":
+            return "lv1";
+        case "VIP2":
+            return "lv2";
+        case "VIP3":
+            return "lv3";
+        case "VIP4":
+            return "lv4";
+    }
+}
 if (!empty($rowComment)) {
     foreach ($rowComment as $item) {
         //lấy rank từ db
@@ -54,16 +69,28 @@ if (!empty($rowComment)) {
         //Lấy số sao đánh giá từ db
         $starResult = $connect->query("SELECT star FROM rate WHERE id_user = $item[2] and id_product = ${data['id']}") or die("mysqli_error");
         $rowStar = mysqli_fetch_assoc($starResult);
-        echo "
-                            <div class='comment__content-item'>
-                            <h3 class='item__name'>${rowName["name"]}<i class='fas fa-check-circle' title='$rowRank'></i></h3>
-                            <span class='item__time'>$item[4]</span>
-                            <div class='item__rate'>";
-        echo exportStar($rowStar['star']);
-        echo "
-                            </div>
-                            <h4 class='item__comment'>$item[3]</h4>
-                            </div>
-                        ";
+        $rate = exportStar($rowStar['star']);
+        $level = exportLevel($rowRank);
+        $avatar = mysqli_fetch_row($connect->query("SELECT avatar from user where id = $item[2]"))[0];
+        echo <<<XXX
+                <div class="comment__content-item">
+                    <div class="item__left">
+                        <img class="item__left-border" src="../assets/image/border/$level.png" alt="">
+                        <img class="item__left-avatar" src="../dashboard/$avatar" alt="">
+                    </div>
+                    <div class="item__right">
+                        <div class="item__right-name">
+                            <span>${rowName["name"]}</span>
+                        </div>
+                        <span class="item__right-time">2021-05-29 14:34:43</span>
+                        <div class="item__right-rate">
+                            $rate
+                        </div>
+                        <p class="item__right-comment">
+                            $item[3]
+                        </p>
+                    </div>
+                </div>
+        XXX;
     }
 }
