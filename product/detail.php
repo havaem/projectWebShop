@@ -231,7 +231,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 if (mysqli_num_rows($connect->query("SELECT star from rate where id_product=$data[id] and id_user=$_SESSION[idUserLogin]")) > 0) {
                     $getStar = mysqli_fetch_assoc($connect->query("SELECT star from rate where id_product=$data[id] and id_user=$_SESSION[idUserLogin]"))['star'];
                     echo "  <form class='comment__form' action='' method='post'>
-                                <textarea class='comment__form-content' value='' placeholder='Tối đa 200 ký tự !!'></textarea>
+                                <textarea class='comment__form-content' value='' placeholder='Tối đa 200 ký tự !! Để trống mặc định đánh giá sản phẩm'></textarea>
                                 <select name='comment__form-rate' id=''>";
                     if ($getStar == 0 || $getStar == 5) {
                         echo "      <option value='5'>5 sao</option>

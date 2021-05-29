@@ -704,6 +704,7 @@ body {
 }
 
 .phone__more a {
+  cursor: pointer;
   vertical-align: middle;
   font-size: 14px;
   padding: 10px 10px;

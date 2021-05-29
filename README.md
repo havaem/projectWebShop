@@ -48,7 +48,7 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>2. Code gọi là tạm hoàn chỉnh (vẫn còn 1 số tính năng chưa có logic)</p>
 
 <h1>Update : 29/05/2021 by Võ Hoài Nam</h1>
-<p>1. Thay đổi giao diện phần comment</p>
-<p>2. Code gọi là tạm hoàn chỉnh (vẫn còn 1 số tính năng chưa có logic)</p>
+<p>1. Thay đổi giao diện phần comment ( hiển thị rank rõ ràng và đẹp hơn)</p>
+<p>2. Filter được dành cho điện thoại</p>
 
 

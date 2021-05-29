@@ -74,7 +74,7 @@ if (!empty($rowComment)) {
         $avatar = mysqli_fetch_row($connect->query("SELECT avatar from user where id = $item[2]"))[0];
         echo <<<XXX
                 <div class="comment__content-item">
-                    <div class="item__left">
+                    <div class="item__left" title="$rowRank">
                         <img class="item__left-border" src="../assets/image/border/$level.png" alt="">
                         <img class="item__left-avatar" src="../dashboard/$avatar" alt="">
                     </div>

@@ -915,10 +915,7 @@ body {
 }
 
 .comment__content-item .item__right {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% - 12rem);
-          flex: 0 0 calc(100% - 12rem);
-  width: calc(100% - 12rem);
+  width: calc(100% - 7rem);
 }
 
 .comment__content-item .item__right-name {

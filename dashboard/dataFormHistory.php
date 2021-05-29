@@ -6,7 +6,7 @@
 
     <div class="content__content">
     <?php
-                        $getOrderById = mysqli_fetch_all($connect->query("SELECT * from theorder where id_user = ${dataUser['id']}"));
+                        $getOrderById = mysqli_fetch_all($connect->query("SELECT * from theorder where id_user = ${dataUser['id']} order by isReceived desc"));
                         if (count($getOrderById) > 0) {
                             echo "<div class='content__content-row'>";
                             echo "<div class='row__title row__code'>Mã đơn hàng</div>";
