@@ -1090,6 +1090,26 @@ body {
   display: block;
 }
 
+.dashboard__right-content.form__history .content__title {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+}
+
+.dashboard__right-content.form__history .content__title h2 {
+  font-size: 2rem;
+  font-weight: 100;
+  color: #333;
+  padding-top: 1rem;
+}
+
+.dashboard__right-content.form__history .content__title p {
+  font-size: 1.4rem;
+  line-height: 1.0625rem;
+  color: #555;
+  margin-top: 3px;
+}
+
 .dashboard__right-content.form__history .content__content {
   width: 100%;
 }

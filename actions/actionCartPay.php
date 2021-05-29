@@ -29,7 +29,7 @@ if (count($cart) > 1) {
         $connect->query("UPDATE user SET sumBought= $sumBought  WHERE id=$idUser");
         $connect->query("UPDATE product SET stock= $quanity WHERE id=$idItem");
         $connect->query("INSERT INTO theorder(id_product, id_user, name, price, address, phone, note, order_time, isReceived) 
-        VALUES ('$idItem','$idUser','$nameItem','$priceItem','$addressUser','$phoneUser','test','$currentDay','2')");
+        VALUES ('$idItem','$idUser','$nameItem','$priceItem','$addressUser','$phoneUser','test','$currentDay','4')");
     }
     $_SESSION['cart'] = null;
 }

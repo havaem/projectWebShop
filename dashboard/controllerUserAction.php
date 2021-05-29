@@ -18,10 +18,6 @@ $gender = (int)$dataUser['gender'];
 $birthday = $dataUser['birthday'];
 $address = $dataUser['address'];
 
-$password = '';
-$newpassword = '';
-$renewpassword = '';
-$otp = '';
 $error = array();
 if (isset($_POST['updateInfoByUser'])) {
     $name = mysqli_real_escape_string($connect, $_POST['name']);
@@ -68,7 +64,7 @@ if (isset($_POST['updateInfoByUser'])) {
     }
 }
 
-if (isset($_POST['updatePasswordUser'])) {
+/* if (isset($_POST['updatePasswordUser'])) {
     $error = array();
     $password = mysqli_real_escape_string($connect, $_POST['password']);
     $newpassword = mysqli_real_escape_string($connect, $_POST['newpassword']);
@@ -96,3 +92,4 @@ if (isset($_POST['updatePasswordUser'])) {
         header('location: user.php');
     }
 }
+ */

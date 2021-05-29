@@ -670,7 +670,7 @@ function exportStar($number)
                     echo "<a href='./product/detail.php?id=" . $rowPhone['id'] . "'class='hotphone__content-item'>
                                     <img src='" . substr($rowPhone['image'], 1) . "' class='item__img'/>
                                     <h3 class='item__title'>" . $rowPhone['name'] . "</h3>
-                                    <strong class='item__price'>" . number_format($rowPhone['price']) . "</strong>
+                                    <strong class='item__price'>" . number_format($rowPhone['price']) . "₫</strong>
                                         <div class='item__rate'>
                                             " . exportStar($rowPhone['rate']) . "
                                             <span>" . $countRate['count'] . " đánh giá</span>
@@ -698,7 +698,7 @@ function exportStar($number)
                     echo "<a href='./product/detail.php?id=" . $rowPhone['id'] . "'class='hotphone__content-item'>
                                     <img src='" . substr($rowPhone['image'], 1) . "' class='item__img'/>
                                     <h3 class='item__title'>" . $rowPhone['name'] . "</h3>
-                                    <strong class='item__price'>" . number_format($rowPhone['price']) . "</strong>
+                                    <strong class='item__price'>" . number_format($rowPhone['price']) . "₫</strong>
                                         <div class='item__rate'>
                                             " . exportStar($rowPhone['rate']) . "
                                             <span>" . $countRate['count'] . " đánh giá</span>
@@ -759,7 +759,7 @@ function exportStar($number)
                     echo "<a href='./product/detail.php?id=" . $rowLaptop['id'] . "'class='hotlaptop__content-item'>
                                     <img src='" . substr($rowLaptop['image'], 1) . "' class='item__img'/>
                                     <h3 class='item__title'>" . $rowLaptop['name'] . "</h3>
-                                    <strong class='item__price'>" . number_format($rowLaptop['price']) . "</strong>
+                                    <strong class='item__price'>" . number_format($rowLaptop['price']) . "₫</strong>
                                         <div class='item__rate'>
                                             " . exportStar($rowLaptop['rate']) . "
                                             <span>" . $countRate['count'] . " đánh giá</span>
@@ -815,7 +815,7 @@ function exportStar($number)
                     echo "<a href='./product/detail.php?id=" . $rowTablet['id'] . "'class='hottablet__content-item'>
                                     <img src='" . substr($rowTablet['image'], 1) . "' class='item__img'/>
                                     <h3 class='item__title'>" . $rowTablet['name'] . "</h3>
-                                    <strong class='item__price'>" . number_format($rowTablet['price']) . "</strong>
+                                    <strong class='item__price'>" . number_format($rowTablet['price']) . "₫</strong>
                                         <div class='item__rate'>
                                             " . exportStar($rowTablet['rate']) . "
                                             <span>" . $countRate['count'] . " đánh giá</span>
@@ -857,7 +857,7 @@ function exportStar($number)
                     echo "<a href='./product/detail.php?id=" . $rowWatch['id'] . "'class='hotwatch__content-item'>
                                     <img src='" . substr($rowWatch['image'], 1) . "' class='item__img'/>
                                     <h3 class='item__title'>" . $rowWatch['name'] . "</h3>
-                                    <strong class='item__price'>" . number_format($rowWatch['price']) . "</strong>
+                                    <strong class='item__price'>" . number_format($rowWatch['price']) . "₫</strong>
                                         <div class='item__rate'>
                                             " . exportStar($rowWatch['rate']) . "
                                             <span>" . $countRate['count'] . " đánh giá</span>

@@ -182,7 +182,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 ?>
             </div>
             <div class="detail__desc">
-                <p class="detail__desc-title"><?php echo $data['name'] . " " . number_format($data['price']) . "vnđ"; ?></p>
+                <p class="detail__desc-title"><?php echo $data['name'] . " " . number_format($data['price']) . "₫"; ?></p>
                 <div class="detail__desc-rate">
                     <?php
                     echo exportStar($data['rate']);
@@ -318,6 +318,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                     y: 'bottom',
                 }
             });
+            
             /* Scroll button */
             scrollbtn = document.querySelector('.scrollbutton')
             window.addEventListener('scroll', () => {
