@@ -150,6 +150,20 @@ body {
 	}
 	&__action {
 		width: 30%;
+		&-price{
+			width: 100%;
+			text-align: center;
+			margin-bottom: 2rem;
+			border: 1px solid red;
+			padding: 1rem 0;
+			border-radius: 7px;
+			p{
+				font-size: 4rem;
+				font-weight: bold;
+				color:$hover-red;
+				text-shadow: 0px 0px 2px rgb(221, 61, 61);
+			}
+		}
 		&-buy {
 			width: 100%;
 			height: 6rem;
@@ -334,6 +348,7 @@ body {
 			background-color: #f2f2f2;
             display: flex;
             align-items: center;
+			position: relative;
 			.item__left {
                 flex: 0 0 10rem;
                 position: relative;
@@ -396,6 +411,28 @@ body {
 					line-height: 2.5rem;
 					word-wrap: break-word;
 				}
+				&-remove{
+					opacity: 0;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					background: rgb(255, 114, 114);
+					width: 3rem;
+					height: 3rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-top-left-radius: 10px;
+					border-bottom-right-radius: 9px;
+					cursor: pointer;
+					transition: .1s;
+					i{
+						color:white;
+					}
+				}
+			}
+			&:hover .item__right-remove{
+				opacity: 1;
 			}
 		}
 	}

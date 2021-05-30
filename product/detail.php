@@ -182,7 +182,7 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 ?>
             </div>
             <div class="detail__desc">
-                <p class="detail__desc-title"><?php echo $data['name'] . " " . number_format($data['price']) . "₫"; ?></p>
+                <p class="detail__desc-title"><?php echo $data['name']; ?></p>
                 <div class="detail__desc-rate">
                     <?php
                     echo exportStar($data['rate']);
@@ -207,6 +207,9 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                 </div>
             </div>
             <div class="description__action">
+                <div class="description__action-price">
+                    <p><?=number_format($data['price'],"0",".",".")."đ"?></p>
+                </div>
                 <a href="javascript:void(0)" class="description__action-buy" title="MUA NGAY">
                     <p>MUA NGAY</p>
                     <p>Giao hàng tận nơi hoặc nhận tại cửa hàng</p>
@@ -318,7 +321,8 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                     y: 'bottom',
                 }
             });
-            
+            btnRemoveComment = [...document.querySelectorAll(".item__right-remove")];
+            getQueryBtnRemoveComment = () => [...document.querySelectorAll(".item__right-remove")];
             /* Scroll button */
             scrollbtn = document.querySelector('.scrollbutton')
             window.addEventListener('scroll', () => {
@@ -366,6 +370,27 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                     },
                     success: function(data) {
                         $(".comment__content").html(data);
+                        btnRemoveComment = getQueryBtnRemoveComment();
+                        for(i=0;i<btnRemoveComment.length;i++){
+                            btnRemoveComment[i].onclick = function() {
+                                console.log(this.getAttribute('data-idSelect'))
+                                $.ajax({
+                                    url: "<?php echo $domain . "/product/commentRemove.php" ?>",
+                                    type: 'POST',
+                                    data: {
+                                        id: this.getAttribute('data-idSelect'),
+                                    },
+                                    success: function(data) {
+                                        loadComment();
+                                        loadPage();
+                                        setTimeout(() => {
+                                            again();
+                                        }, 1000);
+                                        notyf.success('Xóa bình luận thành công!');
+                                    }
+                                });
+                            }
+                        }
                     }
                 });
             }
@@ -390,6 +415,26 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                             },
                             success: function(data) {
                                 $(".comment__content").html(data);
+                                btnRemoveComment = getQueryBtnRemoveComment();
+                                for(i=0;i<btnRemoveComment.length;i++){
+                                    btnRemoveComment[i].onclick = function() {
+                                       $.ajax({
+                                            url: "<?php echo $domain . "/product/commentRemove.php" ?>",
+                                            type: 'POST',
+                                            data: {
+                                                id: this.getAttribute('data-idSelect'),
+                                            },
+                                            success: function(data) {
+                                                loadComment();
+                                                loadPage();
+                                                setTimeout(() => {
+                                                    again();
+                                                }, 1000);
+                                                notyf.success('Xóa bình luận thành công!');
+                                            }
+                                        });
+                                    }
+                                }
                             }
                         });
                     }
@@ -441,6 +486,26 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
                             },
                             success: function(data) {
                                 $(".comment__content").html(data);
+                                btnRemoveComment = getQueryBtnRemoveComment();
+                                for(i=0;i<btnRemoveComment.length;i++){
+                                    btnRemoveComment[i].onclick = function() {
+                                        $.ajax({
+                                            url: "<?php echo $domain . "/product/commentRemove.php" ?>",
+                                            type: 'POST',
+                                            data: {
+                                                id: this.getAttribute('data-idSelect'),
+                                            },
+                                            success: function(data) {
+                                                loadComment();
+                                                loadPage();
+                                                setTimeout(() => {
+                                                    again();
+                                                }, 1000);
+                                                notyf.success('Xóa bình luận thành công!');
+                                            }
+                                        });
+                                    }
+                                }
                             }
                         });
                     }

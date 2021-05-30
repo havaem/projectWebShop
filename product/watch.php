@@ -2,8 +2,16 @@
 session_start();
   
 include("../config.php");
-$rowWatch = $connect->query("SELECT * from product where type = 4 and isVisible = 1");
-$dt = ceil(mysqli_num_rows($rowWatch) /10);
+$filterByManufacturer = isset($_GET["manu"]) ? (int)$_GET["manu"] : 0;
+$filterByPrice = isset($_GET["price"]) ? (int)$_GET["price"] : 0;
+
+function renderFilterManuLink($num,$filterByPrice){
+    return "?manu=$num&price=$filterByPrice";
+}
+
+function renderFilterPriceLink($num,$filterByManufacturer){
+    return "?manu=$filterByManufacturer&price=$num";
+}
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -29,25 +37,25 @@ $dt = ceil(mysqli_num_rows($rowWatch) /10);
     ?>
     <div class="brand">
         <div class="container">
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(1,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/Apple7077-b_26.jpg" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(2,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/samsung.jpg" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(3,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/Huawei522-b_4.jpg" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(4,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/oppo.jpg" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(5,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/Garmin.png" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(6,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/Xiaomi.jpg" alt="" />
             </a>
-            <a href="" class="brand__item">
+            <a href="<?=renderFilterManuLink(7,$filterByPrice)?>" class="brand__item">
                 <img class="brand__item-img" src="../assets/image/nhanhieu/Huami-Amazfi.jpg" alt="" />
             </a>
         </div>
@@ -55,12 +63,12 @@ $dt = ceil(mysqli_num_rows($rowWatch) /10);
     <div class="filter">
         <div class="container">
             <h1 class="filter__title">Chọn mức giá :</h1>
-            <a href="" class="filter__item"> Dưới 3 triệu </a>
-            <a href="" class="filter__item"> Từ 3 đến 8 triệu </a>
-            <a href="" class="filter__item"> Từ 8 đến 15 triệu </a>
-            <a href="" class="filter__item"> Từ 15 đến 20 triệu </a>
-            <a href="" class="filter__item"> Từ 20 đến 25 triệu </a>
-            <a href="" class="filter__item"> Trên 25 triệu </a>
+            <a href="<?=renderFilterPriceLink(1,$filterByManufacturer)?>" class="filter__item"> Dưới 3 triệu </a>
+            <a href="<?=renderFilterPriceLink(2,$filterByManufacturer)?>" class="filter__item"> Từ 3 đến 8 triệu </a>
+            <a href="<?=renderFilterPriceLink(3,$filterByManufacturer)?>" class="filter__item"> Từ 8 đến 15 triệu </a>
+            <a href="<?=renderFilterPriceLink(4,$filterByManufacturer)?>" class="filter__item"> Từ 15 đến 20 triệu </a>
+            <a href="<?=renderFilterPriceLink(5,$filterByManufacturer)?>" class="filter__item"> Từ 20 đến 25 triệu </a>
+            <a href="<?=renderFilterPriceLink(6,$filterByManufacturer)?>" class="filter__item"> Trên 25 triệu </a>
         </div>
     </div>
     <div class="watch">
@@ -75,7 +83,7 @@ $dt = ceil(mysqli_num_rows($rowWatch) /10);
 
             </div>
             <div class="watch__more">
-                <a href="javascript:void(0)">Xem thêm</a>
+                <!-- <a href="javascript:void(0)">Xem thêm</a> -->
             </div>
         </div>
     </div>
@@ -128,41 +136,56 @@ $dt = ceil(mysqli_num_rows($rowWatch) /10);
     ?>
     <script>
         $(document).ready(function() {
-            dt = <?php echo$dt; ?>;
-            if (dt == 0) {
-                $(".watch__more").css("display", "none");
-            }
-            amount = 10;
-            $.ajax({
-                url: "./productData.php",
-                type: 'POST',
-                data: {
-                    amount: amount,
-                    type: 4,
-                },
-                success: function(data) {
-                    $(".watch__content").html(data);
+            var filterByManufacturer = <?=$filterByManufacturer?>;
+                var filterByPrice = <?=$filterByPrice?>;
+                if (dt == 0) {
+                    $(".watch__more").css("display", "none");
                 }
-            });
-            dt--;
-            $(".watch__more").click(() => {
-                amount+=10;
-                dt--;
-                if(dt == 0){
-                    $(".watch__more").css("display","none");
-                }
+                var amount = 10;
+                var dt;
                 $.ajax({
-                    url: "./productData.php",
+                    url: "./productQuery.php",
                     type: 'POST',
                     data: {
-                        amount: amount,
+                        amount,
                         type: 4,
+                        filterByManufacturer,
+                        filterByPrice
                     },
-                    success: function(data) {
-                        $(".watch__content").html(data);
+                    success: function (data) {
+                        console.log(data)
+                        dt = data-1;
+                        if(dt>0){
+                            document.querySelector(".watch__more").innerHTML = "<a class='watch__more-button href='javascript:void(0)'>Xem thêm</a>";
+                        }
+                        $(".watch__more-button").click(() => {
+                            amount += 10;
+                            dt--;
+                            console.log(dt);
+                            if (dt == 0) {
+                            $(".watch__more").css("display", "none");
+                            }
+                            renderData(filterByManufacturer,filterByPrice);
+                        })
                     }
                 });
-            })
+                const renderData = (filterByManufacturer, filterByPrice) => {
+                    $.ajax({
+                        url: "./productData.php",
+                        type: 'POST',
+                        data: {
+                            amount,
+                            type: 4,
+                            filterByManufacturer,
+                            filterByPrice
+                        },
+                        success: function (data) {
+                            $(".watch__content").html(data);
+                        }
+                    });
+                }
+
+                renderData(filterByManufacturer,filterByPrice);
         });
     </script>
 </body>

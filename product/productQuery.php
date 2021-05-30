@@ -85,45 +85,162 @@ if($type === 1){
 if($type === 2){
   //Filter only manu
   if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    $query = $connect->query("SELECT * from product where type = $type and manufacturer='$manu' and isVisible = 1 limit $amount");
+    $data = mysqli_fetch_all($query);
   }
   //Filter only price
-  if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+  if($filterByManufacturer ==0 && $filterByPrice!=0){
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 10000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 10000000 and price <= 15000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and price <= 50000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 50000000 and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
   //Filter both
   if($filterByManufacturer !=0 && $filterByPrice!=0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 10000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 10000000 and price <= 15000000  and manufacturer='$manu' and price <= 15000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000  and manufacturer='$manu' and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000  and manufacturer='$manu' and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and price <= 50000000  and manufacturer='$manu' and price <= 50000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 50000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
 }
 //Filter for 3
 if($type === 3){
   //Filter only manu
   if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    $query = $connect->query("SELECT * from product where type = $type and manufacturer='$manu' and isVisible = 1 limit $amount");
+    $data = mysqli_fetch_all($query);
   }
   //Filter only price
-  if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+  if($filterByManufacturer ==0 && $filterByPrice!=0){
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 3000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 3000000 and price <= 8000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 8000000 and price <= 15000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
   //Filter both
   if($filterByManufacturer !=0 && $filterByPrice!=0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 3000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 3000000 and price <= 8000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 8000000 and price <= 15000000  and manufacturer='$manu' and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000 and manufacturer='$manu' and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000 and manufacturer='$manu' and price <= 50000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
 }
 //Filter for 4
 if($type === 4){
   //Filter only manu
   if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    $query = $connect->query("SELECT * from product where type = $type and manufacturer='$manu' and isVisible = 1 limit $amount");
+    $data = mysqli_fetch_all($query);
   }
   //Filter only price
-  if($filterByManufacturer !=0 && $filterByPrice==0){
-  
+  if($filterByManufacturer ==0 && $filterByPrice!=0){
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 3000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 3000000 and price <= 8000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 8000000 and price <= 15000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
   //Filter both
   if($filterByManufacturer !=0 && $filterByPrice!=0){
-  
+    $manu = exportNumberManu($type,$filterByManufacturer);
+    if($filterByPrice == 1){
+      $query = $connect->query("SELECT * from product where type = $type and price < 3000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 2){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 3000000 and price <= 8000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 3){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 8000000 and price <= 15000000  and manufacturer='$manu' and price <= 20000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 4){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 15000000 and price <= 20000000 and manufacturer='$manu' and price <= 25000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 5){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 20000000 and price <= 25000000 and manufacturer='$manu' and price <= 50000000 and isVisible = 1 limit $amount");
+    }
+    if($filterByPrice == 6){
+      $query = $connect->query("SELECT * from product where type = $type and price >= 25000000 and manufacturer='$manu' and isVisible = 1 limit $amount");
+    }
+    $data = mysqli_fetch_all($query);
   }
 }
 echo ceil(mysqli_num_rows($query) /10);

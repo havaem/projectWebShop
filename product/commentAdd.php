@@ -5,6 +5,7 @@ $id_product = isset($_POST['id_product']) ? $_POST['id_product'] : 0;
 $id_user = isset($_POST['id_user']) ? $_POST['id_user'] : 0;
 $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
 $currentDay = date_create()->format('Y-m-d H:i:s');
+$rateTimes;
 // Đánh giá sao thế comment trống
 if ($comment === '' && $rate !== 0) {
     // Kiểm tra đã từng đánh giá chưa
@@ -35,6 +36,7 @@ if ($comment === '' && $rate !== 0) {
 } else {
     // Thêm comment 
     $connect->query("INSERT INTO comment(id_product, id_user, comment, release_date) VALUES ($id_product,$id_user,'$comment','$currentDay')");
+    $rateTimes = mysqli_fetch_row($connect->query("SELECT COUNT(star) from rate where id_product = $id_product"))[0];
     if (mysqli_num_rows($rated = $connect->query("SELECT * FROM rate WHERE id_product = $id_product  AND id_user = $id_user "))  == 0) {
         $connect->query("INSERT INTO rate(id_product, id_user, star) VALUES ($id_product,$id_user,$rate)");
         $allStar = mysqli_fetch_row($connect->query("SELECT SUM(star) from rate where id_product = $id_product"))[0];

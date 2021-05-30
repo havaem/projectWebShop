@@ -74,6 +74,19 @@ if (isset($_SESSION['idUserLogin'])) {
                 </a>
             </div>
             <div class="header__nav-item">
+                <a href="<?php echo $domain . "/product/watch.php"; ?>" class="item__title">
+                    <i class="item__icon flaticon-smartwatch"></i>
+                    <span>Đồng hồ thông minh</span>
+                </a>
+
+            </div>
+            <div class="header__nav-item">
+                <a href="<?php echo $domain . "/product/pc.php"; ?>" class="item__title">
+                    <i class="item__icon fas fa-desktop"></i>
+                    <span>PC, Máy in</span>
+                </a>
+            </div>
+                        <div class="header__nav-item">
                 <a href="#" class="item__title">
                     <i class="item__icon flaticon-headphones"></i>
                     <span style="margin-right: 1rem;">Phụ kiện</span>
@@ -87,19 +100,6 @@ if (isset($_SESSION['idUserLogin'])) {
                     <a href="#" class="item__subitem-item">Chuột</a>
                     <a href="#" class="item__subitem-item">Miếng dán màn hình</a>
                 </div>
-            </div>
-            <div class="header__nav-item">
-                <a href="<?php echo $domain . "/product/watch.php"; ?>" class="item__title">
-                    <i class="item__icon flaticon-smartwatch"></i>
-                    <span>Đồng hồ thông minh</span>
-                </a>
-
-            </div>
-            <div class="header__nav-item">
-                <a href="<?php echo $domain . "/product/pc.php"; ?>" class="item__title">
-                    <i class="item__icon fas fa-desktop"></i>
-                    <span>PC, Máy in</span>
-                </a>
             </div>
         </div>
     </div>

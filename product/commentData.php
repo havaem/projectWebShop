@@ -1,5 +1,6 @@
 <?php
 include("../config.php");
+session_start();
 $id = $_POST["id"];
 // echo "<script>alert('commentData :' +".$id.")</script>";
 $currentPage =  isset($_REQUEST["currentPage"]) ? $_REQUEST["currentPage"] : 1;
@@ -64,14 +65,20 @@ if (!empty($rowComment)) {
         //lấy rank từ db
         $rowRank = mysqli_fetch_row($connect->query("SELECT rank.name FROM user,rank WHERE user.id = '$item[2]' AND rank.id = user.rank"))[0];
         //Lấy tên từ db
-        $nameResult = $connect->query("SELECT name FROM user WHERE id = $item[2]") or die("mysqli_error");
-        $rowName = mysqli_fetch_assoc($nameResult);
+        $nameResult = $connect->query("SELECT name,id FROM user WHERE id = $item[2]") or die("mysqli_error");
+        $rowName = mysqli_fetch_row($nameResult);
         //Lấy số sao đánh giá từ db
         $starResult = $connect->query("SELECT star FROM rate WHERE id_user = $item[2] and id_product = ${data['id']}") or die("mysqli_error");
         $rowStar = mysqli_fetch_assoc($starResult);
         $rate = exportStar($rowStar['star']);
         $level = exportLevel($rowRank);
         $avatar = mysqli_fetch_row($connect->query("SELECT avatar from user where id = $item[2]"))[0];
+        $buttonRemove = null;
+        if($_SESSION['idUserLogin'] == $rowName[1]){
+            $buttonRemove = "<div class='item__right-remove' data-idSelect='$item[0]'>
+                                <i class='fas fa-times'></i>
+                            </div>";
+        }
         echo <<<XXX
                 <div class="comment__content-item">
                     <div class="item__left" title="$rowRank">
@@ -80,7 +87,7 @@ if (!empty($rowComment)) {
                     </div>
                     <div class="item__right">
                         <div class="item__right-name">
-                            <span>${rowName["name"]}</span>
+                            <span>$rowName[0]</span>
                         </div>
                         <span class="item__right-time">2021-05-29 14:34:43</span>
                         <div class="item__right-rate">
@@ -89,6 +96,7 @@ if (!empty($rowComment)) {
                         <p class="item__right-comment">
                             $item[3]
                         </p>
+                        $buttonRemove
                     </div>
                 </div>
         XXX;

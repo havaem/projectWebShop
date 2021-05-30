@@ -51,4 +51,8 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>1. Thay đổi giao diện phần comment ( hiển thị rank rõ ràng và đẹp hơn)</p>
 <p>2. Filter được dành cho điện thoại</p>
 
+<h1>Update : 30/05/2021 by Võ Hoài Nam</h1>
+<p>1. Có thể xóa comment</p>
+<p>2. Filter được tất cả loại sản phẩm</p>
+
 

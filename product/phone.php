@@ -191,7 +191,6 @@ function renderFilterPriceLink($num,$filterByManufacturer){
                         filterByPrice
                     },
                     success: function (data) {
-                        console.log(data)
                         dt = data-1;
                         if(dt>0){
                             document.querySelector(".phone__more").innerHTML = "<a class='phone__more-button href='javascript:void(0)'>Xem thêm</a>";

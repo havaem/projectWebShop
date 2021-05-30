@@ -1416,6 +1416,10 @@ body {
           transform: unset;
 }
 
+.hotwatch__more {
+  display: none;
+}
+
 /*============================ 8. Hot PC ============================ */
 .hotpc {
   font-family: Helvetica, Arial, "DejaVu Sans", "Liberation Sans", Freesans, sans-serif;

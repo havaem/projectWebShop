@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
     startSlide();
     /* Slide 2 */
-    indexslidePr = 0;
+    /* indexslidePr = 0;
     slidePr = document.querySelector('.hotdeal__items')
     console.log(slidePr);
     slidePrLeft = document.querySelector('.button__left')
@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', function () {
         let scrollTo = (-indexslidePr) + '%'
         console.log(scrollTo);
         slidePr.style.transform = 'translateX(' + scrollTo + ')';
-    }
+    } */
     /* Scroll button */
     scrollbtn = document.querySelector('.scrollbutton')
     window.addEventListener('scroll', () => {
