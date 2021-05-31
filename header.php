@@ -7,7 +7,6 @@ if (isset($_SESSION['idUserLogin'])) {
     $rowUser = mysqli_fetch_assoc($resultUser);
 }
 ?>
-<!-- <script src="./assets/script/jquery-3.6.0.min.js"></script> -->
 <div class="header">
     <div class="container">
         <div class="header__main">

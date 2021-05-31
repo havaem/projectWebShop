@@ -232,6 +232,35 @@ body {
             border-radius: 7px;
         }
     }
+    &__infoUser{
+        width: 90%;
+        background: #6200ff14;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        &-title{
+            h1{
+                font-size: 2rem;
+            }
+        }
+        &-form{
+            display: flex;
+            flex-direction: column;
+            input{
+                box-shadow: inset 0px 0px 100px 0px white;
+                padding: 1rem;
+                margin-top: 1.5rem;
+                outline: none;
+                border: none;
+                border-radius: 7px;
+                border: 2px solid transparent;
+                transition: .2s;
+            }
+            input:focus{
+                border: 2px solid #6200ff96;
+            }
+        }
+    }
     .colTitle{
         font-size: 1.7rem;
     }

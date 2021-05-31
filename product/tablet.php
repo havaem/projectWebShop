@@ -175,7 +175,7 @@ function renderFilterPriceLink($num,$filterByManufacturer){
                             dt--;
                             console.log(dt);
                             if (dt == 0) {
-                            $(".phone__more").css("display", "none");
+                                $(".tablet__more").css("display", "none");
                             }
                             renderData(filterByManufacturer,filterByPrice);
                         })

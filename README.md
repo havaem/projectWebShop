@@ -55,4 +55,10 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>1. Có thể xóa comment</p>
 <p>2. Filter được tất cả loại sản phẩm</p>
 
+<h1>Update : 31/05/2021 by Võ Hoài Nam</h1>
+<p>1. Hiển thị nút xem thêm ở các tab 1 cách chính xác</p>
+<p>2. Filter được tất cả loại sản phẩm</p>
+<p>3. Chỉnh sửa lại giao diện giỏ hàng</p>
+<p>4. Thay đổi cách xác nhận giỏ hàng, tiến hành cập nhật database mới bao gồm đơn hàng và chi tiết đơn hàng</p>
+<p>Việc thay đổi database khiến nhiều tính năng bị lỗi</p>
 

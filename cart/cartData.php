@@ -67,9 +67,27 @@ if (count($_SESSION['cart']) === 1) {
 
         XXX;
     }
+    echo "</div>";
     $sumPriceShow = number_format($sumPrice);
-    echo <<<XXX
+    $idUserLogin = isset($_SESSION['idUserLogin']) ? $_SESSION['idUserLogin'] : 0;
+    if($idUserLogin != 0){
+        $dataUser = mysqli_fetch_row($connect->query("SELECT name,phone,address from user where id = $idUserLogin"));
+        echo <<<XXX
+                <div class="cart__infoUser">
+                    <div class="cart__infoUser-title">
+                        <h1>THÔNG TIN KHÁCH HÀNG</h1>
+                    </div>
+                    <div class="cart__infoUser-form">
+                        <input type="text" class="form__name" placeholder="Họ và tên (không điền sẽ lấy mặc định)" value="$dataUser[0]"/>
+                        <input type="number" class="form__phone" placeholder="Số điện thoại (không điền sẽ lấy mặc định)" value="$dataUser[1]"/>
+                        <input type="text" class="form__address" placeholder="Địa chỉ (không điền sẽ lấy mặc định)" value="$dataUser[2]"/>
+                        <input type="text" class="form__note" placeholder="Ghi chú đơn hàng"/>
+                    </div>
                 </div>
+        XXX;
+    }
+    echo <<<XXX
+                
                 <div class="cart__sum">
                     <div class="cart__sum-title">
                         <h1>THỐNG KÊ</h1>
@@ -143,7 +161,6 @@ if (count($_SESSION['cart']) === 1) {
         echo "<input type='text' name='' id='couponInp' placeholder='Nhập coupon của bạn' oninput='this.value = this.value.toUpperCase()'/>";
         echo "<button class='coupon__submit'><i class='iconCoupon fas fa-check'></i></button>";
     }
-    // <input type="text" name="" id="couponInp" placeholder="Nhập coupon của bạn" oninput="this.value = this.value.toUpperCase()"/>
     echo <<<XXX
                         </div>
                         <button class="pay-cart">THANH TOÁN</button>

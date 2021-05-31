@@ -9,13 +9,13 @@ $noti = 0;
 // 4 : Xóa coupon thành công
 // 5 : Áp dụng coupon thành công
 if ($coupon != '') {
-    $checkExistCoupon = $connect->query("SELECT * from voucher where code='$coupon' and type=3");
+    $checkExistCoupon = $connect->query("SELECT * from voucher where code='$coupon'");
     // Voucher tồn tại
     if (mysqli_num_rows($checkExistCoupon) > 0) {
         $couponRow = mysqli_fetch_assoc($checkExistCoupon);
         //Kiểm tra hạn sử dụng
         if (strtotime($couponRow['expiry date']) >= strtotime(date("Y-m-d"))) {
-            //Còn hạng sử dụng
+            //Còn hạn sử dụng
             if ($couponRow['time'] > 0) {
                 //Còn số lần dùng
                 $noti = 5;

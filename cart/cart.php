@@ -147,9 +147,19 @@ if (isset($_SESSION['cart']) === false) {
                     success: function(data) {
                         // Đã login rồi
                         if (data == 1) {
+                            hovaten = document.querySelector(".form__name").value;
+                            sodienthoai = document.querySelector(".form__phone").value;
+                            diachi = document.querySelector(".form__address").value;
+                            ghichu = document.querySelector(".form__note").value;
                             $.ajax({
                                 url: "<?php echo $domain . "/actions/actionCartPay.php" ?>",
                                 type: 'POST',
+                                data:{
+                                    nameUser : hovaten,
+                                    phoneUser : sodienthoai,
+                                    addressUser : diachi,
+                                    noteUser : ghichu
+                                },
                                 success: function(data) {
                                     window.location.href = "<?php echo $domain . "/dashboard/user.php" ?>";
                                 }

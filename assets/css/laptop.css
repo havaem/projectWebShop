@@ -881,6 +881,10 @@ body {
   font-size: 1.3rem;
 }
 
+.footer__col-partner .partner__fullstack {
+  color: #3fa400;
+}
+
 .footer__col-partner .partner__frontend {
   color: #0011ff;
 }

@@ -35,7 +35,7 @@
             </div>
             <div class="footer__col-partner">
                 <label>Nhà thành lập :</label>
-                <a class="partner__frontend" href="https://www.facebook.com/100009457467356" target="_blank">Võ Hoài Nam</a>
+                <a class="partner__fullstack" href="https://www.facebook.com/100009457467356" target="_blank">Võ Hoài Nam</a>
                 <a class="partner__frontend" href="https://www.facebook.com/100008031519330" target="_blank">Huỳnh Minh Hậu</a>
                 <a class="partner__frontend" href="https://www.facebook.com/100029417300263" target="_blank">Nguyễn Nhật Linh</a>
                 <a class="partner__backend" href="https://www.facebook.com/100009169309130" target="_blank">Huỳnh Thanh Phong</a>
