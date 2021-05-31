@@ -38,7 +38,7 @@ require './controllerUserAction.php';
                         <p class="action__type active" data-open="profile">Hồ sơ</p>
                         <p class="action__type" data-open="password">Mật khẩu</p>
                         <p class="action__type" data-open="rank">Xếp hạng</p>
-                        <p class="action__type" data-open="voucher">Voucher</p>
+                        <!-- <p class="action__type" data-open="voucher">Voucher</p> -->
                         <p class="action__type" data-open="history">Lịch sử mua hàng</p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ require './controllerUserAction.php';
                         require("./dataFormRank.php");
                     ?>
                     <?php
-                        require("./dataFormVoucher.php");
+                        // require("./dataFormVoucher.php");
                     ?>
                     <?php
                         require("./dataFormHistory.php");
