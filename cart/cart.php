@@ -94,7 +94,6 @@ if (isset($_SESSION['cart']) === false) {
         const renderFeauted = () => {
             getSelector();
             // Nhấn vào nút kiểm tra voucher
-            
             couponSubmit ? couponSubmit.onclick = () => {
                 cb = couponInp.value;
                 if (couponInp.disabled === true) {
@@ -107,6 +106,7 @@ if (isset($_SESSION['cart']) === false) {
                             if (data == 4) {
                                 notyf.success('Xóa coupon thành công !!');
                                 renderCart();
+                                
                             }
                         }
                     });
@@ -146,30 +146,33 @@ if (isset($_SESSION['cart']) === false) {
                     type: 'POST',
                     success: function(data) {
                         // Đã login rồi
-                        if (data == 1) {
-                            hovaten = document.querySelector(".form__name").value;
-                            sodienthoai = document.querySelector(".form__phone").value;
-                            diachi = document.querySelector(".form__address").value;
-                            ghichu = document.querySelector(".form__note").value;
-                            $.ajax({
-                                url: "<?php echo $domain . "/actions/actionCartPay.php" ?>",
-                                type: 'POST',
-                                data:{
-                                    nameUser : hovaten,
-                                    phoneUser : sodienthoai,
-                                    addressUser : diachi,
-                                    noteUser : ghichu
-                                },
-                                success: function(data) {
-                                    window.location.href = "<?php echo $domain . "/dashboard/user.php" ?>";
-                                }
-                            });
+                        if(window.confirm("Thông tin bạn đã chính xác chưa ?")){
+                            if (data == 1) {
+                                hovaten = document.querySelector(".form__name").value;
+                                sodienthoai = document.querySelector(".form__phone").value;
+                                diachi = document.querySelector(".form__address").value;
+                                ghichu = document.querySelector(".form__note").value;
+                                $.ajax({
+                                    url: "<?php echo $domain . "/actions/actionCartPay.php" ?>",
+                                    type: 'POST',
+                                    data:{
+                                        nameUser : hovaten,
+                                        phoneUser : sodienthoai,
+                                        addressUser : diachi,
+                                        noteUser : ghichu
+                                    },
+                                    success: function(data) {
+                                        window.location.href = "<?php echo $domain . "/orderDetail.php?id=" ?>"+data;
+                                    }
+                                });
+                            }
+                            // Chưa login
+                            else {
+                                alert('Vui lòng đăng nhập để thanh toán!!');
+                                window.location.href = "<?php echo $domain . "/login/dangnhap.php" ?>";
+                            }
                         }
-                        // Chưa login
-                        else {
-                            alert('Vui lòng đăng nhập để thanh toán!!');
-                            window.location.href = "<?php echo $domain . "/login/dangnhap.php" ?>";
-                        }
+                        
                     }
                 });
             }:null;

@@ -32,7 +32,8 @@
                                     $tt = "Đang xác nhận";
                                 }
                                 echo "<div class='row__time'>" . $tt . "</div>";
-                                echo "<div class='row__expirydate'> <a href='a'>Xem chi tiết</a> </div>";
+                                $idOrder = $getOrderById[$i][0];
+                                echo "<div class='row__expirydate'> <a target='_blank' href='../orderDetail.php?id=$idOrder'>Xem chi tiết</a> </div>";
                                 echo "</div>";
                             }
                         } else {

@@ -34,9 +34,9 @@ if (count($cart) > 1) {
         $timeCode = (int)$dataCode[7];
         $timeCode -= 1;
         // Tiến hành giảm số lượng 
-        $connect->query("UPDATE voucher SET `time` = '$timeCode' WHERE code = '$code'");
+        $connect->query("UPDATE voucher SET time = '$timeCode' WHERE code = '$code'");
         // Tiến hành thay đổi trạng thái 
-        if(mysqli_fetch_row($connect->query("SELECT `time` from voucher where code = '$code'"))[0] == 0){
+        if(mysqli_fetch_row($connect->query("SELECT time from voucher where code = '$code'"))[0] == 0){
             $connect->query("UPDATE voucher SET isActive = 'false'  WHERE code = '$code'");
         }
     }
@@ -47,9 +47,8 @@ if (count($cart) > 1) {
     $noteUser = $_POST['noteUser'];
     // Tiến hành thêm database vào theorder 
     $connect->query("INSERT INTO theorder(id_user, name, price, address, phone, note, order_time) 
-                    VALUES ('$idUser','$nameUser','$sumPrice','$addressUser','$phoneUser','$noteUser','$currentDay')");
+                    VALUES ('$idUser','$nameUser','$sumPrice','$addressUser','$phoneUser','$noteUser','$currentDay')") or die('mysql error');
     $idOrder = $connect->insert_id;
-    echo $sumPrice;
     for ($i = 1; $i < count($cart); $i++) {
         $idItem = $cart[$i]['id'];
         $nameItem = $cart[$i]['name'];
@@ -73,4 +72,5 @@ if (count($cart) > 1) {
         $connect->query("UPDATE product SET stock= $quanity WHERE id=$idItem");
     }
     $_SESSION['cart'] = null;
+    echo $idOrder;
 }

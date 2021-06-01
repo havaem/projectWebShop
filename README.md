@@ -62,3 +62,6 @@ https://vhnvohoainam.github.io/projectWebShop/
 <p>4. Thay đổi cách xác nhận giỏ hàng, tiến hành cập nhật database mới bao gồm đơn hàng và chi tiết đơn hàng</p>
 <p>Việc thay đổi database khiến nhiều tính năng bị lỗi</p>
 
+<h1>Update : 1/06/2021 by Võ Hoài Nam</h1>
+<p>1. Xem được chi tiết đơn hàng, có thể tải xuống đơn hàng</p>
+<p>2. Fix some bugs</p>
