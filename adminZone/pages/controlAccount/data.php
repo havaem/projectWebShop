@@ -21,7 +21,7 @@ foreach ($dataUsers as $user) {
  
         XXX;
     $dataUserSelect = mysqli_fetch_array($connect->query("SELECT * from user where id= $user[0]"));
-    $active = $dataUserSelect[19] == "false" ?
+    $active = $dataUserSelect[17] == "false" ?
         "<input type='checkbox' class='form-check-input cb$num' checked> Hoạt động <i class='input-helper'></i></label>" :
         "<input type='checkbox' class='form-check-input cb$num'> Hoạt động <i class='input-helper'></i></label>";
     $passwordUserSelect = "";

@@ -64,4 +64,5 @@ https://vhnvohoainam.github.io/projectWebShop/
 
 <h1>Update : 1/06/2021 by Võ Hoài Nam</h1>
 <p>1. Xem được chi tiết đơn hàng, có thể tải xuống đơn hàng</p>
+<p>3. Đã quản lý được voucher</p>
 <p>2. Fix some bugs</p>

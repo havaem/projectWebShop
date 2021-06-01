@@ -89,7 +89,7 @@ if (!empty($rowComment)) {
                         <div class="item__right-name">
                             <span>$rowName[0]</span>
                         </div>
-                        <span class="item__right-time">2021-05-29 14:34:43</span>
+                        <span class="item__right-time">$item[4]</span>
                         <div class="item__right-rate">
                             $rate
                         </div>

@@ -208,16 +208,28 @@ $upView = $connect->query("UPDATE product SET view = $data[view]+1 WHERE product
             </div>
             <div class="description__action">
                 <div class="description__action-price">
-                    <p><?=number_format($data['price'],"0",".",".")."đ"?></p>
-                </div>
-                <a href="javascript:void(0)" class="description__action-buy" title="MUA NGAY">
-                    <p>MUA NGAY</p>
-                    <p>Giao hàng tận nơi hoặc nhận tại cửa hàng</p>
-                </a>
-                <a href="javascript:void(0)" class="description__action-addToCart" title="MUA NGAY">
-                    <p>THÊM VÀO GIỎ HÀNG</p>
-                    <p>Tiện cho việc thanh toán</p>
-                </a>
+                    <?php
+                        if($data['stock']==0){
+                            echo "<p>HẾT HÀNG</p>";
+                            echo "</div>";
+                        }
+                        else{
+                            $priceFormatted = number_format($data['price'],"0",".",".");
+                            echo "<p>${priceFormatted}đ</p>";
+                            echo <<<XXX
+                                    </div>
+                                    <a href="javascript:void(0)" class="description__action-buy" title="MUA NGAY">
+                                        <p>MUA NGAY</p>
+                                        <p>Giao hàng tận nơi hoặc nhận tại cửa hàng</p>
+                                    </a>
+                                    <a href="javascript:void(0)" class="description__action-addToCart" title="MUA NGAY">
+                                        <p>THÊM VÀO GIỎ HÀNG</p>
+                                        <p>Tiện cho việc thanh toán</p>
+                                    </a>
+                            XXX;
+                        }
+                    ?>
+                
             </div>
         </div>
     </div>

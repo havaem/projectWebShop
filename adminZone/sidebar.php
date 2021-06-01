@@ -38,6 +38,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlVoucher/";?>">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Quản lý voucher</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="<?php echo $domain."/adminZone/pages/controlAdmin/";?>">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Quản lý admin</span>

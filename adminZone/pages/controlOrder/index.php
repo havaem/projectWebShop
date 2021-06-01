@@ -51,7 +51,7 @@ include("../../actions/initialState.php");
                                     <thead class="">
                                         <tr>
                                             <th scope="col" class="text-center">Người mua</th>
-                                            <th scope="col" class="text-center">Tên sản phẩm</th>
+                                            <th scope="col" class="text-center">Mã sản phẩm</th>
                                             <th scope="col" class="text-center">Giá bán</th>
                                             <th scope="col" class="text-center">Địa chỉ</th>
                                             <th scope="col" class="text-center">Đổi trạng thái</th>
@@ -68,7 +68,7 @@ include("../../actions/initialState.php");
                                     <thead class="">
                                         <tr>
                                             <th scope="col" class="text-center">Người mua</th>
-                                            <th scope="col" class="text-center">Tên sản phẩm</th>
+                                            <th scope="col" class="text-center">Mã sản phẩm</th>
                                             <th scope="col" class="text-center">Giá bán</th>
                                             <th scope="col" class="text-center">Địa chỉ</th>
                                             <th scope="col" class="text-center">Đổi trạng thái</th>
@@ -87,7 +87,7 @@ include("../../actions/initialState.php");
                                         <tr>
                                             <th scope="col" class="text-center">ID</th>
                                             <th scope="col" class="text-center">Người mua</th>
-                                            <th scope="col" class="text-center">Tên sản phẩm</th>
+                                            <th scope="col" class="text-center">Mã sản phẩm</th>
                                             <th scope="col" class="text-center">Giá bán</th>
                                             <th scope="col" class="text-center">Địa chỉ</th>
                                             <th scope="col" class="text-center">Hành động</th>

@@ -6,10 +6,10 @@ if (!isset($_SESSION['idAdminLogin'])) {
 $idAdminLogin = $_SESSION['idAdminLogin'];
 $dataAdmin = mysqli_fetch_assoc($connect->query("SELECT * from admin where id = $idAdminLogin"));
 $sumView = mysqli_fetch_assoc($connect->query("SELECT SUM(view) as sum FROM product"))['sum'];
-$sumBuy = mysqli_fetch_assoc($connect->query("SELECT COUNT(id_order) as sum FROM theorder"))['sum'];
+$sumBuy = mysqli_fetch_assoc($connect->query("SELECT COUNT(id) as sum FROM theorder"))['sum'];
 $sumUser = mysqli_fetch_assoc($connect->query("SELECT COUNT(id) as sum FROM user"))['sum'];
 $sumRate = mysqli_fetch_assoc($connect->query("SELECT COUNT(id_product) as sum FROM rate"))['sum'];
-$sumOrder = mysqli_fetch_assoc($connect->query("SELECT COUNT(id_order) as sum FROM theorder"))['sum'];
+$sumOrder = mysqli_fetch_assoc($connect->query("SELECT COUNT(id) as sum FROM theorder"))['sum'];
 $sumOrderPrice = mysqli_fetch_assoc($connect->query("SELECT SUM(price) as sum FROM theorder"))['sum'];
 $sumComment = mysqli_fetch_assoc($connect->query("SELECT COUNT(id) as sum FROM comment"))['sum'];
 $tableViewProduct = mysqli_fetch_all($connect->query("SELECT name,view,type FROM product ORDER by view DESC LIMIT 5"));
