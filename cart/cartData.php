@@ -88,28 +88,27 @@ if (count($_SESSION['cart']) === 1) {
     }
     echo <<<XXX
                 
-                <div class="cart__sum">
-                    <div class="cart__sum-title">
-                        <h1>THỐNG KÊ</h1>
+            <div class="cart__sum">
+                <div class="cart__sum-title">
+                    <h1>THỐNG KÊ</h1>
+                </div>
+                <div class="cart__sum-info">
+                    <div class="info__item">
+                        <div class="info__item-title">
+                            Tổng tiền hàng:
+                        </div>
+                        <div class="info__item-price">
+                            ₫$sumPriceShow
+                        </div>
                     </div>
-                    <div class="cart__sum-info">
-                        <div class="info__item">
-                            <div class="info__item-title">
-                                Tổng tiền hàng:
-                            </div>
-                            <div class="info__item-price">
-                                ₫$sumPriceShow
-                            </div>
-
+                    <div class="info__item">
+                        <div class="info__item-title">
+                            Phí vận chuyển:
                         </div>
-                        <div class="info__item">
-                            <div class="info__item-title">
-                                Phí vận chuyển:
-                            </div>
-                            <div class="info__item-price">
-                                ₫30,000
-                            </div>
+                        <div class="info__item-price">
+                            ₫30,000
                         </div>
+                    </div>
         XXX;
     $needToPay = $sumPrice;
     if ($_SESSION['cart'][0]['code'] != '') {

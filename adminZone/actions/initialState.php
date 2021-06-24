@@ -37,11 +37,14 @@ while($tableUserCreateData = mysqli_fetch_assoc($resultTableOrder)){
     if($now == date('Y',$dateCr)){
         $dateCr = date('m',$dateCr);
         for($i = 0;$i<count($tableOrder);$i++){
-            if((int)$dateCr === $i){
+            if((int)$dateCr === $i+1){
                 $tableOrder[$i]+=1;
             }
         }
     }
 }
+/* echo "<pre>";
+print_r($tableOrder);
+echo "</pre>"; */
 //tableUserSignUpSuccess
 $tableUserSignUpSuccess = mysqli_fetch_all($connect->query("SELECT name,date_created FROM user ORDER by date_created DESC LIMIT 5"));

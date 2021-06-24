@@ -113,44 +113,64 @@ require './controllerUserAction.php';
                 let newPassword = document.querySelector(".newPassword").value;
                 let renewPassword = document.querySelector(".renewPassword").value;
                 let otp = document.querySelector(".otp").value;
+                let isOldPassword = false;
                 if(oldPassword && newPassword && renewPassword && otp){
-                    if(oldPassword == newPassword){
-                        notyf.error("Mật khẩu mới trùng mật khẩu cũ!!");
-                    }
-                    else{
-                        if(newPassword != renewPassword){
-                            notyf.error("Mật khẩu nhập lại không đúng!!!!");
-                        }
-                        else{
-                            if (window.getComputedStyle(document.querySelector(".sendotp")).display === "none") {
-                                $.ajax({
-                                    url : "../actions/actionUpdatePasswordUser.php",
-                                    type :"POST",
-                                    data :{
-                                        newPassword,
-                                        renewPassword,
-                                        otp
-                                    },
-                                    success: function(data) {
-                                        if(data == 1){
-                                            notyf.error("Mã xác minh sai!");
-                                        }
-                                        else{
-                                            notyf.success("Đổi mật khẩu thành công!!");
-                                            document.querySelector(".oldPassword").value="";
-                                            document.querySelector(".newPassword").value="";
-                                            document.querySelector(".renewPassword").value="";
-                                            document.querySelector(".otp").value="";
-                                        }
-                                    }
-                                })
+                $.ajax({
+                    url:"../actions/actionCheckPasswordUser.php",
+                    type: "POST",
+                    data:{
+                        oldPassword
+                    },
+                    success: function (data) {
+                        console.log(data)
+                        if(data==1) isOldPassword = true;
+                        if(isOldPassword){
+                            if(oldPassword == newPassword){
+                                notyf.error("Mật khẩu mới trùng mật khẩu cũ!!");
                             }
                             else{
-                                notyf.error("Chưa gửi mã xác minh!");
+                                if(newPassword != renewPassword){
+                                    notyf.error("Mật khẩu nhập lại không đúng!!!!");
+                                }
+                                else{
+                                    if (window.getComputedStyle(document.querySelector(".sendotp")).display === "none") {
+                                        $.ajax({
+                                            url : "../actions/actionUpdatePasswordUser.php",
+                                            type :"POST",
+                                            data :{
+                                                newPassword,
+                                                renewPassword,
+                                                otp
+                                            },
+                                            success: function(data) {
+                                                if(data == 1){
+                                                    notyf.error("Mã xác minh sai!");
+                                                }
+                                                else{
+                                                    notyf.success("Đổi mật khẩu thành công!!");
+                                                    document.querySelector(".oldPassword").value="";
+                                                    document.querySelector(".newPassword").value="";
+                                                    document.querySelector(".renewPassword").value="";
+                                                    document.querySelector(".otp").value="";
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else{
+                                        notyf.error("Chưa gửi mã xác minh!");
+                                    }
+                                }
                             }
                         }
+                        else{
+                            notyf.error("Mật khẩu cũ không đúng!");
+                        }
                     }
+                })
                 }
+                
+                    
+                
 
             }
 

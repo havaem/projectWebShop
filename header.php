@@ -15,8 +15,8 @@ if (isset($_SESSION['idUserLogin'])) {
                 <h1>TechShop</h1>
                 <h1 class="mobile-logo">T</h1>
             </a>
-            <form action="" class="header__main-search">
-                <input type="text" class="search__input" placeholder="Bạn tìm gì...">
+            <form action="<?=$domain."/search.php"?>" class="header__main-search">
+                <input type="text" class="search__input" name="keyword" placeholder="Bạn tìm gì...">
                 <button type="submit" class="search__button">
                     <i class="fas fa-search"></i>
                 </button>

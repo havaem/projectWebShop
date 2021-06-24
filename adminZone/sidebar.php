@@ -49,5 +49,11 @@
                 <span class="menu-title">Quản lý admin</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo $domain."/adminZone/changePassword.php";?>">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Đổi mật khẩu</span>
+            </a>
+        </li>
     </ul>
 </nav>

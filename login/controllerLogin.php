@@ -1,7 +1,6 @@
 <?php
     session_start();
     include("../config.php");
-    $connect = mysqli_connect('localhost', 'admin', 'admin', 'cnpm webshop');
     if(isset($_SESSION['idUserLogin'])){
         header('Location: ../dashboard/user.php');
     }
@@ -100,13 +99,18 @@
             if (md5($password) == $passwordDB) {
                 $statusDB = $upDB['status'];
                 print_r($statusDB);
-                if ($statusDB === 'Verified') {
-                    $_SESSION['idUserLogin'] = $upDB['id'];
-                    // header('location: http://localhost/projectWebshop/dashboard/user.php');
-                    // header("Location: " . $_SERVER["HTTP_REFERER"]);
-                    echo "<script>window.history.go(-2);</script>";
-                    echo "<script>window.location.reload();</script>";
-                    exit();
+                if ($statusDB == 'Verified') {
+                    if($upDB['isBanned'] == "true"){
+                        $errors['username'] = "Tài khoản bạn bị khóa! Liên hệ admin biết chi tiết!";
+                    }
+                    else{
+                        $_SESSION['idUserLogin'] = $upDB['id'];
+                        // header('location: http://localhost/projectWebshop/dashboard/user.php');
+                        // header("Location: " . $_SERVER["HTTP_REFERER"]);
+                        echo "<script>window.history.go(-2);</script>";
+                        echo "<script>window.location.reload();</script>";
+                        exit();
+                    }
                 } 
                 else {
                     $_SESSION['status'] = 'VerifiedAccount';
